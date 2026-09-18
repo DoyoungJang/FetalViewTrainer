@@ -1,0 +1,25 @@
+################################################
+# ITK-SnAP Label Description File
+# File format: 
+# IDX   -R-  -G-  -B-  -A--  VIS MSH  LABEL
+# Fields: 
+#    IDX:   Zero-based index 
+#    -R-:   Red color component (0..255)
+#    -G-:   Green color component (0..255)
+#    -B-:   Blue color component (0..255)
+#    -A-:   Label transparency (0.00 .. 1.00)
+#    VIS:   Label visibility (0 or 1)
+#    IDX:   Label mesh visibility (0 or 1)
+#  LABEL:   Label description 
+################################################
+    0     0    0    0        0  0  0    "Clear Label"
+    1   252  228  255        1  1  1    "1 - lungs"
+    2   158   79   23        1  1  0    "2 - liver"
+    3   208   42   50        1  1  1    "3 - stomach"
+    4   133  153    4        1  1  1    "4 - spleen"
+    5   230  220   76        1  1  1    "5 - kidney pelvis"
+    6   156   69  190        1  1  1    "6 - kidney parenchyma"
+    7   255  232   25        1  1  1    "7 - bladder"
+    8   217  135  221        1  1  1    "8 - thymus"
+    9   205  133   63        1  1  1    "9 - gallbladder"
+   10   255  176  102        1  1  1    "10 - adrenal glands"

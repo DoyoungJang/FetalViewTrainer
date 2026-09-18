@@ -75,3 +75,21 @@ HRA heart geometry is optionally deformed for 4CV/LVOT/RVOT phase lessons. These
 
 ## Brain reference plane registration
 TVP and TTP now share a parallel oblique head frame; TVP is superior. TCP descends posteriorly toward the cerebellar region. Relative relationships follow the supplied a/b/c reference diagram and ISUOG CNS 2020 (doi:10.1002/uog.22145). Regional coordinates were estimated using sagittal DHARANI FB40 histology in the existing surface coordinate system. They are educational estimates, not tissue segmentation or validated clinical acquisition planes. The same registration is used with the fetal exterior and the brain surface.
+
+## KCL fetal body MRI atlas — fetal-body-kcl.glb
+- Authors: Alena Uus, Megan Hall and colleagues, Centre for the Developing Brain, King's College London.
+- Source: https://gin.g-node.org/kcl_cdb/fetal_body_mri_atlas ; structural_3t_t2w/reo-fetal-t2w-body-atlas-mask-body_organs-10.nii.gz and the accompanying ITK-SNAP label map.
+- Study: https://doi.org/10.1038/s41598-024-57087-x (2024). Population-average atlas from 17 normal fetal MRI reconstructions; not one patient's segmented model.
+- License: Creative Commons CC0 1.0 Universal, explicitly stated in repository README and LICENSE. Copy: fetal-atlas-CC0.txt.
+- Derivative: Gaussian 0.65 voxel smoothing, marching cubes, up to 12,000 triangles per label, two Taubin smoothing iterations; source RAS converted to viewer left/superior/anterior with one shared uniform scale and translation. Script: research/build-body.py.
+- Ten labels: lungs, liver, stomach, spleen, renal pelvis, renal parenchyma, bladder, thymus, gallbladder, adrenal glands. Colors are educational tissue distinctions, not MRI signal or Doppler.
+- Same atlas is used across trimester lessons. Alignment with the separate artist fetal exterior and adult heart/spine is approximate, not a validated combined specimen, biometric model or gestational growth simulation.
+
+## BodyParts3D spine and diaphragm — bodyparts-spine-diaphragm.glb
+BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan.
+- Original project: https://dbarchive.biosciencedbc.jp/en/bodyparts3d/ ; https://doi.org/10.1093/nar/gkn613
+- Source STL distribution: https://github.com/Kevin-Mattheus-Moerman/BodyParts3D (assets/BodyParts3D_data/stl). Version 3.0, male adult reference anatomy.
+- Mesh identifiers: FMA12519–FMA12525, FMA9165, FMA9187, FMA9209, FMA9248, FMA9922, FMA9945, FMA9968, FMA9991, FMA10014, FMA10037, FMA10059, FMA10081, FMA13072–FMA13076, FMA16202, FMA13295.
+- Derivative changes: triangle reduction, reorientation, coloring, spinal uniform scaling/translation; diaphragm resized independently for approximate placement. Not fetal ossification anatomy or an MRI-derived fetal diaphragm.
+- The derivative GLB remains CC BY-SA 2.1 Japan: https://creativecommons.org/licenses/by-sa/2.1/jp/ . Attribution and source terms: bodyparts-license.txt. Downloadable source-derived asset: bodyparts-spine-diaphragm.glb.
+- Accessed September 19, 2026 (KST). Separate assets retain their respective licenses; these models do not imply author endorsement.

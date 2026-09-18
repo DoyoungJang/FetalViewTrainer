@@ -1,5 +1,5 @@
-import {planeReferences} from './planes.js?v=21';
-import {standards} from './standards-data.js?v=21';
+import {planeReferences} from './planes.js?v=22';
+import {standards} from './standards-data.js?v=22';
 export const sources=[
 ['ISUOG · 1분기 (2023)','https://www.isuog.org/static/a8d6dee2-38d8-4d66-8be3929af48e8369/Updated-ISUOG-Practice-Guidelines-performance-of-11-14-week-ultrasound-scan.pdf'],
 ['ISUOG · 2분기 (2022)','https://www.isuog.org/resource/isuog-practice-guidelines-updated-performance-of-the-routine-mid-trimester-fetal-ultrasound-scan.html'],

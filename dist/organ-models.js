@@ -2,6 +2,8 @@ import * as T from './vendor/three.module.js';
 import {GLTFLoader} from './vendor/GLTFLoader.js';
 
 const definitions={
+ body:{file:'fetal-body-kcl.glb',native:true,center:[0,-.2,.1]},
+ skeleton:{file:'bodyparts-spine-diaphragm.glb',native:true,center:[0,-.2,-.3]},
  uterus:{file:'uterus-hra.glb',size:3.2,center:[0,0,0],color:0xc98691},
  heart:{file:'heart-human.glb',size:.82,center:[.1,.38,.0],color:0xc56d65},
  heartInternal:{file:'heart-hra.glb',size:.82,center:[.1,.38,0],color:0xc67c77},
@@ -23,8 +25,8 @@ export async function loadOrganModels(){
  const holder=new T.Group(),normalized=new T.Group();holder.name=kind+'-open-reference';holder.add(normalized);normalized.add(gltf.scene);gltf.scene.updateWorldMatrix(true,true);
  const bounds=referenceBounds||new T.Box3().setFromObject(gltf.scene),size=bounds.getSize(new T.Vector3()),center=bounds.getCenter(new T.Vector3());
  if(bounds.isEmpty()||!Number.isFinite(size.length())||size.length()===0)throw new Error('Invalid '+kind+' model');
- gltf.scene.position.sub(center);const scale=def.size/Math.max(size.x,size.y,size.z);normalized.scale.setScalar(scale);holder.position.set(...def.center);
- const meshes=[];holder.traverse(o=>{if(!o.isMesh)return;meshes.push(o);const materials=Array.isArray(o.material)?o.material:[o.material];materials.forEach(m=>m.dispose());const color=kind==='heartInternal'&&/valve/.test(o.name)?0xf0d9a9:kind==='heartInternal'&&/septum/.test(o.name)?0xe1a08e:def.color;o.material=new T.MeshStandardMaterial({color,emissive:color,emissiveIntensity:kind==='brain'?.22:.08,roughness:.7,metalness:0,side:T.DoubleSide});});
+ if(!def.native){gltf.scene.position.sub(center);const scale=def.size/Math.max(size.x,size.y,size.z);normalized.scale.setScalar(scale);holder.position.set(...def.center);}
+ const meshes=[];holder.traverse(o=>{if(!o.isMesh)return;meshes.push(o);const materials=Array.isArray(o.material)?o.material:[o.material];materials.forEach(m=>m.dispose());const sourceColor=materials[0]?.color?.clone();const color=def.native?(sourceColor||new T.Color(0xc69286)):kind==='heartInternal'&&/valve/.test(o.name)?0xf0d9a9:kind==='heartInternal'&&/septum/.test(o.name)?0xe1a08e:def.color;o.material=new T.MeshStandardMaterial({color,emissive:color,emissiveIntensity:kind==='brain'?.22:.08,roughness:.7,metalness:0,vertexColors:!!def.native,side:T.DoubleSide});});
  if(kind==='brain')for(const mesh of meshes){
   mesh.geometry.computeVertexNormals();mesh.material.dispose();
   mesh.material=new T.ShaderMaterial({uniforms:{baseColor:{value:new T.Color(0xefd3bd)}},side:T.DoubleSide,toneMapped:false,
