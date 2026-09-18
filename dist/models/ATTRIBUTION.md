@@ -69,3 +69,6 @@ WesternU3D 300176 Placenta. Specimen selected by Chaya Prasad, MD; scan by Melis
 
 ## Pregnancy composite context
 The default placenta/cervix scene combines the gelmi fetal exterior (rotated, uniformly scaled and positioned) and HRA cervical meshes (rigidly reoriented and uniformly scaled) with authored uterine envelope, placenta and cord. This is not a single-patient pregnancy specimen, not a gestational-age-specific reconstruction, and not calibrated for measurements. Original sources remain selectable in specimen mode.
+
+## Educational cardiac phase poses
+HRA heart geometry is optionally deformed for 4CV/LVOT/RVOT phase lessons. These are illustrative ventricular shape changes, not acquired phases or validated fetal biomechanics. Valve opening, wall thickening and blood flow are not simulated. Original geometry is restored when disabled or outside these lessons.

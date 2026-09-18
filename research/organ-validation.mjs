@@ -38,6 +38,7 @@ const orbit=new OrbitControls(camera,null);orbit.enableDamping=true;orbit.target
 for(const type of ['heart','vessels','head','abdomen','cerebellum','lvot']){api.select(lesson(type),1);for(let frame=0;frame<60;frame++)orbit.update();assert(camera.position.distanceTo(held)<1e-9);assert(camera.quaternion.angleTo(heldQ)<1e-6);}
 console.log('Real OrbitControls: camera remains fixed after 60 animation updates for cardiac, brain and non-organ transitions.');
 
+api.select(lesson('vessels'),1);
 const upperPlane=heartModelPreset(assets.heartInternal,'vessels'),threeVV=heartModelPreset(assets.heartInternal,'threev');
 assert(Math.abs(upperPlane.center.y-.7229390023950735)<1e-8,'3VT uses previous 3VV location');assert(Math.abs(threeVV.center.y-.7821598388807727)<1e-8,'3VV uses previous 3VT location');
 assert(upperPlane.normal.dot(new T.Vector3(0,1,0))>.95,'must remain near transverse, not a descending-aorta longitudinal plane');
@@ -56,3 +57,27 @@ $('#maternalMode').value='pregnancy';for(const type of ['placenta','cervix']){ap
 const pg=scene.getObjectByName('pregnancy-context');pg.updateWorldMatrix(true,true);const baby=pg.getObjectByName('fetus-inside-uterus');let farthest=0;baby.traverse(o=>{if(o.isMesh){const positions=o.geometry.attributes.position;for(let i=0;i<positions.count;i++){const p=new T.Vector3().fromBufferAttribute(positions,i).applyMatrix4(o.matrixWorld);farthest=Math.max(farthest,Math.sqrt((p.x/1.45)**2+((p.y-.45)/2.1)**2+(p.z/1.35)**2));}}});assert(farthest<.85);console.log('Fetal geometry fits inside the uterine cavity envelope.');
 
 const placentalMesh=pg.getObjectByName('pregnancy-placenta');assert.deepEqual(placentalMesh.scale.toArray(),[.54,.55,.075]);assert(placentalMesh.scale.z/placentalMesh.scale.y>.075&&placentalMesh.scale.z/placentalMesh.scale.y<.20);$('#maternalMode').value='pregnancy';api.select(lesson('placenta'),1);const contourCenter=api.getState();assert(contourCenter.center.every(Number.isFinite));api.select(lesson('cervix'),1);const frame=scene.children.find(o=>o.isMesh&&o.geometry.type==='PlaneGeometry');assert.equal(frame.scale.x,2.8);console.log('Cervical context plane enlarged; reduced placenta remains thin with aligned lower edge and cord insertion.');
+
+// Actual phase geometry and sections must differ without changing camera or drifting.
+api.source('internal');api.cycle(false);
+const phaseMeshes=assets.heartInternal.meshes;
+const originalPhasePositions=phaseMeshes.map(m=>m.geometry.attributes.position.array.slice());
+const phaseCamera=snapshot();api.cycle(true);
+for(const ids of [['4ch','4ch-ed','4ch-es'],['lvot','lvot-ed'],['rvot','rvot-ed']]){
+ const geometrySignatures=[],cutSignatures=[];
+ for(const id of ids){
+  api.select(phases[1].lessons.find(v=>v.id===id),1);
+  assert.deepEqual(snapshot(),phaseCamera);
+  const vertices=phaseMeshes.find(m=>m.name==='VH_M_heart_left_ventricle').geometry.attributes.position.array;
+  assert(vertices.every(Number.isFinite));geometrySignatures.push(Buffer.from(vertices.buffer).toString('base64'));
+  const capVertices=scene.getObjectByName('heart-cut-tissue').geometry.attributes.position.array;
+  assert(capVertices.length>0);cutSignatures.push(Buffer.from(capVertices.buffer).toString('base64'));
+  assert($('#cycleStatus').textContent.includes('교육용 변형'));
+ }
+ assert.equal(new Set(geometrySignatures).size,ids.length);assert.equal(new Set(cutSignatures).size,ids.length);
+}
+const endDiastole=phaseMeshes.map(m=>m.geometry.attributes.position.array.slice());
+for(let i=0;i<3;i++){api.cycle(false);phaseMeshes.forEach((m,j)=>assert.deepEqual(m.geometry.attributes.position.array,originalPhasePositions[j]));api.cycle(true);phaseMeshes.forEach((m,j)=>assert.deepEqual(m.geometry.attributes.position.array,endDiastole[j]));}
+api.select(lesson('vessels'),1);phaseMeshes.forEach((m,j)=>assert.deepEqual(m.geometry.attributes.position.array,originalPhasePositions[j]));
+assert($('#cycleRow').hidden);assert.deepEqual(snapshot(),phaseCamera);
+console.log('All seven phase poses: distinct finite geometry and rebuilt cut surfaces; exact original restoration, no cumulative drift, camera retained.');
