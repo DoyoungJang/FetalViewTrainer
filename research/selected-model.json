@@ -1,0 +1,186 @@
+{
+  "animationCount": 0,
+  "categories": [
+    {
+      "uid": "93e6d27da62149c6b963039835f45997",
+      "name": "People",
+      "slug": "people",
+      "uri": "https://api.sketchfab.com/v3/categories/93e6d27da62149c6b963039835f45997",
+      "icon": "https://static.sketchfab.com/static/builds/web/dist/static/assets/images/icons/categories/63980e30d4668c8fba3671a767c90954-v2.svg",
+      "thumbnails": [
+        {
+          "width": "512",
+          "height": "288",
+          "url": "https://static.sketchfab.com/categories/93e6d27da62149c6b963039835f45997/512x288.png"
+        },
+        {
+          "width": "800",
+          "height": "450",
+          "url": "https://static.sketchfab.com/categories/93e6d27da62149c6b963039835f45997/800x450.png"
+        }
+      ]
+    },
+    {
+      "uid": "17d20ca7b35243d4a45171838b50704c",
+      "name": "Science & Technology",
+      "slug": "science-technology",
+      "uri": "https://api.sketchfab.com/v3/categories/17d20ca7b35243d4a45171838b50704c",
+      "icon": "https://static.sketchfab.com/static/builds/web/dist/static/assets/images/icons/categories/86b1bae49e0ed3f43b2d59b26700234e-v2.svg",
+      "thumbnails": [
+        {
+          "width": "512",
+          "height": "288",
+          "url": "https://static.sketchfab.com/categories/17d20ca7b35243d4a45171838b50704c/512x288.png"
+        },
+        {
+          "width": "800",
+          "height": "450",
+          "url": "https://static.sketchfab.com/categories/17d20ca7b35243d4a45171838b50704c/800x450.png"
+        }
+      ]
+    }
+  ],
+  "commentCount": 3,
+  "createdAt": "2022-08-10T10:11:15.201199",
+  "embedUrl": "https://sketchfab.com/models/cdbadf8ba54e44ec9533a546dcd52830/embed",
+  "faceCount": 13968,
+  "isAgeRestricted": false,
+  "license": {
+    "uri": "https://api.sketchfab.com/v3/licenses/322a749bcfa841b29dff1e8a1bb74b0b",
+    "label": "CC Attribution",
+    "fullName": "Creative Commons Attribution",
+    "requirements": "Author must be credited. Commercial use is allowed.",
+    "url": "http://creativecommons.org/licenses/by/4.0/",
+    "slug": "by"
+  },
+  "likeCount": 133,
+  "name": "Fetus",
+  "publishedAt": "2022-08-10T10:11:25.428203",
+  "soundCount": 0,
+  "staffpickedAt": null,
+  "tags": [
+    {
+      "name": "baby",
+      "slug": "baby",
+      "uri": "https://api.sketchfab.com/v3/tags/baby"
+    },
+    {
+      "name": "fetus",
+      "slug": "fetus",
+      "uri": "https://api.sketchfab.com/v3/tags/fetus"
+    },
+    {
+      "name": "gestation",
+      "slug": "gestation",
+      "uri": "https://api.sketchfab.com/v3/tags/gestation"
+    },
+    {
+      "name": "feto",
+      "slug": "feto",
+      "uri": "https://api.sketchfab.com/v3/tags/feto"
+    },
+    {
+      "name": "modo",
+      "slug": "modo",
+      "uri": "https://api.sketchfab.com/v3/tags/modo"
+    }
+  ],
+  "thumbnails": {
+    "images": [
+      {
+        "uid": "90aecbdc1b4b4f028dc980dddc85838b",
+        "width": 1920,
+        "height": 1080,
+        "size": 98634,
+        "url": "https://media.sketchfab.com/models/cdbadf8ba54e44ec9533a546dcd52830/thumbnails/049cf77feb514d52ab70f3077ed8673c/2678b6ad3922428494308e81966d5215.jpeg"
+      },
+      {
+        "uid": "bdee8560a39b4b3a880a7fe4ebcd12e3",
+        "width": 1024,
+        "height": 576,
+        "size": 24573,
+        "url": "https://media.sketchfab.com/models/cdbadf8ba54e44ec9533a546dcd52830/thumbnails/049cf77feb514d52ab70f3077ed8673c/0239b8b0742c4524a7edbbf9e9cc5a1e.jpeg"
+      },
+      {
+        "uid": "a73aa019d05b490086227cba5dd28209",
+        "width": 720,
+        "height": 405,
+        "size": 14754,
+        "url": "https://media.sketchfab.com/models/cdbadf8ba54e44ec9533a546dcd52830/thumbnails/049cf77feb514d52ab70f3077ed8673c/e779fdc8ecac4744b4cf0be45c9247eb.jpeg"
+      },
+      {
+        "uid": "5d2fcb6b22cf4cedb1658d59ebb77a3a",
+        "width": 256,
+        "height": 144,
+        "size": 3460,
+        "url": "https://media.sketchfab.com/models/cdbadf8ba54e44ec9533a546dcd52830/thumbnails/049cf77feb514d52ab70f3077ed8673c/67f72b7369d14dba86276976d13973f5.jpeg"
+      },
+      {
+        "uid": "11083b0100684bdab121b17565136d37",
+        "width": 64,
+        "height": 36,
+        "size": 1064,
+        "url": "https://media.sketchfab.com/models/cdbadf8ba54e44ec9533a546dcd52830/thumbnails/049cf77feb514d52ab70f3077ed8673c/c182921acd934cdcbb3152b55e038106.jpeg"
+      }
+    ]
+  },
+  "uid": "cdbadf8ba54e44ec9533a546dcd52830",
+  "uri": "https://api.sketchfab.com/v3/models/cdbadf8ba54e44ec9533a546dcd52830",
+  "user": {
+    "uid": "2d114efb415249b3966c9b9ab001fb1e",
+    "username": "rodrigogelmi",
+    "displayName": "gelmi.com.br",
+    "account": "basic",
+    "profileUrl": "https://sketchfab.com/rodrigogelmi",
+    "avatar": {
+      "uid": "39fba8c09f9f4696b095fabb4df8afdc",
+      "uri": "https://api.sketchfab.com/v3/avatars/39fba8c09f9f4696b095fabb4df8afdc",
+      "images": [
+        {
+          "width": 32,
+          "height": 32,
+          "size": 2579,
+          "url": "https://media.sketchfab.com/avatars/39fba8c09f9f4696b095fabb4df8afdc/e69826548bb54befa3da283dd4b72cb9.png"
+        },
+        {
+          "width": 48,
+          "height": 48,
+          "size": 5217,
+          "url": "https://media.sketchfab.com/avatars/39fba8c09f9f4696b095fabb4df8afdc/50ac77a2980a44cb90cfeaa6ef45d2cc.png"
+        },
+        {
+          "width": 90,
+          "height": 90,
+          "size": 15796,
+          "url": "https://media.sketchfab.com/avatars/39fba8c09f9f4696b095fabb4df8afdc/d4bf9d5742fc406eb9f0d65069a735f2.png"
+        },
+        {
+          "width": 100,
+          "height": 100,
+          "size": 19068,
+          "url": "https://media.sketchfab.com/avatars/39fba8c09f9f4696b095fabb4df8afdc/9da7d0889c054a7e8564011aeafb3fcc.png"
+        }
+      ]
+    },
+    "uri": "https://api.sketchfab.com/v3/users/2d114efb415249b3966c9b9ab001fb1e"
+  },
+  "vertexCount": 6986,
+  "viewCount": 17864,
+  "viewerUrl": "https://sketchfab.com/3d-models/fetus-cdbadf8ba54e44ec9533a546dcd52830",
+  "isDownloadable": true,
+  "isProtected": false,
+  "description": "",
+  "price": null,
+  "downloadCount": 4711,
+  "editorUrl": "https://sketchfab.com/models/cdbadf8ba54e44ec9533a546dcd52830/edit",
+  "status": {
+    "warning": {},
+    "processing": "SUCCEEDED"
+  },
+  "source": "modo-exporter",
+  "hasCommentsDisabled": false,
+  "updatedAt": "2022-08-10T10:44:34.90711",
+  "pbrType": null,
+  "textureCount": 0,
+  "materialCount": 1
+}

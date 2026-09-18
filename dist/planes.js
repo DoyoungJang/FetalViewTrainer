@@ -17,13 +17,13 @@ export function getPreset(v,phase){
  if(v.type==='face'){normal.set(0,0,1);center.set(0,1.35,.72);note='상순을 관찰하는 관상면입니다. 옆얼굴을 보려면 별도의 정중시상면이 필요합니다.';}
  if(v.type==='cerebellum'){normal.set(0,1,-.25).normalize();note='시상 단면에서 후방으로 조금 기울여 소뇌와 대조를 찾습니다. 과도한 기울임은 후두와 구조를 왜곡할 수 있습니다.';refs=[2];}
  if(['head','ventricle','earlybrain'].includes(v.type)){note='머리의 대칭과 정중선을 기준으로 횡단면을 맞춥니다. 시상 단면과 측뇌실 단면은 높이가 다르며, 소뇌 단면은 후방 기울기가 추가됩니다.';refs=[2];}
- if(v.type==='femur'){const hip=new Vector3(.32,-.9,0),knee=new Vector3(.61,-1.36,.48);center.copy(hip).lerp(knee,.5);normal.copy(through(hip,knee,knee.clone().add(new Vector3(.2,.1,0))));note='굴곡된 다리의 대퇴골 장축을 포함하는 사선 단면입니다. 전신 X·Y·Z 축에 고정하면 뼈가 짧게 잘릴 수 있습니다.';}
+ if(v.type==='femur'){const hip=new Vector3(.55,-1.05,-.15),knee=new Vector3(.65,.05,1.2);center.copy(hip).lerp(knee,.5);normal.copy(through(hip,knee,knee.clone().add(new Vector3(.2,.1,0))));note='굴곡된 다리의 대퇴골 장축을 포함하는 사선 단면입니다. 전신 X·Y·Z 축에 고정하면 뼈가 짧게 잘릴 수 있습니다.';}
  if(isCardiac(v)){refs=[0,1];center.copy(heartOrigin);if(v.type==='heart'){note='흉부 횡단면에서 네 방을 확인합니다. 이후 머리 쪽으로 스윕하면서 작은 각도 조절로 유출로를 찾습니다.';}
  if(v.type==='lvot'){const lv=worldHeart(cardiacLandmarks.LV),ao=worldHeart(cardiacLandmarks.Ao),septum=worldHeart([0,0,0]);center.copy(lv).lerp(ao,.5);normal.copy(through(lv,ao,septum));note='사강 단면에서 머리 쪽으로 이동·각도 조절하여 좌심실–대동맥 연결을 찾습니다. 태아 오른쪽 어깨 방향으로 회전하는 접근도 있습니다. 이 시작 평면은 모델의 LV·Ao·중격 기준점을 통과합니다.';}
  if(v.type==='rvot'){const rv=worldHeart(cardiacLandmarks.RV),pa=worldHeart(cardiacLandmarks.PA),branch=worldHeart([.12,.35,-.17]);center.copy(rv).lerp(pa,.7);normal.copy(through(rv,pa,branch));note='LVOT에서 더 머리 쪽으로 기울여 우심실–폐동맥 연결과 분지를 봅니다. 두 유출로의 교차는 연속 탐색으로 확인합니다. 모델의 RV·PA·분지 기준점으로 시작 평면을 정합니다.';}
  if(v.type==='vessels'){center.set(.08,.61,-.02);normal.set(0,1,-.28).normalize();note='상흉부로 이동한 뒤 각도를 조절하여 대동맥궁·동맥관궁과 기관의 관계를 봅니다. 3VT는 단순한 평행 이동만으로 항상 얻어지지 않습니다.';}}
  // Give equivalent normal directions consistent signs so normal offsets remain predictable.
- if(normal.y<-.001)normal.negate();center.multiplyScalar(phase===0?.85:1);
+ if(normal.y<-.001)normal.negate();
  return {center,normal,note,refs,cardiac:isCardiac(v)};
 }
 export function resolvePlane(preset,tilt=0,rock=0,rotation=0,offset=0){

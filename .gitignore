@@ -1,2 +1,6 @@
 *.zip
 node_modules/
+research/object-paths.json.gz
+research/candidates.json
+research/fetus-preview.jpg
+research/model-inspection.png
