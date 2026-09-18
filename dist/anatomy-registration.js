@@ -6,10 +6,13 @@ export const limbLandmarks={
  hip:[.52,-1.05,-.05],knee:[.63,-.03,1.08],ankle:[.55,-.55,2.15],
  heel:[.53,-.57,2.29],toe:[.39,-.05,2.45],footEdge:[.63,-.23,2.41]
 };
+// Viewer +Y superior, +Z anterior. Region estimates from the registered
+// DHARANI sagittal histology, not segmented or clinically validated landmarks.
 export const brainLandmarks={
- // Region references inspected in the oriented DHARANI surface, not tissue labels.
- cerebellumLeft:[-.18,1.47,-.08],cerebellumRight:[.18,1.47,-.08],
- thalamicRegion:[0,1.63,.28],ventricularLevel:[0,1.78,.14]
+ cerebellumLeft:[-.18,1.38,-.08],cerebellumRight:[.18,1.38,-.08],
+ thalamicRegion:[0,1.65,.28],ventricularLevel:[0,1.79,.16],
+ tvpLeft:[-.15,1.726,-.04],tvpRight:[.15,1.726,-.04],tvpAnterior:[0,1.854,.36],
+ ttpLeft:[-.13,1.63,.20],ttpRight:[.13,1.63,.20],ttpAnterior:[0,1.694,.40]
 };
 export const heartOrigin=[.1,.24,.04];
 // In the authored cardiac schematic +X is fetal left, +Z anterior, +Y cranial.

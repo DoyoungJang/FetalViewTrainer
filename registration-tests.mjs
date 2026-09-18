@@ -24,3 +24,12 @@ assert(limbLandmarks.ankle[2]>2&&limbLandmarks.toe[2]>2.4);
 console.log('Registered limb/brain planes contain their references; 3VV intersects PA/Ao/SVC with ordered calibers; both 3VT arches lie in one cranial V plane left of the trachea.');
 
 const cordPlane=getPreset({type:"cord",y:0},1);assert.deepEqual(cordPlane.normal.toArray(),[0,1,0]);assert.equal(cordPlane.center.y,-.3);assert.equal(cordPlane.landmarks[0].distanceTo(cordPlane.center),0);console.log("Cord insertion starts in the axial plane, perpendicular to the cranial axis.");
+
+const tvp=getPreset(view('ventricle'),1),ttp=getPreset(view('head'),1),tcp=getPreset(view('cerebellum'),1);
+assert(tvp.normal.dot(ttp.normal)>1-1e-12,'TVP/TTP parallel');
+const level=(p,z)=>p.center.y-p.normal.z*(z-p.center.z)/p.normal.y;
+for(const z of [-.2,0,.4])assert(level(tvp,z)>level(ttp,z)+.1,'TVP superior to TTP');
+assert(level(tcp,-.08)<level(ttp,-.08)-.1,'TCP enters posterior inferior fossa');
+assert(level(tcp,.3)>level(tcp,-.08),'TCP rises anteriorly');
+assert(tcp.normal.angleTo(ttp.normal)>.25,'TCP has additional posterior tilt');
+console.log('TVP/TTP parallel cranial ordering and TCP posterior-inferior inclination verified.');

@@ -81,3 +81,12 @@ for(let i=0;i<3;i++){api.cycle(false);phaseMeshes.forEach((m,j)=>assert.deepEqua
 api.select(lesson('vessels'),1);phaseMeshes.forEach((m,j)=>assert.deepEqual(m.geometry.attributes.position.array,originalPhasePositions[j]));
 assert($('#cycleRow').hidden);assert.deepEqual(snapshot(),phaseCamera);
 console.log('All seven phase poses: distinct finite geometry and rebuilt cut surfaces; exact original restoration, no cumulative drift, camera retained.');
+
+for(const type of ['ventricle','head','cerebellum']){
+ api.select(lesson(type),1);const registration=api.getState();
+ const brainCrossing=sectionSegments(assets.brain.meshes,new T.Vector3(...registration.normal),new T.Vector3(...registration.center));
+ assert(brainCrossing.length>100,'Brain plane must intersect real tissue');
+ for(const mode of ['schematic','internal']){api.source(mode);assert.deepEqual(api.getState().normal,registration.normal);assert.deepEqual(api.getState().center,registration.center);}
+ assert.equal(assets.brain.meshes[0].material.clippingPlanes.length,0);
+}
+console.log('All three revised brain planes intersect DHARANI tissue and share registration across source modes; brain remains uncut.');

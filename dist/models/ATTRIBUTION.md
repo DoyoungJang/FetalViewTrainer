@@ -72,3 +72,6 @@ The default placenta/cervix scene combines the gelmi fetal exterior (rotated, un
 
 ## Educational cardiac phase poses
 HRA heart geometry is optionally deformed for 4CV/LVOT/RVOT phase lessons. These are illustrative ventricular shape changes, not acquired phases or validated fetal biomechanics. Valve opening, wall thickening and blood flow are not simulated. Original geometry is restored when disabled or outside these lessons.
+
+## Brain reference plane registration
+TVP and TTP now share a parallel oblique head frame; TVP is superior. TCP descends posteriorly toward the cerebellar region. Relative relationships follow the supplied a/b/c reference diagram and ISUOG CNS 2020 (doi:10.1002/uog.22145). Regional coordinates were estimated using sagittal DHARANI FB40 histology in the existing surface coordinate system. They are educational estimates, not tissue segmentation or validated clinical acquisition planes. The same registration is used with the fetal exterior and the brain surface.
