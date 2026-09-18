@@ -1,0 +1,61 @@
+{
+  "source_shape": [
+    500,
+    500,
+    487,
+    3
+  ],
+  "source_dtype": "uint8",
+  "affine": [
+    [
+      0.0,
+      -0.0,
+      -0.05999999865889549,
+      -0.0
+    ],
+    [
+      0.12800000607967377,
+      0.0,
+      -0.0,
+      -0.0
+    ],
+    [
+      0.0,
+      -0.12800000607967377,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "orientation": [
+    "A",
+    "I",
+    "L"
+  ],
+  "faces": 106748,
+  "vertices": 53430,
+  "bounds": [
+    [
+      0.0759323129406799,
+      -55.35952898740566,
+      18.10813462668272
+    ],
+    [
+      28.718845544984283,
+      -17.738087304248083,
+      48.46001663119946
+    ]
+  ],
+  "method": {
+    "name": "DHARANI FB40 masked tissue surface",
+    "source": "https://registry.opendata.aws/dharani-brain-dataset/",
+    "license": "CC BY 4.0",
+    "author": "SGBC IIT Madras; Verma et al. 2025",
+    "method": "RGB min < 250 (white background excluded), largest connected component, downsample 2, Gaussian 0.8, marching cubes step 2, Taubin 3"
+  }
+}

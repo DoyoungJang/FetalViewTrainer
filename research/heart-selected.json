@@ -1,0 +1,196 @@
+{
+  "animationCount": 0,
+  "categories": [
+    {
+      "uid": "e56c5de1e9344241909de76c5886f551",
+      "name": "Art & Abstract",
+      "slug": "art-abstract",
+      "uri": "https://api.sketchfab.com/v3/categories/e56c5de1e9344241909de76c5886f551",
+      "icon": "https://static.sketchfab.com/static/builds/web/dist/static/assets/images/icons/categories/876106eddb2a54aa1391eb2f4db0acb2-v2.svg",
+      "thumbnails": [
+        {
+          "width": "512",
+          "height": "288",
+          "url": "https://static.sketchfab.com/categories/e56c5de1e9344241909de76c5886f551/512x288.png"
+        },
+        {
+          "width": "800",
+          "height": "450",
+          "url": "https://static.sketchfab.com/categories/e56c5de1e9344241909de76c5886f551/800x450.png"
+        }
+      ]
+    },
+    {
+      "uid": "17d20ca7b35243d4a45171838b50704c",
+      "name": "Science & Technology",
+      "slug": "science-technology",
+      "uri": "https://api.sketchfab.com/v3/categories/17d20ca7b35243d4a45171838b50704c",
+      "icon": "https://static.sketchfab.com/static/builds/web/dist/static/assets/images/icons/categories/86b1bae49e0ed3f43b2d59b26700234e-v2.svg",
+      "thumbnails": [
+        {
+          "width": "512",
+          "height": "288",
+          "url": "https://static.sketchfab.com/categories/17d20ca7b35243d4a45171838b50704c/512x288.png"
+        },
+        {
+          "width": "800",
+          "height": "450",
+          "url": "https://static.sketchfab.com/categories/17d20ca7b35243d4a45171838b50704c/800x450.png"
+        }
+      ]
+    }
+  ],
+  "commentCount": 0,
+  "createdAt": "2022-08-19T13:36:12.656451",
+  "embedUrl": "https://sketchfab.com/models/30f93d9dae4948fe85cd4d60ac40c23f/embed",
+  "faceCount": 14979,
+  "isAgeRestricted": false,
+  "license": {
+    "uri": "https://api.sketchfab.com/v3/licenses/322a749bcfa841b29dff1e8a1bb74b0b",
+    "label": "CC Attribution",
+    "fullName": "Creative Commons Attribution",
+    "requirements": "Author must be credited. Commercial use is allowed.",
+    "url": "http://creativecommons.org/licenses/by/4.0/",
+    "slug": "by"
+  },
+  "likeCount": 202,
+  "name": "Human Heart",
+  "publishedAt": "2022-08-19T13:44:34.662397",
+  "soundCount": 0,
+  "staffpickedAt": null,
+  "tags": [
+    {
+      "name": "body",
+      "slug": "body",
+      "uri": "https://api.sketchfab.com/v3/tags/body"
+    },
+    {
+      "name": "anatomy",
+      "slug": "anatomy",
+      "uri": "https://api.sketchfab.com/v3/tags/anatomy"
+    },
+    {
+      "name": "heart",
+      "slug": "heart",
+      "uri": "https://api.sketchfab.com/v3/tags/heart"
+    },
+    {
+      "name": "sculptgl",
+      "slug": "sculptgl",
+      "uri": "https://api.sketchfab.com/v3/tags/sculptgl"
+    },
+    {
+      "name": "ani",
+      "slug": "ani",
+      "uri": "https://api.sketchfab.com/v3/tags/ani"
+    },
+    {
+      "name": "animation",
+      "slug": "animation",
+      "uri": "https://api.sketchfab.com/v3/tags/animation"
+    },
+    {
+      "name": "human",
+      "slug": "human",
+      "uri": "https://api.sketchfab.com/v3/tags/human"
+    }
+  ],
+  "thumbnails": {
+    "images": [
+      {
+        "uid": "3cc42509de554eb791ae24033d9a2560",
+        "width": 1920,
+        "height": 1080,
+        "size": 69131,
+        "url": "https://media.sketchfab.com/models/30f93d9dae4948fe85cd4d60ac40c23f/thumbnails/2f831aff60854aae86eb6ea5a48f1396/516fb3ef609c46bea1b62f4436a8816f.jpeg"
+      },
+      {
+        "uid": "13be89d8833c4ed0853b092d48736219",
+        "width": 1024,
+        "height": 576,
+        "size": 23463,
+        "url": "https://media.sketchfab.com/models/30f93d9dae4948fe85cd4d60ac40c23f/thumbnails/2f831aff60854aae86eb6ea5a48f1396/70d12c8ddde249779c505c62479d050e.jpeg"
+      },
+      {
+        "uid": "4404d75ea3664a859ef3b6a0d3a8dec1",
+        "width": 720,
+        "height": 405,
+        "size": 13952,
+        "url": "https://media.sketchfab.com/models/30f93d9dae4948fe85cd4d60ac40c23f/thumbnails/2f831aff60854aae86eb6ea5a48f1396/b2d00db6222f4fd4b1cb2cee497b972c.jpeg"
+      },
+      {
+        "uid": "915fc1a6d35f43e09dc486cdb5ffb499",
+        "width": 256,
+        "height": 144,
+        "size": 3177,
+        "url": "https://media.sketchfab.com/models/30f93d9dae4948fe85cd4d60ac40c23f/thumbnails/2f831aff60854aae86eb6ea5a48f1396/180c93065942417ab1b8ff7842fd5be1.jpeg"
+      },
+      {
+        "uid": "00836a15b04f4a4e90e226909939e986",
+        "width": 64,
+        "height": 36,
+        "size": 950,
+        "url": "https://media.sketchfab.com/models/30f93d9dae4948fe85cd4d60ac40c23f/thumbnails/2f831aff60854aae86eb6ea5a48f1396/b60bdee684414432898350e09e5a7ade.jpeg"
+      }
+    ]
+  },
+  "uid": "30f93d9dae4948fe85cd4d60ac40c23f",
+  "uri": "https://api.sketchfab.com/v3/models/30f93d9dae4948fe85cd4d60ac40c23f",
+  "user": {
+    "uid": "224b382890264538adc20cba9cf9b072",
+    "username": "sahilseth",
+    "displayName": "sahilseth",
+    "account": "basic",
+    "profileUrl": "https://sketchfab.com/sahilseth",
+    "avatar": {
+      "uid": "0d871964b4fc4c1e97bb984f210cbae6",
+      "uri": "https://api.sketchfab.com/v3/avatars/0d871964b4fc4c1e97bb984f210cbae6",
+      "images": [
+        {
+          "width": 32,
+          "height": 32,
+          "size": 1024,
+          "url": "https://media.sketchfab.com/avatars/0d871964b4fc4c1e97bb984f210cbae6/2249529ea82e485fab4b5415c03a86ae.jpeg"
+        },
+        {
+          "width": 48,
+          "height": 48,
+          "size": 1425,
+          "url": "https://media.sketchfab.com/avatars/0d871964b4fc4c1e97bb984f210cbae6/c81eb86390a54dc2993fbd4ace43762b.jpeg"
+        },
+        {
+          "width": 90,
+          "height": 90,
+          "size": 2615,
+          "url": "https://media.sketchfab.com/avatars/0d871964b4fc4c1e97bb984f210cbae6/12ebe8a21d3e42b3ae0a0036591b674d.jpeg"
+        },
+        {
+          "width": 100,
+          "height": 100,
+          "size": 3044,
+          "url": "https://media.sketchfab.com/avatars/0d871964b4fc4c1e97bb984f210cbae6/8013e942ef504de0bb87eefe18f15712.jpeg"
+        }
+      ]
+    },
+    "uri": "https://api.sketchfab.com/v3/users/224b382890264538adc20cba9cf9b072"
+  },
+  "vertexCount": 7580,
+  "viewCount": 17983,
+  "viewerUrl": "https://sketchfab.com/3d-models/human-heart-30f93d9dae4948fe85cd4d60ac40c23f",
+  "isDownloadable": true,
+  "isProtected": false,
+  "description": "JUST DOING MY CREATIVE STUFF ON HUMAN HEART\nNOT BAD......",
+  "price": null,
+  "downloadCount": 5439,
+  "editorUrl": "https://sketchfab.com/models/30f93d9dae4948fe85cd4d60ac40c23f/edit",
+  "status": {
+    "warning": {},
+    "processing": "SUCCEEDED"
+  },
+  "source": "website",
+  "hasCommentsDisabled": false,
+  "updatedAt": "2022-08-26T03:06:08.268758",
+  "pbrType": null,
+  "textureCount": 2,
+  "materialCount": 1
+}

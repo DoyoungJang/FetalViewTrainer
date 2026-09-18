@@ -4,3 +4,14 @@ research/object-paths.json.gz
 research/candidates.json
 research/fetus-preview.jpg
 research/model-inspection.png
+research/pydeps/
+research/*.nii.gz
+research/*.npz
+research/organ-inspection.png
+research/heart-preview.jpg
+research/*candidates.json
+research/heart-general.json
+research/heart-top100.json
+research/heart-specific.json
+research/brain-all.json
+research/dharani-list.xml
