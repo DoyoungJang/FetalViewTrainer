@@ -37,3 +37,10 @@ const {OrbitControls}=await import('../dist/vendor/OrbitControls.js');
 const orbit=new OrbitControls(camera,null);orbit.enableDamping=true;orbit.target.copy(controls.target);orbit.minDistance=controls.minDistance;orbit.maxDistance=controls.maxDistance;orbit.update();const held=camera.position.clone(),heldQ=camera.quaternion.clone();
 for(const type of ['heart','vessels','head','abdomen','cerebellum','lvot']){api.select(lesson(type),1);for(let frame=0;frame<60;frame++)orbit.update();assert(camera.position.distanceTo(held)<1e-9);assert(camera.quaternion.angleTo(heldQ)<1e-6);}
 console.log('Real OrbitControls: camera remains fixed after 60 animation updates for cardiac, brain and non-organ transitions.');
+
+const upperPlane=heartModelPreset(assets.heartInternal,'vessels'),threeVV=heartModelPreset(assets.heartInternal,'threev');
+assert(upperPlane.center.y>threeVV.center.y+.04,'3VT reference must be cranial to 3VV');
+assert(upperPlane.normal.dot(new T.Vector3(0,1,0))>.95,'must remain near transverse, not a descending-aorta longitudinal plane');
+for(const point of upperPlane.landmarks)assert(Math.abs(point.clone().sub(upperPlane.center).dot(upperPlane.normal))<1e-8);
+for(const name of upperPlane.names){const box=new T.Box3().setFromObject(assets.heartInternal.meshes.find(m=>m.name==='VH_M_'+name));assert(upperPlane.center.y>box.min.y&&upperPlane.center.y<box.max.y);}
+console.log('Upper reference plane',upperPlane.center.toArray(),'normal',upperPlane.normal.toArray(),'3VV height',threeVV.center.y);
