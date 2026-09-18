@@ -24,3 +24,13 @@ research/docx-standard.txt
 
 research/*registration*.png
 research/registration-check.json
+
+# Local source downloads and inspection artifacts; site assets are in dist/.
+research/body-reference-check.png
+research/brain-plane-reference.png
+research/bodyparts-parts.txt
+research/bodyparts-tree.json
+research/bodyparts/
+research/hra-library.yaml
+research/ultrasound/
+research/uterus-hra.glb
