@@ -1,8 +1,9 @@
+import {planeReferences} from './planes.js';
 export const sources=[
 ['ISUOG · 1분기 (2023)','https://www.isuog.org/static/a8d6dee2-38d8-4d66-8be3929af48e8369/Updated-ISUOG-Practice-Guidelines-performance-of-11-14-week-ultrasound-scan.pdf'],
 ['ISUOG · 2분기 (2022)','https://www.isuog.org/resource/isuog-practice-guidelines-updated-performance-of-the-routine-mid-trimester-fetal-ultrasound-scan.html'],
 ['ISUOG · 3분기 (2024)','https://www.isuog.org/resource/isuog-practice-guidelines-performance-of-third-trimester-obstetric.html'],
-['AIUM · 표준 산과 검사 (2024)','https://onlinelibrary.wiley.com/doi/10.1002/jum.16406']];
+['AIUM · 표준 산과 검사 (2024)','https://onlinelibrary.wiley.com/doi/10.1002/jum.16406'],...planeReferences];
 // Original concise teaching summaries. All images are schematic, not clinical data.
 const v=(id,title,en,type,y,checks,tip,question,options,answer=0)=>({id,title,en,type,y,checks,tip,question,options,answer});
 const head=v('hc','머리둘레 · 양두정경','Transthalamic plane · HC / BPD','head',1.35,['대칭적인 머리 횡단면에서 정중선·시상·투명중격강(CSP)을 확인합니다.','소뇌가 보이지 않는 높이를 선택합니다.','HC는 두개골 바깥 윤곽을 따릅니다. BPD 캘리퍼 방식은 사용 차트와 일치시킵니다.'],'비스듬한 단면과 두피를 포함한 계측을 피하세요.','HC를 측정할 때 따르는 경계는?',['두개골 바깥 윤곽','두피의 가장 바깥 경계','측뇌실 안쪽 경계']);

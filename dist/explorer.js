@@ -1,0 +1,33 @@
+import * as T from './vendor/three.module.js';
+import {getPreset,resolvePlane,sectionSegments,isCardiac,cardiacLandmarks,planeReferences} from './planes.js';
+
+export function attachExplorer({scene,camera,controls,fetus,headGroup,ell,organMat,boneMat,grid,$}){
+ const contextMeshes=[];fetus.traverse(o=>{if(o.isMesh){o.userData.solid=o.material;o.userData.ghost=o.material.clone();o.userData.ghost.transparent=true;o.userData.ghost.depthWrite=false;o.userData.ghost.color.set(0x89aeb4);contextMeshes.push(o);}});
+ const organs=new T.Group();fetus.add(organs);ell([.25,-.32,.23],[.19,.12,.13],new T.MeshStandardMaterial({color:0x74bcae}),organs);for(let i=0;i<17;i++)ell([0,.7-i*.11,-.34],[.09,.046,.07],boneMat,organs);for(const s of [-1,1])ell([s*.19,-.54,-.1],[.11,.19,.1],organMat,organs);
+ const heart=new T.Group();heart.position.set(.1,.24,.04);fetus.add(heart);const heartMeshes=[],labels=[];
+ const material=c=>new T.MeshStandardMaterial({color:c,roughness:.42,metalness:.04,transparent:true,opacity:.88,depthWrite:true});
+ const mats={right:material(0x769be8),left:material(0xea9b87),ao:material(0xf3b070),pa:material(0x65d5cb),vein:material(0x849bd1),trachea:material(0xd7d4be)};
+ function label(text,position){const c=document.createElement('canvas');c.width=256;c.height=64;const g=c.getContext('2d');g.fillStyle='#102b35e6';g.fillRect(0,0,256,64);g.font='bold 30px sans-serif';g.textAlign='center';g.fillStyle='#e6f8fa';g.fillText(text,128,43);const m=new T.SpriteMaterial({map:new T.CanvasTexture(c),depthTest:false,transparent:true});const sprite=new T.Sprite(m);sprite.position.set(...position);sprite.scale.set(.23,.058,1);sprite.renderOrder=6;heart.add(sprite);labels.push(sprite);}
+ for(const name of ['RA','LA','RV','LV']){const p=cardiacLandmarks[name];const o=ell(p,name.endsWith('A')?[.10,.09,.11]:[.115,.14,.15],name.startsWith('R')?mats.right:mats.left,heart);o.userData.part=name;heartMeshes.push(o);label(name,[p[0]+(name.startsWith('R')?-.15:.15),p[1],p[2]]);}
+ function vessel(points,r,mat,name){const o=new T.Mesh(new T.TubeGeometry(new T.CatmullRomCurve3(points.map(p=>new T.Vector3(...p))),40,r,12,false),mat);heart.add(o);o.userData.part=name;heartMeshes.push(o);return o;}
+ vessel([[.16,-.05,.09],[.09,.19,-.015],[.02,.36,-.12],[.02,.47,-.22],[-.08,.38,-.27],[-.08,.04,-.27]],.038,mats.ao,'Ao');
+ vessel([[-.06,-.02,.13],[-.12,.2,.13],[-.02,.34,.02],[.12,.35,-.17]],.045,mats.pa,'PA');
+ vessel([[-.02,.34,.02],[-.22,.34,-.14]],.028,mats.pa,'PA');
+ vessel([[.12,.35,-.17],[.02,.39,-.25],[-.08,.38,-.27]],.033,mats.pa,'Duct');
+ vessel([[-.25,.51,-.06],[-.25,.23,-.06],[-.11,0,-.11]],.027,mats.vein,'SVC');
+ vessel([[-.19,.23,-.24],[-.19,.52,-.24]],.027,mats.trachea,'Trachea');
+ label('Ao',[.15,.47,-.22]);label('PA',[-.27,.24,.15]);label('SVC',[-.4,.46,-.06]);label('기관',[-.3,.58,-.24]);
+ const plane=new T.Mesh(new T.PlaneGeometry(1,1),new T.MeshBasicMaterial({color:0x5ce2cb,transparent:true,opacity:.11,side:T.DoubleSide,depthWrite:false}));
+ plane.add(new T.LineSegments(new T.EdgesGeometry(plane.geometry),new T.LineBasicMaterial({color:0x6be8d3,transparent:true,opacity:.8})));scene.add(plane);
+ const axis=new T.BufferGeometry().setFromPoints([new T.Vector3(-.45,0,0),new T.Vector3(.45,0,0),new T.Vector3(0,-.45,0),new T.Vector3(0,.45,0)]);plane.add(new T.LineSegments(axis,new T.LineBasicMaterial({color:0x71a4aa,transparent:true,opacity:.6})));
+ const contour=new T.LineSegments(new T.BufferGeometry(),new T.LineBasicMaterial({color:0xffed96,depthTest:false}));contour.renderOrder=5;scene.add(contour);
+ const normalArrow=new T.ArrowHelper(new T.Vector3(0,1,0),new T.Vector3(),.4,0x70dfcb,.07,.035);scene.add(normalArrow);
+ let selected,preset,focus=false,internal=false,offset=0,tilt=0,rock=0,rotation=0,planeVisible=true,alpha=.05;
+ function updateSection(){const p=resolvePlane(preset,tilt,rock,rotation,offset);plane.position.copy(p.center);plane.quaternion.copy(p.quaternion);normalArrow.position.copy(p.center);normalArrow.setDirection(p.normal);normalArrow.setLength(focus?.3:.65);fetus.updateWorldMatrix(true,true);const points=isCardiac(selected)?sectionSegments(heartMeshes,p.normal,p.center):[];contour.geometry.dispose();contour.geometry=new T.BufferGeometry();contour.geometry.setAttribute('position',new T.Float32BufferAttribute(points,3));contour.visible=planeVisible&&isCardiac(selected);$('#planeStatus').textContent=`법선 n = (${p.normal.toArray().map(n=>n.toFixed(2)).join(', ')}) · ${points.length?'노란 선: 심장 모델 교차 윤곽':'평면 위 화살표: 이동 방향'}`;return p;}
+ function appearance(){const ghost=focus||internal;for(const o of contextMeshes){o.material=ghost?o.userData.ghost:o.userData.solid;o.visible=!(focus&&$('#organOnly').checked);o.userData.ghost.opacity=focus?alpha:.15;}
+ organs.visible=internal&&!focus;heart.visible=focus||internal;labels.forEach(l=>l.visible=focus);grid.visible=!focus;plane.scale.set(focus?1.1:3.1,focus?1:2.8,1);$('#heartControls').hidden=!isCardiac(selected);$('#heartLegend').hidden=!focus;$('#focusHeart').checked=focus;$('#skinToggle').disabled=focus;updateSection();}
+ function view(direction='reset'){const target=focus?new T.Vector3(.1,.4,.01).multiplyScalar(fetus.scale.y):new T.Vector3(0,.2,0);controls.target.copy(target);const d=focus&&direction!=='overview'?1.7:8;const relative=direction==='front'?new T.Vector3(0,.2,d):direction==='side'?new T.Vector3(d,.2,0):new T.Vector3(d*.6,d*.45,d*.85);camera.position.copy(target).add(relative);controls.minDistance=focus?.75:4;controls.maxDistance=13;controls.update();}
+ const api={select(v,p){selected=v;preset=getPreset(v,p);fetus.scale.setScalar(p===0?.85:1);headGroup.scale.setScalar(p===0?1.14:p===2?.92:1);focus=isCardiac(v);offset=tilt=rock=rotation=0;for(const id of ['tilt','rock','rotation']){$('#'+id).value=0;$('#'+id+'Value').textContent='0°';}$('#offset').value=0;$('#offsetText').textContent='프리셋 위치';$('#organOnly').checked=false;$('#poseNote').textContent=preset.note;$('#poseSources').innerHTML=preset.refs.map(i=>`<a href="${planeReferences[i][1]}" target="_blank" rel="noopener">${planeReferences[i][0]} ↗</a>`).join('');appearance();view();},offset(n){offset=n;updateSection();},angles(values){({tilt,rock,rotation}=values);updateSection();},plane(b){planeVisible=b;plane.visible=b;normalArrow.visible=b;contour.visible=b&&isCardiac(selected);},skin(b){internal=b;appearance();},focus(b){focus=b&&isCardiac(selected);appearance();view();},opacity(n){alpha=n/100;appearance();},isolate(){appearance();},view,resetPlane(){offset=tilt=rock=rotation=0;updateSection();},getState(){const p=resolvePlane(preset,tilt,rock,rotation,offset);return {focus,normal:p.normal.toArray(),center:p.center.toArray()};}};
+ return api;
+}
+
