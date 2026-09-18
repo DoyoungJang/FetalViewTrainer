@@ -15,6 +15,11 @@ for(const phase of phases)for(const v of phase.lessons){
 }
 assert.equal(ultrasoundFor({type:'heart',trimester:1}).key,'PMC3784141:F13');
 assert.equal(ultrasoundFor({type:'vessels',trimester:1}).key,'PMC3784141:F9');
-assert.equal(ultrasoundFor({type:'kidneycor',trimester:2}),null);
+assert.equal(ultrasoundFor({type:'kidneycor',trimester:2}).key,'PMC7498649:F1');
+assert(ultrasoundFor({type:'kidneycor',trimester:1}).panel.startsWith('a:'));
+assert.equal(ultrasoundFor({type:'genitalia',trimester:1}).key,'PMC9633498:Fig4');
+assert(ultrasoundFor({type:'earlybrain',trimester:1}).panel.includes('정상 단면 아님'));
+assert.equal(available,107);
+for(const type of ['diaphragm','kidneysag','hand','foot'])assert(ultrasoundFor({type,trimester:2}).key.startsWith('PMC10023640:'));
 renderUltrasound({type:'head'},$);$('#ultrasoundImage').onerror();assert($('#ultrasoundImage').hidden);assert($('#schematicDetails').open);
 console.log(`${Object.keys(ultrasoundFigures).length} original figures; ${available}/107 lessons have explicitly labeled references; source, age, phase caveats and missing/error fallback verified.`);

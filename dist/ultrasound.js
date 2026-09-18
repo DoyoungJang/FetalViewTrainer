@@ -1,10 +1,15 @@
-import {ultrasoundFigures} from './ultrasound-data.js?v=24';
+import {ultrasoundFigures} from './ultrasound-data.js?v=25';
 const p=(n,panel)=>['PMC12401504:uog29299-fig-'+String(n).padStart(4,'0'),panel];
 const h=(n,panel)=>['PMC3784141:F'+n,panel];
 const mapping={
+ earlybrain:['PMC4710000:Fig1','위쪽 A–C: 정상 1분기 측뇌실·맥락총 횡단면 / 아래 D–F: 뇌실확장 비교 영상 (정상 단면 아님)'],
+ diaphragm:['PMC10023640:Fig1b','23: 우측 / 24: 좌측 횡격막 · 세 번째 줄 가운데와 오른쪽의 방시상면'],
+ kidneysag:['PMC10023640:Fig1b','29: 좌측 / 30: 우측 신장 시상면 · 마지막 줄 가운데와 오른쪽'],
+ kidneycor:['PMC7498649:F1','d: 두 신장이 함께 보이는 관상면 (맨 오른쪽) · a는 12주 예시'],
+ genitalia:['PMC9633498:Fig3','여성 외부 생식기 · 음순의 평행한 선형 에코, 30주 4일 예시'],
  ventricle:p(4,'Plane 4 · TVP (왼쪽)'),head:p(4,'Plane 5 · TTP (가운데)'),cerebellum:p(4,'Plane 6 · TCP (오른쪽)'),
  spine:p(3,'Plane 1 · 시상면 / Plane 2 · 관상면'),abdomen:p(6,'Plane 11 · 위와 제대정맥을 포함한 복부 횡단면'),cord:p(6,'Plane 12 · 복벽 제대 삽입부'),kidneys:p(6,'Plane 13a / 13b · 좌우 신장과 신우 횡단면'),
- pelvis:p(7,'Plane 14 · 방광과 양측 제대동맥'),femur:p(7,'Plane 15 · 대퇴골'),tibia:p(7,'Plane 16 · 경골·비골'),foot:p(7,'Plane 16 · 하퇴와 발의 위치 관계 (발가락 상세 영상 아님)'),humerus:p(7,'Plane 17 · 상완골'),forearm:p(7,'Plane 17 · 요골·척골'),hand:p(7,'Plane 17 · 전완과 손의 위치 관계 (손가락 상세 영상 아님)'),
+ pelvis:p(7,'Plane 14 · 방광과 양측 제대동맥'),femur:p(7,'Plane 15 · 대퇴골'),tibia:p(7,'Plane 16 · 경골·비골'),foot:['PMC10023640:Fig1c','35: 발 · 두 번째 줄 가운데'],humerus:p(7,'Plane 17 · 상완골'),forearm:p(7,'Plane 17 · 요골·척골'),hand:['PMC10023640:Fig1c','38: 손 · 세 번째 줄 가운데'],
  face:p(10,'Plane 18 · 상순·비공·코끝'),orbit:p(10,'Plane 19 · 양측 안와와 수정체'),facialprofile:p(10,'Plane 20 · 정중 얼굴 윤곽'),
  heart:h(5,'A: 4CV / B: 방실 유입 혈류 / C·D: 판막 도플러'),lvot:h(6,'A: LVOT / B: 대동맥판을 지나는 색 도플러'),rvot:h(7,'A: RVOT / B: 폐동맥판을 지나는 색 도플러'),threev:h(8,'3VV · MPA, AAo, SVC'),threevpa:h(8,'3VV의 폐동맥 영역 참고 · PA 측정 전용 영상 아님'),vessels:h(9,'A: 3VT / B: 두 궁의 V자 합류 혈류'),aoarch:h(10,'A: 대동맥궁 / B: 색 도플러'),ductarch:h(11,'A: 동맥관궁 / B: 색 도플러'),bicaval:h(12,'상·하대정맥과 우심방'),
  nt:['PMC11107467:F2','정중시상면의 정상 NT 예시'],
@@ -15,6 +20,8 @@ const mapping={
 export function ultrasoundFor(v){
  let match=mapping[v.type];
  if(v.trimester===1&&['heart','lvot','threev'].includes(v.type))match=h(13,{heart:'A: 4CV',threev:'B: 3VV',lvot:'C: LVOT'}[v.type]+' · 13주');
+ if(v.trimester===1&&v.type==='kidneycor')match=['PMC7498649:F1','a: 12주 태아의 신장 관상면 · 맨 왼쪽 흰 화살표, 경질 초음파'];
+ if(v.trimester===1&&v.type==='genitalia')match=['PMC9633498:Fig4','13주 생식결절의 정중시상면 · 화살표, 여성 태아 예시 (주수별 소견 참고)'];
  if(!match)return null;
  const [key,panel]=match,ref=ultrasoundFigures[key];
  return {...ref,key,panel,age:key==='PMC3784141:F13'?'13주 실제 심장 영상':ref.age};
