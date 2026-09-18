@@ -60,3 +60,9 @@ The cyan ductal connection displayed with the HRA adult heart is an authored edu
 
 ### Maternal teaching model
 Authored procedural uterus, posterior placental disc and lobules, umbilical cord, and cervix with an open canal. These are educational schematic meshes, not scanned patient anatomy or gestational-age-specific measurements. Cervical landmarks follow the internal os–canal–external os relationship described in ISUOG cervical assessment guidance: https://isuog.org/static/e45c9342-359c-4c5b-86fb71d52562303b/ultrasound-in-preterm-birth.pdf
+
+## Uterus replacement — HRA v1.1
+Kristen Browne and Heidi Schlehlein (2022). 3D Reference Organ for Uterus v1.1. https://doi.org/10.48539/HBM228.JBNJ.299 . CC BY 4.0. Source: https://cdn.humanatlas.io/digital-objects/ref-organ/uterus-female/v1.1/assets/VH_F_Uterus.glb . Visible Human provenance confirmed by NIH 3D entry 3DPX-020996. Display modifications: uniform scaling, translation, materials, labels and interactive clipping. Original geometry retained. Does not represent gestational-age-specific anatomy.
+
+## Placenta replacement — hosted specimen viewer
+WesternU3D 300176 Placenta. Specimen selected by Chaya Prasad, MD; scan by Melissa Russell. https://sketchfab.com/3d-models/300176-placenta-78d6f46a754b45de8a5fe6b60642258f . Download disabled; no asset redistributed. Displayed through the official Sketchfab embed. The prior procedural maternal model is no longer displayed.
