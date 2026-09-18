@@ -1,5 +1,5 @@
 import {Vector3,Quaternion,Matrix4,MathUtils} from './vendor/three.module.js';
-import {limbLandmarks,brainLandmarks,greatVessels,heartOrigin as origin} from './anatomy-registration.js?v=11';
+import {limbLandmarks,brainLandmarks,greatVessels,heartOrigin as origin} from './anatomy-registration.js?v=12';
 
 export const isCardiac=v=>['heart','lvot','rvot','vessels','threev','threevpa','aoarch','ductarch','bicaval'].includes(v.type);
 export const planeReferences=[

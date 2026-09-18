@@ -1,5 +1,5 @@
 import * as T from './vendor/three.module.js';
-import {sectionSegments} from './planes.js?v=11';
+import {sectionSegments} from './planes.js?v=12';
 
 // Geometric reference sections of this specific adult mesh, not fetal validation.
 export function heartModelPreset(asset,type){
@@ -22,6 +22,13 @@ export function heartModelPreset(asset,type){
    return {center:points[0],normal,landmarks:[points[0]],names,method:'PA local centerline perpendicular'};
   }
   return {center:points.reduce((a,p)=>a.add(p),new T.Vector3()).multiplyScalar(1/points.length),normal:new T.Vector3(0,1,0),landmarks:points,names,anchorNames:type==='vessels'?['폐동맥줄기','대동맥궁','상부 하행대동맥','상대정맥']:names,method:'Shared vascular cross-section level'};
+ }
+ if(type==='ductarch'){
+  const upper=heartModelPreset(asset,'vessels');if(!upper)return null;
+  const valve=asset.meshes.find(m=>m.name==='VH_M_pulmonary_valve');if(!valve)return null;
+  const a=new T.Box3().setFromObject(valve).getCenter(new T.Vector3()),b=upper.landmarks[0].clone(),c=upper.landmarks[2].clone();
+  const normal=b.clone().sub(a).cross(c.clone().sub(a)).normalize();if(normal.lengthSq()<.9)return null;
+  return {center:a.clone().add(b).add(c).multiplyScalar(1/3),normal,landmarks:[a,b,c],anchorNames:['폐동맥판','폐동맥 원위부','상부 하행대동맥'],names:['pulmonary_valve','pulmonary_trunk','descending_aorta_a'],ductPoints:[b,b.clone().lerp(c,.5),c],method:'Teaching ductal connection, not donor anatomy'};
  }
  const point=name=>{
   const mesh=asset.meshes.find(m=>m.name==='VH_M_'+name);
