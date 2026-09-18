@@ -9,16 +9,18 @@ const definitions={
 export async function loadOrganModels(){
  const assets={};await Promise.all(Object.entries(definitions).map(async([kind,def])=>{
  const gltf=await new GLTFLoader().loadAsync(new URL('./models/'+def.file,import.meta.url).href);
+ let referenceBounds;
  if(kind==='heartInternal'){
   gltf.scene.updateWorldMatrix(true,true);
   const heart=gltf.scene.getObjectByName('VH_M_heart');
-  for(const name of ['ascending_aorta','pulmonary_trunk','pulmonary_artery_L','pulmonary_artery_R']){
+  referenceBounds=new T.Box3().setFromObject(heart);
+  for(const name of ['ascending_aorta','aortic_arch','descending_aorta_a','superior_vena_cava','inferior_vena_cava_a','pulmonary_trunk','pulmonary_artery_L','pulmonary_artery_R']){
    const vessel=gltf.scene.getObjectByName('VH_M_'+name);if(vessel)heart.attach(vessel);
   }
   gltf.scene.getObjectByName('VH_M_blood_vasculature_of_heart')?.removeFromParent();
  }
  const holder=new T.Group(),normalized=new T.Group();holder.name=kind+'-open-reference';holder.add(normalized);normalized.add(gltf.scene);gltf.scene.updateWorldMatrix(true,true);
- const bounds=new T.Box3().setFromObject(gltf.scene),size=bounds.getSize(new T.Vector3()),center=bounds.getCenter(new T.Vector3());
+ const bounds=referenceBounds||new T.Box3().setFromObject(gltf.scene),size=bounds.getSize(new T.Vector3()),center=bounds.getCenter(new T.Vector3());
  if(bounds.isEmpty()||!Number.isFinite(size.length())||size.length()===0)throw new Error('Invalid '+kind+' model');
  gltf.scene.position.sub(center);const scale=def.size/Math.max(size.x,size.y,size.z);normalized.scale.setScalar(scale);holder.position.set(...def.center);
  const meshes=[];holder.traverse(o=>{if(!o.isMesh)return;meshes.push(o);const materials=Array.isArray(o.material)?o.material:[o.material];materials.forEach(m=>m.dispose());const color=kind==='heartInternal'&&/valve/.test(o.name)?0xf0d9a9:kind==='heartInternal'&&/septum/.test(o.name)?0xe1a08e:def.color;o.material=new T.MeshStandardMaterial({color,emissive:color,emissiveIntensity:kind==='brain'?.22:.08,roughness:.7,metalness:0,side:T.DoubleSide});});

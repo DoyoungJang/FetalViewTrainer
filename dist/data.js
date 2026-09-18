@@ -1,4 +1,5 @@
 import {planeReferences} from './planes.js';
+import {standards} from './standards-data.js';
 export const sources=[
 ['ISUOG · 1분기 (2023)','https://www.isuog.org/static/a8d6dee2-38d8-4d66-8be3929af48e8369/Updated-ISUOG-Practice-Guidelines-performance-of-11-14-week-ultrasound-scan.pdf'],
 ['ISUOG · 2분기 (2022)','https://www.isuog.org/resource/isuog-practice-guidelines-updated-performance-of-the-routine-mid-trimester-fetal-ultrasound-scan.html'],
@@ -31,3 +32,36 @@ v('face','얼굴 · 상순','Coronal face and profile','face',1.3,['관상면에
 v('brain3','뇌 · 측뇌실 재평가','Third-trimester brain review','ventricle',1.6,['이전 검사와 비교해 뇌 구조를 재관찰합니다.','측뇌실과 후두와를 가능한 범위에서 확인합니다.','태위·골화에 따른 관찰 제한을 기록합니다.'],'후기에는 음영과 태위로 관찰이 제한될 수 있습니다.','관찰이 불충분한 경우 필요한 것은?',['제한 사항 기록 및 적절한 후속 평가','정상으로 단정','이전 기록 삭제']),
 v('renal3','신장 · 방광 재평가','Third-trimester urinary tract','kidneys',-.6,['양측 신장과 방광을 재관찰합니다.','이전 소견의 변화 여부를 확인합니다.','양수량 등 다른 검사 결과와 함께 평가합니다.'],'성장·태반 위치·양수·태위 평가도 필요하며, 이 단면 모듈만으로 전체 검사가 완료되지 않습니다.','3분기 검사에 함께 필요한 평가는?',['양수·태반·태위·성장','신장 하나만','외부 얼굴만'])]}
 ];
+
+// All 38 document classes; temporal cardiac labels share anatomical geometry.
+const catalog=[
+ ['hc','시상 단면 · BPD/HC','head',1.35],['vent','측뇌실 단면','ventricle',1.6],['cereb','소뇌 · 후두와 단면','cerebellum',1.15],
+ ['face','코 · 상순','face',1.3],['orbit','양측 안와','orbit',1.5],['facialprofile','얼굴 옆모습','facialprofile',1.4],
+ ['4ch','심장 사강 · 이완기 초기','heart',.25],['4ch-ed','심장 사강 · 이완기 말','heart',.25],['4ch-es','심장 사강 · 수축기 말','heart',.25],
+ ['lvot','좌심실 유출로 · 수축기','lvot',.4],['lvot-ed','좌심실 유출로 · 이완기 말','lvot',.4],['rvot','우심실 유출로 · 수축기','rvot',.55],['rvot-ed','우심실 유출로 · 이완기 말','rvot',.55],
+ ['3vv-pa','삼혈관 · 폐동맥 측정면','threevpa',.56],['3vv','삼혈관 단면','threev',.59],['3vt','삼혈관 · 기관 단면','vessels',.65],
+ ['aoarch','대동맥궁','aoarch',.56],['ductarch','동맥관궁','ductarch',.56],['bicaval','양대정맥','bicaval',.3],
+ ['ac','복부 · 복부둘레','abdomen',-.35],['cord','태아 복벽 제대 삽입부','cord',-.3],['diaphragm','횡격막','diaphragm',-.1],
+ ['kidneys','신장 · 횡단면','kidneys',-.6],['kidney-sag','신장 · 시상면','kidneysag',-.6],['kidney-cor','신장 · 관상면','kidneycor',-.6],['bladder','방광','pelvis',-.85],
+ ['spine','척추','spine',0],['fl','대퇴골','femur',-1.15],['tibia','경골 · 비골','tibia',-.7],['foot','발','foot',-.9],['humerus','상완골','humerus',.3],['forearm','요골 · 척골','forearm',.25],['hand','손','hand',.3],
+ ['genitalia','외부 생식기','genitalia',-.95],['placenta','태반','placenta',0],['cervix','자궁경부','cervix',-1.5],['crl','머리엉덩길이','profile',.3],['nt','목덜미 투명대','nt',1.1]
+];
+const groups=['머리 · 뇌','얼굴','심장','복부 · 비뇨기','척추 · 사지','생식기 · 태반 · 자궁경부','1분기 전용'];
+for(let p=0;p<phases.length;p++){
+ const previous=phases[p].lessons;
+ phases[p].lessons=standards.flatMap((doc,i)=>{
+  if(p>0&&doc.number>=37||p===0&&[15,24,28].includes(doc.number))return [];
+  const quality=doc.blocks[`${p+1}분기`]||doc.blocks['공통'];if(!quality)return [];
+  const [id,title,type,y]=catalog[i],old=previous.find(v=>v.id===id);
+  const group=groups[i<3?0:i<6?1:i<19?2:i<26?3:i<33?4:i<36?5:6];
+  const temporal=doc.number>=7&&doc.number<=13;
+  return [{...old,id,title,en:doc.name,type:p===0&&type==='ventricle'?'earlybrain':type,y,group,trimester:p+1,documentNumber:doc.number,quality,scope:doc.scope,memo:doc.memo,temporal,
+   checks:[quality.best,quality.acceptable,doc.memo],tip:doc.memo,
+   question:temporal?'이 항목의 심장 주기 판정에 필요한 자료는?':'Acceptable 판정에서 반드시 충족해야 하는 조건은?',
+   options:temporal?['Cine와 인접 프레임으로 시점 확인','정지 3D 모양만으로 판정','단면 이름만으로 판정']:['필수 구조가 보이고 판단·측정에 의미 있는 편향이 없음','필수 구조가 빠져도 화면이 밝으면 됨','심한 단축이 있어도 이름이 같으면 됨'],answer:0}];
+ });
+ phases[p].desc='첨부 문서의 분기별 기준을 수록했습니다. 상세·표적·적응증 항목은 모든 임신의 필수 검사라는 뜻이 아닙니다.';
+}
+sources.push(['ISUOG · 자궁경부 / 조산 예측 (2022)','https://www.isuog.org/static/e45c9342-359c-4c5b-86fb71d52562303b/ultrasound-in-preterm-birth.pdf']);
+
+sources.push(['제공 문서 · Standard Plane Best / Acceptable 상세 기준 38항목','./standards.json']);

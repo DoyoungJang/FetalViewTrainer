@@ -1,0 +1,618 @@
+[
+  {
+    "number": 1,
+    "name": "TTP — Transthalamic plane",
+    "blocks": {
+      "1분기": {
+        "best": "true axial head plane, 양측 cerebral hemisphere 대칭, falx가 중앙에 위치하며 thalamic region이 확인된다. Skull contour가 완전히 포함되고 BPD 축이 foreshortening되지 않는다. 1분기에는 CSP를 필수 landmark로 요구하지 않는다.",
+        "acceptable": "약간의 obliquity는 허용하되 falx, 양측 hemisphere, thalamic region 및 skull contour가 충분히 식별되어야 한다. 측정축의 왜곡이 임상적으로 의미 있는 수준이면 Acceptable이 아니다."
+      },
+      "2분기": {
+        "best": "true axial transverse plane에서 양측 hemisphere가 대칭이고 falx가 중앙에 있으며 bilateral thalami와 CSP가 보인다. Cerebellum은 포함되지 않아야 하며 skull contour가 완전하여 BPD/HC 측정이 가능하다.",
+        "acceptable": "경도의 probe tilt 또는 insonation-angle deviation은 허용하되 thalami, falx, CSP가 명확하고 cerebellum이 plane에 들어오지 않는다. Skull shape를 의미 있게 왜곡하는 obliquity는 허용하지 않는다."
+      },
+      "3분기": {
+        "best": "2분기 TTP와 동일한 기본 geometry를 유지하여 thalami, falx, CSP 및 대칭적 hemispheres가 확인되고 BPD/HC 측정에 적합하다.",
+        "acceptable": "late gestation의 ossification 및 fetal position에 따른 mild acoustic shadowing은 허용하되 thalami와 midline이 식별되고 측정 경계가 신뢰 가능해야 한다."
+      }
+    },
+    "scope": "1T: 보조/biometry · 2T: BPD/HC 표준 · 3T: biometry",
+    "memo": "ISUOG의 BPD/HC 품질 기준을 기반으로 한 operationalization. [2][5]"
+  },
+  {
+    "number": 2,
+    "name": "TVP — Transventricular plane",
+    "blocks": {
+      "1분기": {
+        "best": "intact calvarium과 중앙 falx가 보이고, 양측 lateral ventricle의 posterior portion을 채우는 choroid plexus가 대칭적으로 보여 전형적인 butterfly sign을 형성한다.",
+        "acceptable": "한쪽 choroid plexus에 경한 shadowing이 있어도 반대쪽 구조와 midline이 명확하고 butterfly configuration을 판단할 수 있다. CSP는 1분기 필수 기준이 아니다."
+      },
+      "2분기": {
+        "best": "frontal horns/CSP, lateral ventricular atrium, choroid plexus, falx가 적절한 axial plane에서 보이며 distal atrium을 정확히 측정할 수 있다.",
+        "acceptable": "near-field 쪽 proximal hemisphere의 일부 artifact는 허용하되 far-side atrium, CSP 및 midline 구조가 명확하고 ventricular atrium이 obliquity로 왜곡되지 않는다."
+      },
+      "3분기": {
+        "best": "ventricular atrium과 hemispheric symmetry가 명확하고, 필요 시 ventricular width 측정 및 parenchymal reassessment가 가능하다.",
+        "acceptable": "skull ossification에 따른 일부 acoustic shadowing은 허용하되 atrium과 midline이 진단 가능한 수준으로 유지된다."
+      }
+    },
+    "scope": "1T: brain screening · 2T: CNS screening · 3T: 재평가 시",
+    "memo": "1분기 butterfly sign과 2분기 ventricular screening 기준은 서로 다른 발달 단계의 landmark를 사용한다. [1][3][5]"
+  },
+  {
+    "number": 3,
+    "name": "TCP — Transcerebellar plane",
+    "blocks": {
+      "1분기": {
+        "best": "1분기 발달단계에 맞는 posterior fossa plane에서 brainstem, fourth ventricle/intracranial translucency와 developing cisterna magna 등 posterior fossa 관계를 평가할 수 있다.",
+        "acceptable": "일부 구조의 resolution이 떨어져도 posterior fossa의 주요 해부학적 구성이 식별되고 과도한 tilt로 구조가 가성 왜곡되지 않는다."
+      },
+      "2분기": {
+        "best": "transventricular plane보다 약간 caudal한 axial plane에서 양측 cerebellar hemisphere, vermis, cisterna magna가 명확하고 cerebellum이 정상적인 butterfly configuration을 보인다.",
+        "acceptable": "bilateral cerebellar hemispheres와 cisterna magna는 분명해야 한다. Vermis의 세부가 다소 덜 선명한 것은 허용할 수 있으나 과도한 posterior tilt로 가성 vermian defect가 만들어지면 안 된다."
+      },
+      "3분기": {
+        "best": "posterior fossa 재평가가 필요한 경우 2분기와 같은 기본 landmark와 geometry를 충족한다.",
+        "acceptable": "fetal position/ossification의 제약이 있어도 cerebellum과 cisterna magna의 관계가 판단 가능해야 한다."
+      }
+    },
+    "scope": "1T: posterior fossa 상세 · 2T: CNS screening · 3T: 필요 시",
+    "memo": "2분기에는 과도한 probe tilt를 피하는 것이 중요하다. [1][3][5]"
+  },
+  {
+    "number": 4,
+    "name": "Nose/Lips",
+    "blocks": {
+      "1분기": {
+        "best": "axial/coronal facial plane에서 nose와 upper lip의 continuity가 잘 보이고, 가능하면 retronasal triangle과 anterior maxillary region을 평가할 수 있다.",
+        "acceptable": "mild obliquity는 허용하되 upper lip continuity와 nose의 형태를 판단할 수 있어야 한다."
+      },
+      "2분기": {
+        "best": "coronal facial plane에서 upper lip 전체가 연속적으로 보이고 nose와 양측 nostril이 확인되며 facial symmetry가 좋다.",
+        "acceptable": "한쪽 nostril이 덜 선명하거나 경도의 obliquity가 있어도 upper lip continuity와 cleft 여부 판단에 지장이 없어야 한다."
+      },
+      "3분기": {
+        "best": "indication이 있어 재평가할 경우 2분기와 같은 lip/nose continuity를 확보한다.",
+        "acceptable": "fetal position에 따른 일부 shadowing이 있어도 clinically relevant morphology 평가가 가능하다."
+      }
+    },
+    "scope": "1T: 상세 · 2T: 기본 face assessment · 3T: 필요 시",
+    "memo": "Routine third-trimester target은 아니며 indication-based로 보는 것이 적절하다. [1][2][5]"
+  },
+  {
+    "number": 5,
+    "name": "Orbit",
+    "blocks": {
+      "1분기": {
+        "best": "양측 orbit이 같은 plane에 대칭적으로 보이고 interorbital relationship을 판단할 수 있으며 가능하면 lens도 확인된다.",
+        "acceptable": "양측 orbit 존재와 대략적인 위치 및 대칭성 판단이 가능하다."
+      },
+      "2분기": {
+        "best": "두 orbit과 globe가 한 plane에서 대칭적으로 보이며 크기와 위치를 비교할 수 있다.",
+        "acceptable": "경도의 obliquity로 한쪽 orbit이 작게 보이더라도 양측 orbit의 존재와 위치 관계가 분명하다."
+      },
+      "3분기": {
+        "best": "필요 시 bilateral orbit를 대칭적으로 재평가할 수 있다.",
+        "acceptable": "일부 shadowing이 있어도 양측 구조를 확인할 수 있다."
+      }
+    },
+    "scope": "1T: 상세 · 2T: 기본 face assessment · 3T: 필요 시",
+    "memo": "ISUOG routine mid-trimester face assessment에 양측 eye/orbit 확인이 포함된다. [2]"
+  },
+  {
+    "number": 6,
+    "name": "Profile",
+    "blocks": {
+      "1분기": {
+        "best": "true midsagittal plane에서 forehead, nasal bridge, nasal bone, maxilla, mandible이 연속적으로 보인다. NT나 nasal bone 정량/정성평가를 함께 하는 경우 midsagittal 정확도가 특히 중요하다.",
+        "acceptable": "near-midsagittal plane에서 forehead–nose–maxilla–mandible contour가 연속적으로 평가 가능하다. 다만 NT 또는 nasal bone의 정량/고정밀 평가에는 Best 수준의 plane을 요구한다."
+      },
+      "2분기": {
+        "best": "true midsagittal profile에서 forehead, nasal bridge/bone, maxilla, mandible이 명확하다.",
+        "acceptable": "near-sagittal plane에서도 gross profile morphology와 micrognathia 등 주요 이상 여부 판단이 가능하다."
+      },
+      "3분기": {
+        "best": "indication이 있는 경우 2분기 기준에 준하여 profile을 확보한다.",
+        "acceptable": "fetal position에 의한 일부 제한이 있어도 clinically relevant contour 판단이 가능하다."
+      }
+    },
+    "scope": "1T: 중요 · 2T: 가능하면 평가 · 3T: 필요 시",
+    "memo": "1분기 nasal bone 및 NT 관련 plane은 true midsagittal accuracy가 핵심이다. [1][2]"
+  },
+  {
+    "number": 7,
+    "name": "4CV — Early diastole",
+    "blocks": {
+      "1분기": {
+        "best": "situs와 심장 위치를 확인하고 4-chamber anatomy가 보이며, diastolic filling phase가 cine에서 명확하다. 상세 검사에서는 color Doppler로 양측 ventricular inflow를 보조할 수 있다.",
+        "acceptable": "4-chamber anatomy와 chamber symmetry가 판단 가능하고 cine sequence상 diastolic phase로 합리적으로 확인된다."
+      },
+      "2분기": {
+        "best": "fetal laterality/situs가 확인된 상태에서 heart가 주로 left chest에 위치하고 axis가 정상 범위이며, 4 chambers의 대칭성, cardiac crux, ventricular septum, AV valve offset, RV moderator band, foramen ovale flap 및 rhythm을 평가할 수 있다. Early diastole label을 사용할 경우 AV valves가 열려 있고 ventricular filling이 시작되는 시점이 cine에서 명확해야 한다.",
+        "acceptable": "4 chambers, cardiac position/axis, gross chamber symmetry, AV valve offset, crux와 ventricular septum을 임상적으로 평가할 수 있어야 한다. 작은 septal detail이나 pulmonary vein이 완벽하지 않은 정도는 허용할 수 있다. Phase가 필요한 데이터셋에서는 단일 still frame만으로 불명확하면 phase label을 보수적으로 처리한다."
+      },
+      "3분기": {
+        "best": "동일한 4CV anatomy 기준을 유지하되 late gestation의 생리적 mild RV dominance 가능성을 고려하고 diastolic phase를 cine로 확인한다.",
+        "acceptable": "일부 shadowing과 경한 physiological asymmetry는 허용하되 4CV 핵심 anatomy와 phase 판단이 가능하다."
+      }
+    },
+    "scope": "1T: detailed cardiac screening · 2T: routine · 3T: 필요 시",
+    "memo": "ISUOG는 cardiac-cycle phase별로 4CV를 별도 “standard plane”으로 정의하지 않는다. 따라서 anatomy quality와 phase quality를 분리 라벨링하는 것이 권장된다. [4][5]"
+  },
+  {
+    "number": 8,
+    "name": "4CV — End diastole",
+    "blocks": {
+      "공통": {
+        "best": "standard 4CV anatomy 기준을 충족하면서 ventricular filling이 완료되는 end-diastolic timing이 cine sequence에서 명확하다.",
+        "acceptable": "4CV anatomy는 충분히 평가 가능하고 adjacent frames를 통해 end-diastolic phase를 합리적으로 구분할 수 있다. 단일 still에서 phase가 불명확하면 anatomical quality와 phase certainty를 분리 기록한다."
+      }
+    },
+    "scope": "1T/2T/3T: phase-specific dataset용",
+    "memo": "End-diastole은 ISUOG의 독립 routine standard plane 명칭이 아니라 phase annotation이다. [4]"
+  },
+  {
+    "number": 9,
+    "name": "4CV — End systole",
+    "blocks": {
+      "공통": {
+        "best": "standard 4CV anatomy를 충족하며 AV valves가 닫힌 systolic phase에서 ventricular contraction이 최대로 진행된 end-systolic timing이 cine에서 명확하다.",
+        "acceptable": "4CV anatomy는 충분하고 cine sequence상 systolic phase를 확인할 수 있으나 정확한 end-systolic frame의 certainty가 약간 낮다."
+      }
+    },
+    "scope": "1T/2T/3T: phase-specific dataset용",
+    "memo": "End-systole 역시 독립 routine standard plane이 아니라 temporal phase label로 다루는 것이 적절하다. [4]"
+  },
+  {
+    "number": 10,
+    "name": "LVOT — Systole",
+    "blocks": {
+      "1분기": {
+        "best": "LV에서 기원하는 great vessel과 aortic continuity가 보이고, 가능하면 color Doppler로 antegrade outflow가 확인되며 systolic phase가 cine상 명확하다.",
+        "acceptable": "LV origin과 aortic course를 판단할 수 있고 significant misregistration 없이 systolic ejection을 확인할 수 있다."
+      },
+      "2분기": {
+        "best": "aorta가 LV에서 기원하고 anterior aortic wall과 ventricular septum의 continuity가 보이며, vessel이 즉시 bifurcate하지 않는다. Sweep에서 great-artery crossover relationship을 평가할 수 있다.",
+        "acceptable": "LV에서의 vessel origin과 septal continuity가 명확하고, 경도의 obliquity에도 vessel course와 outflow patency를 판단할 수 있다."
+      },
+      "3분기": {
+        "best": "indication이 있는 경우 2분기와 같은 outflow anatomy를 확보하고 systolic ejection을 확인한다.",
+        "acceptable": "late gestation shadowing이 있어도 LV–Ao continuity와 outflow course가 명확하다."
+      }
+    },
+    "scope": "1T: detailed · 2T: routine cardiac screening · 3T: 필요 시",
+    "memo": "1분기 outflow tract 평가는 기술적으로 가능하나 false-positive/false-negative에 더 취약하므로 early screening에서는 4CV/3VTV 중심 해석이 중요하다. [4]"
+  },
+  {
+    "number": 11,
+    "name": "LVOT — End diastole",
+    "blocks": {
+      "공통": {
+        "best": "LVOT anatomy 기준을 충족하면서 end-diastolic phase가 cine에서 명확하다. Aortic root와 ventricular septum의 continuity가 왜곡되지 않는다.",
+        "acceptable": "LVOT anatomy는 충분히 진단 가능하고 cine상 end-diastolic timing을 합리적으로 지정할 수 있다."
+      }
+    },
+    "scope": "1T/2T/3T: phase-specific dataset용",
+    "memo": "독립 ISUOG routine view라기보다 LVOT view에 temporal phase를 추가한 라벨이다. [4]"
+  },
+  {
+    "number": 12,
+    "name": "RVOT — Systole",
+    "blocks": {
+      "1분기": {
+        "best": "morphological RV에서 pulmonary artery가 기원하고 systolic antegrade flow가 보이며 vessel course가 구분된다.",
+        "acceptable": "RV origin과 pulmonary outflow가 판단 가능하고 cine상 systolic ejection이 확인된다."
+      },
+      "2분기": {
+        "best": "pulmonary artery가 RV에서 기원하고 pulmonary valve/MPA가 보이며 MPA가 짧은 course 후 bifurcation하고 ascending aorta와 crossover한다.",
+        "acceptable": "PA origin from RV가 확실하고 bifurcation 또는 ductal continuation을 확인할 수 있다. 경도의 obliquity는 허용한다."
+      },
+      "3분기": {
+        "best": "필요 시 2분기 기준으로 RV–PA continuity와 systolic flow를 확인한다.",
+        "acceptable": "일부 shadowing에도 origin/course가 임상적으로 판단 가능하다."
+      }
+    },
+    "scope": "1T: detailed · 2T: routine cardiac screening · 3T: 필요 시",
+    "memo": "정상 fetal circulation에서 MPA가 ascending aorta보다 약간 클 수 있다. [4]"
+  },
+  {
+    "number": 13,
+    "name": "RVOT — End diastole",
+    "blocks": {
+      "공통": {
+        "best": "RVOT anatomy가 정확하고 end-diastolic timing이 cine에서 명확하다.",
+        "acceptable": "RV–PA continuity 및 relevant outflow anatomy를 평가할 수 있고 phase를 adjacent frames로 합리적으로 구분할 수 있다."
+      }
+    },
+    "scope": "1T/2T/3T: phase-specific dataset용",
+    "memo": "독립 ISUOG routine view가 아니라 RVOT anatomy + temporal phase label로 해석한다. [4]"
+  },
+  {
+    "number": 14,
+    "name": "3VV PA",
+    "blocks": {
+      "공통": {
+        "best": "PA/MPA, ascending Ao, SVC가 명확하고 protocol에 따라 RPA까지 포함되어 vessel wall이 겹치지 않으며 diameter measurement가 가능한 perpendicular/near-perpendicular plane이다.",
+        "acceptable": "target vessels의 identity와 relative size가 명확하며 경도의 obliquity는 허용하되 diameter를 의미 있게 왜곡할 정도의 angle error는 없어야 한다."
+      }
+    },
+    "scope": "주로 상세 cardiac/measurement protocol용",
+    "memo": "“3VV PA”는 ISUOG의 독립 공식 standard-plane 명칭이라기보다 측정 protocol의 sub-plane으로 보는 것이 안전하다. [4]"
+  },
+  {
+    "number": 15,
+    "name": "3VV — Three-vessel view",
+    "blocks": {
+      "2분기": {
+        "best": "MPA, ascending Ao, SVC의 number, relative size와 alignment가 명확하고 정상적인 vessel relationship을 평가할 수 있다.",
+        "acceptable": "세 vessel 모두 식별되고 경도의 obliquity가 있어도 상대적 크기 및 위치 관계를 판단할 수 있다."
+      },
+      "3분기": {
+        "best": "필요 시 2분기와 같은 vessel relationship을 재확인한다.",
+        "acceptable": "physiological right-sided dominance 등 gestational change를 고려하면서 gross vessel relation이 판단 가능하다."
+      }
+    },
+    "scope": "2T: cardiac screening · 3T: 필요 시",
+    "memo": "3VV는 outflow screening의 핵심 transverse view 중 하나다. [4]"
+  },
+  {
+    "number": 16,
+    "name": "3VTV — Three-vessel and trachea view",
+    "blocks": {
+      "1분기": {
+        "best": "color/power Doppler를 포함하여 aortic arch와 ductal arch가 trachea의 left side에 위치하고 distal descending aorta에서 V configuration을 형성하며 antegrade flow가 확인된다.",
+        "acceptable": "V-sign과 arch–trachea positional relationship이 판단 가능하고 주요 vessel flow direction을 확인할 수 있다."
+      },
+      "2분기": {
+        "best": "PA/ductal arch, transverse aortic arch, SVC와 trachea가 한 transverse level에서 명확하며 Ao와 ductal arch가 trachea의 left side에서 descending aorta로 모여 V-sign을 만든다.",
+        "acceptable": "한 vessel의 일부가 약간 shadowing되어도 V-sign과 trachea에 대한 arch 위치관계를 임상적으로 판단할 수 있다."
+      },
+      "3분기": {
+        "best": "indication이 있는 경우 동일한 V-sign과 arch–trachea relationship을 확인한다.",
+        "acceptable": "late gestation artifact가 있어도 핵심 vessel 관계가 보존된다."
+      }
+    },
+    "scope": "1T: detailed early cardiac · 2T: 핵심 · 3T: 필요 시",
+    "memo": "1분기 detailed cardiac screening에서도 핵심 plane이며, 2분기 screening에서는 특히 중요한 view다. [4]"
+  },
+  {
+    "number": 17,
+    "name": "Ao Arch",
+    "blocks": {
+      "공통": {
+        "best": "sagittal/parasagittal candy-cane configuration에서 ascending aorta–arch–isthmus–descending aorta continuity가 명확하고 가능한 경우 brachiocephalic, left common carotid, left subclavian branches가 구분된다.",
+        "acceptable": "arch continuity, isthmus와 descending aorta가 명확하며 일부 head/neck branch의 분리가 완전하지 않은 정도는 허용할 수 있다."
+      }
+    },
+    "scope": "주로 fetal echocardiography / targeted view",
+    "memo": "Routine low-risk screening의 필수 독립 plane이라기보다 specialist fetal echocardiography에서 중요하다. [4]"
+  },
+  {
+    "number": 18,
+    "name": "Duct Arch",
+    "blocks": {
+      "공통": {
+        "best": "sagittal/oblique sagittal plane에서 MPA–ductus arteriosus–descending aorta가 smooth하게 이어지는 hockey-stick configuration을 보인다.",
+        "acceptable": "MPA–ductus–descending aorta continuity가 확실하고 경도의 foreshortening은 허용한다."
+      }
+    },
+    "scope": "주로 fetal echocardiography / targeted view",
+    "memo": "Aortic arch와 달리 head/neck branch가 없는 특징을 이용해 구분한다. [4]"
+  },
+  {
+    "number": 19,
+    "name": "Bicaval",
+    "blocks": {
+      "공통": {
+        "best": "SVC와 IVC가 RA로 들어가는 continuity가 명확하며 caval vessel과 pulmonary/systemic venous structure의 혼동이 없다.",
+        "acceptable": "SVC와 IVC가 각각 RA로 연결됨을 cine 또는 sweep에서 확인할 수 있다."
+      }
+    },
+    "scope": "주로 fetal echocardiography / targeted view",
+    "memo": "Routine low-risk screening의 필수 독립 view는 아니며 specialist view로 보는 것이 적절하다. [4]"
+  },
+  {
+    "number": 20,
+    "name": "Abdomen",
+    "blocks": {
+      "1분기": {
+        "best": "transverse abdomen에서 stomach가 left upper abdomen에 있고 anterior abdominal wall이 intact하며 situs를 판단할 수 있다.",
+        "acceptable": "stomach와 abdominal wall을 평가할 수 있고 경도의 obliquity는 허용한다."
+      },
+      "2분기": {
+        "best": "true transverse AC plane, abdomen이 가능한 원형에 가깝고 stomach와 umbilical vein at portal sinus가 보이며 kidneys는 포함되지 않는다. Spine은 가능하면 3 또는 9시 방향에 위치한다.",
+        "acceptable": "약간 oval configuration이나 spine angle deviation은 허용하되 stomach와 portal sinus가 보이고 kidney가 plane에 포함되지 않으며 circumference를 신뢰성 있게 측정할 수 있다."
+      },
+      "3분기": {
+        "best": "2분기 AC geometry를 그대로 유지하여 growth biometry에 적합한 standard plane을 획득한다.",
+        "acceptable": "fetal position에 따른 경도 distortion은 허용하되 circumference measurement에 clinically meaningful bias가 없어야 한다."
+      }
+    },
+    "scope": "전 trimester · 2/3T에서는 AC plane 포함",
+    "memo": "AC 측정 plane은 엄격한 geometry가 중요하다. [1][2][5]"
+  },
+  {
+    "number": 21,
+    "name": "Abdominal Cord Insertion",
+    "blocks": {
+      "1분기": {
+        "best": "fetal abdominal cord insertion과 anterior abdominal wall continuity가 분명하고 필요 시 color로 umbilical vessels를 확인한다.",
+        "acceptable": "insertion site와 gross wall defect 유무를 판단할 수 있다."
+      },
+      "2분기": {
+        "best": "umbilical cord가 fetal abdominal wall에 삽입되는 전체 junction이 보이며 surrounding wall/skin continuity를 평가할 수 있다.",
+        "acceptable": "insertion point가 명확하고 omphalocele/gastroschisis 등 주요 wall defect를 판단할 수 있다."
+      },
+      "3분기": {
+        "best": "indication이 있는 경우 insertion와 wall 관계를 재평가한다.",
+        "acceptable": "clinically relevant insertion abnormality 판단이 가능하다."
+      }
+    },
+    "scope": "1T/2T 중요 · 3T 필요 시",
+    "memo": "1분기부터 fetal abdominal cord insertion의 문서화가 중요하다. [1][2]"
+  },
+  {
+    "number": 22,
+    "name": "Diaphragm",
+    "blocks": {
+      "1분기": {
+        "best": "sagittal/coronal trunk plane에서 thoracic–abdominal separation과 diaphragmatic continuity를 평가할 수 있다.",
+        "acceptable": "주요 diaphragm contour와 thoracoabdominal separation이 확인된다."
+      },
+      "2분기": {
+        "best": "bilateral hemidiaphragm continuity가 보이고 chest와 abdomen 사이의 연속적인 interface를 sagittal/coronal view에서 평가할 수 있다.",
+        "acceptable": "두 hemidiaphragm이 서로 다른 frame에서라도 평가 가능하고 gross discontinuity 여부를 판단할 수 있다."
+      },
+      "3분기": {
+        "best": "sagittal/coronal reassessment에서 diaphragm continuity와 thoracic abdominal organ position을 평가할 수 있다.",
+        "acceptable": "fetal position 제약이 있어도 clinically significant diaphragmatic defect 여부 판단이 가능하다."
+      }
+    },
+    "scope": "1T: 상세 · 2T: 가능하면 · 3T: 이상 재평가 시 중요",
+    "memo": "일부 congenital diaphragmatic hernia는 late gestation에 처음 인지될 수 있어 3분기 reassessment가 의미 있을 수 있다. [2][5]"
+  },
+  {
+    "number": 23,
+    "name": "Kidney — Axial",
+    "blocks": {
+      "1분기": {
+        "best": "양측 kidney가 paraspinal 위치에 확인되고 renal pelvis를 포함한 기본 renal morphology가 보인다.",
+        "acceptable": "양측 kidney 존재와 대략적인 위치를 판단할 수 있다."
+      },
+      "2분기": {
+        "best": "bilateral kidney가 대칭적인 paraspinal 위치에 있고 renal pelvis와 renal parenchyma가 구분되며 significant pyelectasis 여부를 평가할 수 있다.",
+        "acceptable": "양측 kidney와 renal pelvis를 평가할 수 있고 경도의 rotation은 허용한다."
+      },
+      "3분기": {
+        "best": "renal pelvis뿐 아니라 calyces, renal cortex 및 필요 시 ureter/bladder까지 연계 평가할 수 있다. AP renal pelvic diameter 측정 시 true axial plane을 사용한다.",
+        "acceptable": "renal pelvis/cortex를 평가할 수 있고 경도 rotation은 허용하되 AP diameter를 의미 있게 왜곡하지 않는다."
+      }
+    },
+    "scope": "1T: 상세 · 2T: anatomy · 3T: urinary tract 평가",
+    "memo": "3분기 urinary tract dilation 평가 시 bladder/ureter와 연계한 평가가 중요하다. [1][2][5]"
+  },
+  {
+    "number": 24,
+    "name": "Kidney — Sagittal",
+    "blocks": {
+      "공통": {
+        "best": "kidney long axis 전체가 포함되고 upper/lower pole, renal parenchyma와 pelvis가 보이며 bean-shaped longitudinal profile이 잘 유지된다.",
+        "acceptable": "renal long axis 대부분이 보이고 length 및 pelvicalyceal morphology를 임상적으로 평가할 수 있다."
+      }
+    },
+    "scope": "2/3T에서 renal morphology 평가에 유용",
+    "memo": "특히 hydronephrosis/renal morphology의 추가 평가에 유용한 targeted plane이다. [5]"
+  },
+  {
+    "number": 25,
+    "name": "Kidney — Coronal",
+    "blocks": {
+      "공통": {
+        "best": "bilateral kidneys가 spine 양측에 대칭적으로 보이고 두 renal axis 및 renal pelvis/calyceal region을 비교할 수 있다.",
+        "acceptable": "양측 kidney의 존재와 상대적 위치/대칭성을 확실히 판단할 수 있다."
+      }
+    },
+    "scope": "1T 상세 / 2–3T targeted renal assessment",
+    "memo": "Coronal thoracoabdominal assessment는 양측 renal position 비교에 유용하다. [1][5]"
+  },
+  {
+    "number": 26,
+    "name": "Bladder",
+    "blocks": {
+      "1분기": {
+        "best": "pelvis midline의 round/oval anechoic bladder가 보이고, 필요 시 color Doppler에서 umbilical arteries가 bladder 양측을 지나가는 관계를 확인한다.",
+        "acceptable": "bladder 존재와 gross dilatation 여부를 판단할 수 있다."
+      },
+      "2분기": {
+        "best": "bladder가 pelvic midline에서 명확하고 size가 정상 범위이며 urinary tract assessment와 연계해 평가 가능하다.",
+        "acceptable": "bladder 존재와 filling을 확인할 수 있고 gross abnormal distension이 없다."
+      },
+      "3분기": {
+        "best": "필요 시 bladder size, wall, filling/emptying pattern과 upper urinary tract를 함께 평가할 수 있다.",
+        "acceptable": "bladder presence/size와 clinically relevant abnormality 판단이 가능하다."
+      }
+    },
+    "scope": "전 trimester",
+    "memo": "1분기부터 bladder visualization은 기본 anatomy assessment에 포함된다. [1][2][5]"
+  },
+  {
+    "number": 27,
+    "name": "Spine",
+    "blocks": {
+      "1분기": {
+        "best": "sagittal plane에서 cervical region부터 sacrum까지 vertebral alignment와 overlying skin continuity를 평가할 수 있다.",
+        "acceptable": "한 frame에 전체가 들어오지 않아도 여러 frame/sweep으로 spine 전체와 skin continuity를 확인할 수 있다."
+      },
+      "2분기": {
+        "best": "sagittal longitudinal alignment와 transverse sequential vertebral anatomy가 확보되고 cervical–thoracic–lumbar–sacral region 및 overlying skin을 완전하게 평가한다.",
+        "acceptable": "여러 image/sweep으로 전체 coverage가 되며 vertebral 및 skin continuity를 판단할 수 있다."
+      },
+      "3분기": {
+        "best": "indication이 있는 경우 target region을 optimal plane으로 재평가한다.",
+        "acceptable": "late gestation artifact가 있어도 suspected abnormality와 관련된 essential anatomy가 평가 가능하다."
+      }
+    },
+    "scope": "1T: 상세 · 2T: routine anatomy · 3T: 필요 시",
+    "memo": "Routine 2분기 scan에서는 sagittal과 transverse evaluation 모두 중요하다. [1][2]"
+  },
+  {
+    "number": 28,
+    "name": "Femur",
+    "blocks": {
+      "2분기": {
+        "best": "entire ossified diaphysis가 longest axis로 보이고 proximal/distal ends가 명확하며 foreshortening이 없다. Epiphysis는 FL에 포함하지 않는다.",
+        "acceptable": "양 끝이 명확하고 거의 full-length shaft가 보이며 작은 angle deviation은 허용한다. 의미 있는 foreshortening은 허용하지 않는다."
+      },
+      "3분기": {
+        "best": "2분기와 동일한 standardized FL plane을 사용한다.",
+        "acceptable": "late gestation position 제약에도 shaft length가 신뢰성 있게 측정 가능하다."
+      }
+    },
+    "scope": "1T optional · 2/3T biometry",
+    "memo": "Femur length는 routine biometry의 핵심 측정치다. [2][5]"
+  },
+  {
+    "number": 29,
+    "name": "Tibia/Fibula",
+    "blocks": {
+      "공통": {
+        "best": "tibia와 fibula가 모두 분리되어 보이고 proximal-to-distal continuity, 정상 relative position/alignment 및 ankle/foot relationship을 평가할 수 있다.",
+        "acceptable": "두 bone 모두 확실히 식별되며 하나가 경미하게 foreshortened되어도 gross morphology와 alignment를 판단할 수 있다."
+      }
+    },
+    "scope": "1/2T limb anatomy · 3T 필요 시",
+    "memo": "Routine 2분기 limb assessment는 long bone의 존재, symmetry, length, shape, alignment, position과 movement를 종합한다. [2]"
+  },
+  {
+    "number": 30,
+    "name": "Foot",
+    "blocks": {
+      "공통": {
+        "best": "foot 전체와 ankle/lower-leg relationship이 보이고 정상 orientation과 움직임을 평가할 수 있다.",
+        "acceptable": "foot 존재와 lower leg와의 connection/position을 판별할 수 있다. Routine screening에서 toe counting 자체를 필수화하지 않는다."
+      }
+    },
+    "scope": "1/2T limb anatomy · 3T 필요 시",
+    "memo": "Digit counting은 routine mid-trimester 기본 요구사항이 아니다. [2]"
+  },
+  {
+    "number": 31,
+    "name": "Humerus",
+    "blocks": {
+      "공통": {
+        "best": "entire humeral shaft가 포함되고 proximal/distal end와 shoulder/elbow relationship을 평가할 수 있으며 foreshortening이 없다.",
+        "acceptable": "shaft 대부분과 양 끝이 확인되어 gross length/shape를 판단할 수 있다."
+      }
+    },
+    "scope": "1/2T limb anatomy · 3T 필요 시",
+    "memo": "Long-bone morphology는 symmetry, shape, alignment와 함께 평가한다. [2]"
+  },
+  {
+    "number": 32,
+    "name": "Ulna/Radius",
+    "blocks": {
+      "공통": {
+        "best": "radius와 ulna가 모두 분리되어 보이고 parallel relationship, wrist–hand connection, length/shape/alignment를 평가할 수 있다.",
+        "acceptable": "두 bone이 분리되어 식별되고 gross morphology를 판단할 수 있다."
+      }
+    },
+    "scope": "1/2T limb anatomy · 3T 필요 시",
+    "memo": "Forearm은 두 long bone을 모두 확인하는 것이 핵심이다. [2]"
+  },
+  {
+    "number": 33,
+    "name": "Hand",
+    "blocks": {
+      "공통": {
+        "best": "wrist–hand relationship, hand 전체의 orientation과 움직임이 보이고 가능하면 digits도 확인한다.",
+        "acceptable": "hand 존재와 wrist connection이 확실하며 일부 digit shadowing은 허용한다."
+      }
+    },
+    "scope": "1/2T limb anatomy · 3T 필요 시",
+    "memo": "Routine mid-trimester scan에서 모든 finger를 반드시 count할 필요는 없다. [2]"
+  },
+  {
+    "number": 34,
+    "name": "Genitalia",
+    "blocks": {
+      "1분기": {
+        "best": "sagittal genital tubercle orientation과 external genital region을 평가할 수 있으나 routine minimum target으로 보지는 않는다.",
+        "acceptable": "필요 시 gross external genital morphology를 판단할 수 있다."
+      },
+      "2분기": {
+        "best": "external genitalia가 unobstructed view에서 정상 해부학적 형태로 평가된다.",
+        "acceptable": "grossly normal external genital morphology를 확인할 수 있다. Sex determination 자체를 품질판정의 핵심으로 두지 않는다."
+      },
+      "3분기": {
+        "best": "indication이 있을 때 relevant genital anatomy를 target view로 평가한다.",
+        "acceptable": "clinically relevant morphology 판단이 가능하다."
+      }
+    },
+    "scope": "1T optional · 2T external genitalia 확인 · 3T 필요 시",
+    "memo": "ISUOG routine scan의 목적은 단순한 성별 판정보다 정상 external genital morphology 확인에 있다. [1][2]"
+  },
+  {
+    "number": 35,
+    "name": "Placenta",
+    "blocks": {
+      "1분기": {
+        "best": "placental location과 전체적인 echotexture/morphology를 평가하고 mass, cyst, large lacuna 또는 subchorionic collection 등 gross abnormality를 확인한다.",
+        "acceptable": "placental location과 gross morphology를 충분히 평가할 수 있다. 1분기에는 placenta previa를 확정적으로 분류하지 않는다."
+      },
+      "2분기": {
+        "best": "placenta 전체 위치, morphology, lower placental edge와 internal cervical os의 관계를 평가하고 필요 시 cord insertion을 확인한다.",
+        "acceptable": "placenta와 internal os 관계 및 clinically relevant morphology를 판단할 수 있다."
+      },
+      "3분기": {
+        "best": "placental position과 lower edge–internal os relationship을 평가한다. Low-lying/previa가 의심되면 appropriate transvaginal assessment를 사용하고 임상상황에 따라 vasa previa/PAS risk를 추가 평가한다.",
+        "acceptable": "placental location과 lower edge의 임상적 의미를 판단할 수 있다."
+      }
+    },
+    "scope": "전 trimester",
+    "memo": "1분기 placental location은 이후 변화할 수 있어 previa 진단을 성급히 확정하지 않는다. [1][2][5]"
+  },
+  {
+    "number": 36,
+    "name": "Cervix",
+    "blocks": {
+      "1분기": {
+        "best": "특별한 clinical indication이 있을 때 cervical anatomy를 적절한 route로 평가한다.",
+        "acceptable": "routine 1분기 quality label로 강제하지 않는 것이 적절하다."
+      },
+      "2분기": {
+        "best": "transvaginal ultrasound에서 maternal bladder가 비어 있고 true sagittal cervix가 보이며 inferior bladder border, external os, endocervical canal/mucosa, internal os가 모두 확인된다. Cervix는 화면의 약 50–75%를 차지하고 probe pressure를 최소화한다. 세 번의 기술적으로 올바른 straight-line measurement 중 가장 짧은 값을 기록한다.",
+        "acceptable": "internal/external os와 canal이 확실히 보이고 경도의 curvature 또는 magnification 부족은 허용하되 probe pressure에 의한 artificial elongation이 없어야 한다."
+      },
+      "3분기": {
+        "best": "preterm-birth/placenta-related indication 등에서 동일한 standardized TVUS technique을 사용한다.",
+        "acceptable": "required landmarks가 유지되고 측정 bias를 유발할 과도한 pressure가 없다."
+      }
+    },
+    "scope": "1T routine 아님 · 2T TVUS CL 평가 · 3T indication-based",
+    "memo": "Cervical-length technique는 별도의 ISUOG preterm-birth guideline에 구체적으로 정의되어 있다. [6]"
+  },
+  {
+    "number": 37,
+    "name": "CRL",
+    "blocks": {
+      "1분기": {
+        "best": "true midsagittal whole-fetus view에서 fetus가 neutral position이고 crown과 rump endpoint가 명확하다. Fetus를 충분히 확대하고 CRL axis와 beam geometry가 측정에 적합하며 excessive flexion/extension이 없다.",
+        "acceptable": "near-midsagittal이고 경미한 flexion은 있으나 crown/rump endpoint와 longitudinal axis가 명확하며 clinically meaningful measurement bias가 예상되지 않는다."
+      }
+    },
+    "scope": "1T only",
+    "memo": "2·3분기에는 CRL standard plane을 적용하지 않는다. [1]"
+  },
+  {
+    "number": 38,
+    "name": "NT — Nuchal translucency",
+    "blocks": {
+      "1분기": {
+        "best": "true midsagittal view에서 head/upper thorax를 충분히 확대하고 fetus는 neutral posture를 유지한다. Amnion과 fetal skin이 명확히 분리되며 최대 NT thickness가 보이는 지점에서 caliper를 정확히 위치시킨다.",
+        "acceptable": "midsagittal에 매우 근접하고 neutral posture와 skin–amnion separation이 유지되며 maximum NT space를 신뢰성 있게 확인할 수 있다. 정량값이 위험도 계산에 사용되므로 허용오차는 다른 anatomy view보다 좁게 잡는다."
+      }
+    },
+    "scope": "1T only",
+    "memo": "2분기 nuchal fold는 NT와 다른 parameter이므로 같은 class로 분류하지 않는다. [1]"
+  }
+]

@@ -1,6 +1,6 @@
 import {Vector3,Quaternion,Matrix4,MathUtils} from './vendor/three.module.js';
 
-export const isCardiac=v=>['heart','lvot','rvot','vessels'].includes(v.type);
+export const isCardiac=v=>['heart','lvot','rvot','vessels','threev','threevpa','aoarch','ductarch','bicaval'].includes(v.type);
 export const planeReferences=[
  ['ISUOG · 심장 선별검사 2023, pp. 792–793','https://www.isuog.org/static/a529f402-06f9-42b6-ae9abdc736c43bf2/UOG-2023-Carvalho-ISUOG-Practice-Guidelines-updated-fetal-cardiac-screening.pdf'],
  ['ASE · 태아 심초음파 2023','https://www.asecho.org/wp-content/uploads/2023/07/PIIS0894731723002067-1.pdf'],
@@ -23,6 +23,21 @@ export function getPreset(v,phase){
  if(v.type==='rvot'){const rv=worldHeart(cardiacLandmarks.RV),pa=worldHeart(cardiacLandmarks.PA),branch=worldHeart([.12,.35,-.17]);center.copy(rv).lerp(pa,.7);normal.copy(through(rv,pa,branch));note='LVOT에서 더 머리 쪽으로 기울여 우심실–폐동맥 연결과 분지를 봅니다. 두 유출로의 교차는 연속 탐색으로 확인합니다. 모델의 RV·PA·분지 기준점으로 시작 평면을 정합니다.';}
  if(v.type==='vessels'){center.set(.08,.61,-.02);normal.set(0,1,-.28).normalize();note='상흉부로 이동한 뒤 각도를 조절하여 대동맥궁·동맥관궁과 기관의 관계를 봅니다. 3VT는 단순한 평행 이동만으로 항상 얻어지지 않습니다.';}}
  // Give equivalent normal directions consistent signs so normal offsets remain predictable.
+ if(['threev','threevpa'].includes(v.type)){center.set(.04,v.type==='threev'?.58:.56,-.04);normal.set(0,1,0);note='폐동맥·대동맥·상대정맥을 확인하는 상흉부 횡단면입니다. 3VT보다 낮은 높이이며 기관과 V-sign 평가면과 구분합니다.';}
+ if(['aoarch','ductarch','bicaval'].includes(v.type)){
+  const pts=v.type==='aoarch'?[[.02,.36,-.12],[.02,.47,-.22],[-.08,.38,-.27]]:v.type==='ductarch'?[[-.12,.2,.13],[.12,.35,-.17],[-.08,.38,-.27]]:[[-.25,.51,-.06],[-.11,0,-.11],[-.2,-.2,-.09]];
+  const [a,b,c]=pts.map(worldHeart);center.copy(a).add(b).add(c).multiplyScalar(1/3);normal.copy(through(a,b,c));note=v.type==='aoarch'?'상행대동맥–대동맥궁–하행대동맥을 잇는 종단면입니다.':v.type==='ductarch'?'폐동맥–동맥관–하행대동맥 연결을 보는 사선 종단면입니다.':'상대정맥과 하대정맥이 우심방으로 들어가는 연결을 보는 종단면입니다.';
+ }
+ if(v.type==='facialprofile'){center.set(0,1.4,.5);normal.set(1,0,0);}
+ if(v.type==='orbit'){center.set(0,1.5,.65);normal.set(0,1,.2).normalize();}
+ if(v.type==='cord'){center.set(0,-.3,.58);normal.set(1,0,0);}
+ if(v.type==='diaphragm'){center.set(0,-.1,0);normal.set(0,0,1);}
+ if(v.type==='kidneysag'){center.set(.19,-.54,-.1);normal.set(1,0,0);}
+ if(v.type==='kidneycor'){center.set(0,-.54,-.1);normal.set(0,0,1);}
+ if(v.type==='genitalia'){center.set(0,-.95,.35);normal.set(0,1,0);}
+ const limb={humerus:[[.5,.55,.2],[.75,.15,.45]],forearm:[[.75,.15,.45],[.4,.3,.8]],hand:[[.4,.3,.8],[.3,.38,.9]],tibia:[[.65,.05,1.2],[.75,-.8,1.4]],foot:[[.75,-.8,1.4],[.8,-.85,1.65]]}[v.type];
+ if(limb){const a=new Vector3(...limb[0]),b=new Vector3(...limb[1]);center.copy(a).lerp(b,.5);normal.copy(through(a,b,b.clone().add(new Vector3(.2,0,0))));note='해당 사지 분절의 장축을 포함하는 교육용 근사면입니다. 외형 모델에 개별 뼈의 분할 정보가 없어 임상 계측에는 사용할 수 없습니다.';}
+ if(['placenta','cervix'].includes(v.type)){center.set(0,0,0);normal.set(1,0,0);note='모체 자궁·태반·자궁경부의 관계를 별도 모식도로 표시합니다. 실제 계측용 단면이 아닙니다.';}
  if(normal.y<-.001)normal.negate();
  return {center,normal,note,refs,cardiac:isCardiac(v)};
 }
