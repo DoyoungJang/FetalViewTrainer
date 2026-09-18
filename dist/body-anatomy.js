@@ -9,7 +9,7 @@ export function createBodyAnatomy(body,skeleton){
  function bounds(name){const b=new T.Box3();all.filter(m=>m.userData.bodyPart===name).forEach(m=>b.union(new T.Box3().setFromObject(m)));return b;}
  return {supported,meshes,
   show(type,visible){if(body)body.group.visible=visible;if(skeleton)skeleton.group.visible=visible;
-   for(const m of all){const selected=!selections[type]||selections[type].includes(m.userData.bodyPart);m.visible=visible;m.material.transparent=!selected;m.material.opacity=selected?1:.12;m.material.depthWrite=selected;}
+   for(const m of all){const selected=!selections[type]||selections[type].includes(m.userData.bodyPart);m.visible=visible;m.material.transparent=!selected;m.material.opacity=selected?1:.28;m.material.depthWrite=selected;}
   },
   isolate(type,yes){if(yes)for(const m of all)m.visible=selections[type]?.includes(m.userData.bodyPart)||false;},
   preset(type){if(!supported(type))return null;

@@ -1,6 +1,7 @@
 import * as T from './vendor/three.module.js';
 import {GLTFLoader} from './vendor/GLTFLoader.js';
 
+const tissueColors={lungs:0xe3b7df,liver:0xf0a18b,stomach:0xffc3a5,spleen:0xcdb6fa,renal_pelvis:0xffe69b,kidneys:0xf0acc9,bladder:0xffdb91,thymus:0xf8cce9,gallbladder:0xa7e1b5,adrenals:0xffcb8a,diaphragm:0xf6bfb0};
 const definitions={
  body:{file:'fetal-body-kcl.glb',native:true,center:[0,-.2,.1]},
  skeleton:{file:'bodyparts-spine-diaphragm.glb',native:true,center:[0,-.2,-.3]},
@@ -26,7 +27,7 @@ export async function loadOrganModels(){
  const bounds=referenceBounds||new T.Box3().setFromObject(gltf.scene),size=bounds.getSize(new T.Vector3()),center=bounds.getCenter(new T.Vector3());
  if(bounds.isEmpty()||!Number.isFinite(size.length())||size.length()===0)throw new Error('Invalid '+kind+' model');
  if(!def.native){gltf.scene.position.sub(center);const scale=def.size/Math.max(size.x,size.y,size.z);normalized.scale.setScalar(scale);holder.position.set(...def.center);}
- const meshes=[];holder.traverse(o=>{if(!o.isMesh)return;meshes.push(o);const materials=Array.isArray(o.material)?o.material:[o.material];materials.forEach(m=>m.dispose());const sourceColor=materials[0]?.color?.clone();const color=def.native?(sourceColor||new T.Color(0xc69286)):kind==='heartInternal'&&/valve/.test(o.name)?0xf0d9a9:kind==='heartInternal'&&/septum/.test(o.name)?0xe1a08e:def.color;o.material=new T.MeshStandardMaterial({color,emissive:color,emissiveIntensity:kind==='brain'?.22:.08,roughness:.7,metalness:0,vertexColors:!!def.native,side:T.DoubleSide});});
+ const meshes=[];holder.traverse(o=>{if(!o.isMesh)return;meshes.push(o);const materials=Array.isArray(o.material)?o.material:[o.material];materials.forEach(m=>m.dispose());const sourceColor=materials[0]?.color?.clone();const color=def.native?(tissueColors[o.name]||0xffedc4):kind==='heartInternal'&&/valve/.test(o.name)?0xf0d9a9:kind==='heartInternal'&&/septum/.test(o.name)?0xe1a08e:def.color;o.material=new T.MeshStandardMaterial({color,emissive:color,emissiveIntensity:def.native?.48:.28,roughness:.7,metalness:0,vertexColors:false,side:T.DoubleSide});});
  if(kind==='brain')for(const mesh of meshes){
   mesh.geometry.computeVertexNormals();mesh.material.dispose();
   mesh.material=new T.ShaderMaterial({uniforms:{baseColor:{value:new T.Color(0xefd3bd)}},side:T.DoubleSide,toneMapped:false,
