@@ -1,0 +1,274 @@
+{
+    "@graph": [
+        {
+            "@id": "https://orcid.org/0000-0003-4066-7531",
+            "dcat:conforms_to": "Person",
+            "schema1:name": "Kristen Browne",
+            "schema1:identifier": "0000-0003-4066-7531",
+            "schema1:givenName": "Kristen",
+            "schema1:familyName": "Browne",
+            "rdfs:label": "Kristen Browne",
+            "@type": "schema1:Person"
+        },
+        {
+            "@id": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#nquads",
+            "dcat:mediaType": "application/n-quads",
+            "dcat:downloadURL": {
+                "@value": "https://cdn.humanatlas.io/digital-objects/ref-organ/heart-male/v1.1/graph.nq",
+                "@type": "xsd:anyURI"
+            },
+            "dcat:accessURL": {
+                "@value": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#nquads",
+                "@type": "xsd:anyURI"
+            },
+            "dct:title": "Graph data distribution heart-male (v1.1) in N-Quads format",
+            "rdfs:label": "Graph data distribution heart-male (v1.1) in N-Quads format",
+            "@type": "dcat:Distribution"
+        },
+        {
+            "@id": "https://orcid.org/0000-0002-3321-6137",
+            "dcat:conforms_to": "Person",
+            "schema1:name": "Katy Börner",
+            "schema1:identifier": "0000-0002-3321-6137",
+            "schema1:givenName": "Katy",
+            "schema1:familyName": "Börner",
+            "rdfs:label": "Katy Börner",
+            "@type": "schema1:Person"
+        },
+        {
+            "@id": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#ntriples",
+            "dcat:mediaType": "application/n-triples",
+            "dcat:downloadURL": {
+                "@value": "https://cdn.humanatlas.io/digital-objects/ref-organ/heart-male/v1.1/graph.nt",
+                "@type": "xsd:anyURI"
+            },
+            "dcat:accessURL": {
+                "@value": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#ntriples",
+                "@type": "xsd:anyURI"
+            },
+            "dct:title": "Graph data distribution heart-male (v1.1) in N-Triples format",
+            "rdfs:label": "Graph data distribution heart-male (v1.1) in N-Triples format",
+            "@type": "dcat:Distribution"
+        },
+        {
+            "@id": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#json",
+            "dcat:mediaType": "application/json",
+            "dcat:downloadURL": {
+                "@value": "https://cdn.humanatlas.io/digital-objects/ref-organ/heart-male/v1.1/graph.json",
+                "@type": "xsd:anyURI"
+            },
+            "dcat:accessURL": {
+                "@value": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#json",
+                "@type": "xsd:anyURI"
+            },
+            "dct:title": "Graph data distribution heart-male (v1.1) in JSON format",
+            "rdfs:label": "Graph data distribution heart-male (v1.1) in JSON format",
+            "@type": "dcat:Distribution"
+        },
+        {
+            "@id": "_:b0",
+            "schema1:funder": "National Institutes of Health",
+            "schema1:award": "OT2OD026671",
+            "@type": "schema1:Grant"
+        },
+        {
+            "@id": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#VH_M_Heart.glb",
+            "dcat:mediaType": "model/gltf-binary",
+            "dcat:downloadURL": {
+                "@value": "https://cdn.humanatlas.io/digital-objects/ref-organ/heart-male/v1.1/assets/VH_M_Heart.glb",
+                "@type": "xsd:anyURI"
+            },
+            "dcat:accessURL": {
+                "@value": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#VH_M_Heart.glb",
+                "@type": "xsd:anyURI"
+            },
+            "dct:title": "Raw data distribution 'VH_M_Heart.glb' file",
+            "rdfs:label": "Raw data distribution 'VH_M_Heart.glb' file",
+            "@type": "dcat:Distribution"
+        },
+        {
+            "@id": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#crosswalk.csv",
+            "dcat:mediaType": "text/csv",
+            "dcat:downloadURL": {
+                "@value": "https://cdn.humanatlas.io/digital-objects/ref-organ/heart-male/v1.1/assets/crosswalk.csv",
+                "@type": "xsd:anyURI"
+            },
+            "dcat:accessURL": {
+                "@value": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#crosswalk.csv",
+                "@type": "xsd:anyURI"
+            },
+            "dct:title": "Raw data distribution 'crosswalk.csv' file",
+            "rdfs:label": "Raw data distribution 'crosswalk.csv' file",
+            "@type": "dcat:Distribution"
+        },
+        {
+            "@id": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1",
+            "schema1:dateCreated": {
+                "@value": "2026-06-09",
+                "@type": "xsd:date"
+            },
+            "schema1:version": "v1.1",
+            "dcat:distribution": [
+                {
+                    "@id": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#turtle"
+                },
+                {
+                    "@id": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#nquads"
+                },
+                {
+                    "@id": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#ntriples"
+                },
+                {
+                    "@id": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#json"
+                },
+                {
+                    "@id": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#rdfxml"
+                },
+                {
+                    "@id": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#jsonld"
+                }
+            ],
+            "schema1:additionalType": "ref-organ",
+            "dct:license": "https://creativecommons.org/licenses/by/4.0/",
+            "dct:creator": {
+                "@id": "https://github.com/hubmapconsortium/hra-do-processor"
+            },
+            "dct:title": "heart-male (v1.1) graph data",
+            "rdfs:seeAlso": {
+                "@id": "https://purl.humanatlas.io/ref-organ/heart-male/v1.1"
+            },
+            "schema1:name": "heart-male",
+            "@type": "dcat:Dataset",
+            "rdfs:comment": "The graph representation of the 3D Reference Organ for Heart, Male dataset.",
+            "prov:wasDerivedFrom": {
+                "@id": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#raw-data"
+            },
+            "rdfs:label": "heart-male (v1.1) graph data",
+            "dct:publisher": "HuBMAP"
+        },
+        {
+            "@id": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#turtle",
+            "dcat:mediaType": "text/turtle",
+            "dcat:downloadURL": {
+                "@value": "https://cdn.humanatlas.io/digital-objects/ref-organ/heart-male/v1.1/graph.ttl",
+                "@type": "xsd:anyURI"
+            },
+            "dcat:accessURL": {
+                "@value": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#turtle",
+                "@type": "xsd:anyURI"
+            },
+            "dct:title": "Graph data distribution heart-male (v1.1) in Turtle format",
+            "rdfs:label": "Graph data distribution heart-male (v1.1) in Turtle format",
+            "@type": "dcat:Distribution"
+        },
+        {
+            "@id": "https://github.com/hubmapconsortium/hra-do-processor",
+            "dcat:conforms_to": "SoftwareApplication",
+            "schema1:version": "0.10.0",
+            "schema1:targetProduct": {
+                "@id": "_:b1"
+            },
+            "schema1:name": "HRA Digital Object Processor",
+            "rdfs:label": "HRA Digital Object Processor",
+            "@type": "schema1:SoftwareApplication"
+        },
+        {
+            "@id": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#rdfxml",
+            "dcat:mediaType": "application/rdf+xml",
+            "dcat:downloadURL": {
+                "@value": "https://cdn.humanatlas.io/digital-objects/ref-organ/heart-male/v1.1/graph.xml",
+                "@type": "xsd:anyURI"
+            },
+            "dcat:accessURL": {
+                "@value": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#rdfxml",
+                "@type": "xsd:anyURI"
+            },
+            "dct:title": "Graph data distribution heart-male (v1.1) in RDF/XML format",
+            "rdfs:label": "Graph data distribution heart-male (v1.1) in RDF/XML format",
+            "@type": "dcat:Distribution"
+        },
+        {
+            "@id": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#jsonld",
+            "dcat:mediaType": "application/ld+json",
+            "dcat:downloadURL": {
+                "@value": "https://cdn.humanatlas.io/digital-objects/ref-organ/heart-male/v1.1/graph.jsonld",
+                "@type": "xsd:anyURI"
+            },
+            "dcat:accessURL": {
+                "@value": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#jsonld",
+                "@type": "xsd:anyURI"
+            },
+            "dct:title": "Graph data distribution heart-male (v1.1) in JSON-LD format",
+            "rdfs:label": "Graph data distribution heart-male (v1.1) in JSON-LD format",
+            "@type": "dcat:Distribution"
+        },
+        {
+            "@id": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#raw-data",
+            "dct:title": "3D Reference Organ for Heart, Male",
+            "dct:creator": {
+                "@id": "https://orcid.org/0000-0003-4066-7531"
+            },
+            "@type": "dcat:Dataset",
+            "ccf:project_lead": {
+                "@id": "https://orcid.org/0000-0002-3321-6137"
+            },
+            "schema1:dateCreated": {
+                "@value": "2021-12-01",
+                "@type": "xsd:date"
+            },
+            "dct:publisher": "HuBMAP",
+            "rdfs:comment": "[This reference organ](https://humanatlas.io/3d-reference-library) was created using data from the Visible Human Male\nprovided by the National Library of Medicine.",
+            "dcat:distribution": [
+                {
+                    "@id": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#crosswalk.csv"
+                },
+                {
+                    "@id": "https://lod.humanatlas.io/ref-organ/heart-male/v1.1#VH_M_Heart.glb"
+                }
+            ],
+            "dct:license": "Creative Commons Attribution 4.0 International ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/))",
+            "ccf:citation_overall": "Browne, Kristen, Leonard E. Cross, Bruce W. Herr II, Lisel Record, Ellen Quardokus, Andreas Bueckle, Katy Börner. 2021. *HuBMAP CCF 3D Reference Object Library*. https://humanatlas.io/3d-reference-library. Accessed on December 01, 2021.",
+            "schema1:citation": "Kristen Browne. 2021. *3D Reference Organ for Heart, Female v1.1.* [https://doi.org/10.48539/HBM548.CTHS.699](https://doi.org/10.48539/HBM548.CTHS.699). Accessed on December 01, 2021.",
+            "rdfs:label": "3D Reference Organ for Heart, Male",
+            "ccf:doi": {
+                "@id": "https://doi.org/10.48539/HBM548.CTHS.699"
+            },
+            "schema1:funding": {
+                "@id": "_:b0"
+            },
+            "ccf:hubmap_id": "HBM548.CTHS.699",
+            "schema1:reviewedBy": {
+                "@id": "https://orcid.org/0000-0003-0118-0413"
+            }
+        },
+        {
+            "@id": "https://orcid.org/0000-0003-0118-0413",
+            "dcat:conforms_to": "Person",
+            "schema1:name": "Shin Lin",
+            "schema1:identifier": "0000-0003-0118-0413",
+            "schema1:givenName": "Shin",
+            "schema1:familyName": "Lin",
+            "rdfs:label": "Shin Lin",
+            "@type": "schema1:Person"
+        },
+        {
+            "@id": "_:b1",
+            "rdfs:seeAlso": {
+                "@id": "https://github.com/hubmapconsortium/hra-do-processor/commit/cd8d578a4c9da7c0539008bc2742971b4a545121"
+            },
+            "schema1:codeRepository": {
+                "@id": "https://github.com/hubmapconsortium/hra-do-processor"
+            },
+            "@type": "schema1:SoftwareSourceCode"
+        }
+    ],
+    "@context": {
+        "dct": "http://purl.org/dc/terms/",
+        "schema1": "http://schema.org/",
+        "ccf": "http://purl.org/ccf/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "dcat": "http://www.w3.org/ns/dcat#",
+        "prov": "http://www.w3.org/ns/prov#"
+    }
+}

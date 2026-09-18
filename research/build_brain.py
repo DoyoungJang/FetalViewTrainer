@@ -22,6 +22,7 @@ vertices=nib.affines.apply_affine(img.affine,vertices*2)
 # Source anatomical coordinates to viewer: right->-X, superior->Y, anterior->Z.
 vertices=np.column_stack([-vertices[:,0],vertices[:,2],vertices[:,1]])
 mesh=trimesh.Trimesh(vertices,faces,process=True)
+mesh.fix_normals()
 trimesh.smoothing.filter_taubin(mesh,lamb=.5,nu=.53,iterations=3)
 mesh.metadata={'name':'DHARANI FB40 masked tissue surface','source':'https://registry.opendata.aws/dharani-brain-dataset/','license':'CC BY 4.0','author':'SGBC IIT Madras; Verma et al. 2025','method':'RGB min < 250 (white background excluded), largest connected component, downsample 2, Gaussian 0.8, marching cubes step 2, Taubin 3'}
 scene=trimesh.Scene(mesh);scene.export('dist/models/brain-dharani.glb')

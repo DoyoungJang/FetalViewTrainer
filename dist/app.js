@@ -29,3 +29,5 @@ setup3D().catch(()=>{$('#error').hidden=false;$('#modelStatus').hidden=true;$('#
 if(document.modelContext?.registerTool){try{Promise.resolve(document.modelContext.registerTool({name:'select_fetal_view',description:'임신 분기와 단면 ID를 선택하여 학습 화면을 이동합니다.',inputSchema:{type:'object',properties:{trimester:{type:'integer',minimum:1,maximum:3},viewId:{type:'string'}},required:['trimester','viewId'],additionalProperties:false},annotations:{readOnlyHint:false,untrustedContentHint:false},execute(input){if(!input||!Number.isInteger(input.trimester)||input.trimester<1||input.trimester>3)throw new Error('Invalid trimester');const p=input.trimester-1;const i=phases[p].lessons.findIndex(x=>x.id===input.viewId);if(i<0)throw new Error('Unknown viewId');phase=p;index=i;render();return {trimester:phase+1,viewId:current().id,title:current().title};}})).catch(()=>{});}catch{}}
 
 
+
+$('#sectionView').onclick=()=>sceneAPI?.view('section');

@@ -1,0 +1,14 @@
+import {registerHooks} from 'node:module';
+import {readFile,writeFile} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+import * as T from '../dist/vendor/three.module.js';
+registerHooks({resolve(s,c,next){if(s==='three')return{url:new URL('../dist/vendor/three.module.js',import.meta.url).href,shortCircuit:true};return next(s,c);}});
+globalThis.ProgressEvent=class{};
+globalThis.fetch=async r=>new Response(await readFile(fileURLToPath(typeof r==='string'?r:r.href||r.url)));
+const {loadOrganModels}=await import('../dist/organ-models.js'),{sectionGeometry,createHistologySection}=await import('../dist/sections.js');
+const assets=await loadOrganModels(),a=assets.heartInternal,q=new T.Quaternion();a.group.updateWorldMatrix(true,true);
+const cap=sectionGeometry(a.meshes,a.center,q),meshes=a.meshes.map(m=>{const g=m.geometry.clone().applyMatrix4(m.matrixWorld).translate(-a.center.x,-a.center.y,-a.center.z);return{name:m.name,vertices:Array.from(g.attributes.position.array),faces:Array.from(g.index.array)};});
+await writeFile('research/section-inspection.json',JSON.stringify({meshes,cap:Array.from(cap.attributes.position.array)}));
+const hist=createHistologySection(assets.brain);hist.update(assets.brain.center,new T.Quaternion().setFromUnitVectors(new T.Vector3(0,0,1),new T.Vector3(0,1,0)));
+const pixels=hist.mesh.material.map.image.data;await writeFile('research/brain-slice.rgba',pixels);
+console.log('Heart cap vertices',cap.attributes.position.count,'brain visible pixels',pixels.filter((v,i)=>i%4===3&&v>0).length);
