@@ -1,5 +1,5 @@
 import * as T from './vendor/three.module.js';
-import {sectionSegments} from './planes.js';
+import {sectionSegments} from './planes.js?v=10';
 
 // Geometric reference sections of this specific adult mesh, not fetal validation.
 export function heartModelPreset(asset,type){
@@ -30,6 +30,7 @@ export function heartModelPreset(asset,type){
  if(type==='heart')names=['mitral_valve','tricuspid_valve','heart_left_ventricle'];
  else if(type==='lvot')names=['heart_left_ventricle','aortic_valve','ascending_aorta'];
  else if(type==='rvot')names=['heart_right_ventricle','pulmonary_valve','pulmonary_trunk'];
+ else if(type==='vessels')names=['pulmonary_trunk','aortic_arch','descending_aorta_a'];
  else if(type==='aoarch')names=['ascending_aorta','aortic_arch','descending_aorta_a'];
  else if(type==='bicaval')names=['superior_vena_cava','right_cardiac_atrium','inferior_vena_cava_a'];
  else return null;
