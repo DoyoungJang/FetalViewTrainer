@@ -31,7 +31,7 @@ api.angles({tilt:13,rock:4,rotation:5});api.offset(8);const adjusted=api.getStat
 api.select(lesson('abdomen'),1);assert.deepEqual(snapshot(),brainCamera);api.focus(false);assert.deepEqual(snapshot(),brainCamera);api.select(lesson('head'),1);assert.deepEqual(snapshot(),brainCamera);api.select(lesson('heart'),1);assert.deepEqual(snapshot(),brainCamera);api.view('front');assert.notDeepEqual(snapshot(),heartCamera);
 console.log('Camera orbit, target and zoom retained within heart/brain, after leaving and returning, and across source changes; explicit camera buttons remain effective.');
 
-const vt=heartModelPreset(assets.heartInternal,'vessels');for(const name of vt.names){const mesh=assets.heartInternal.meshes.find(m=>m.name==='VH_M_'+name);assert(sectionSegments([mesh],vt.normal,vt.center).length>0,'3VT reference plane misses '+name);}console.log('New-model 3VT reference cut intersects pulmonary trunk, aortic arch and descending aorta.');
+const vt=heartModelPreset(assets.heartInternal,'vessels');for(const name of vt.names){const mesh=assets.heartInternal.meshes.find(m=>m.name==='VH_M_'+name);assert(sectionSegments([mesh],vt.normal,vt.center).length>0,'3VT reference plane misses '+name);}console.log('New-model 3VT cut intersects its swapped vascular references.');
 
 const {OrbitControls}=await import('../dist/vendor/OrbitControls.js');
 const orbit=new OrbitControls(camera,null);orbit.enableDamping=true;orbit.target.copy(controls.target);orbit.minDistance=controls.minDistance;orbit.maxDistance=controls.maxDistance;orbit.update();const held=camera.position.clone(),heldQ=camera.quaternion.clone();
@@ -39,7 +39,7 @@ for(const type of ['heart','vessels','head','abdomen','cerebellum','lvot']){api.
 console.log('Real OrbitControls: camera remains fixed after 60 animation updates for cardiac, brain and non-organ transitions.');
 
 const upperPlane=heartModelPreset(assets.heartInternal,'vessels'),threeVV=heartModelPreset(assets.heartInternal,'threev');
-assert(upperPlane.center.y>threeVV.center.y+.04,'3VT reference must be cranial to 3VV');
+assert(Math.abs(upperPlane.center.y-.7229390023950735)<1e-8,'3VT uses previous 3VV location');assert(Math.abs(threeVV.center.y-.7821598388807727)<1e-8,'3VV uses previous 3VT location');
 assert(upperPlane.normal.dot(new T.Vector3(0,1,0))>.95,'must remain near transverse, not a descending-aorta longitudinal plane');
 for(const point of upperPlane.landmarks)assert(Math.abs(point.clone().sub(upperPlane.center).dot(upperPlane.normal))<1e-8);
 for(const name of upperPlane.names){const box=new T.Box3().setFromObject(assets.heartInternal.meshes.find(m=>m.name==='VH_M_'+name));assert(upperPlane.center.y>box.min.y&&upperPlane.center.y<box.max.y);}

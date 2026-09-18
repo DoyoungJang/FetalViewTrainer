@@ -1,8 +1,10 @@
 import * as T from './vendor/three.module.js';
-import {sectionSegments} from './planes.js?v=17';
+import {sectionSegments} from './planes.js?v=18';
 
 // Geometric reference sections of this specific adult mesh, not fetal validation.
-export function heartModelPreset(asset,type){
+// User-selected display mapping applies only to these two HRA lesson presets.
+export function heartModelPreset(asset,type){return referencePreset(asset,type==='threev'?'vessels':type==='vessels'?'threev':type);}
+function referencePreset(asset,type){
  asset.group.updateWorldMatrix(true,true);
  if(['threev','threevpa','vessels'].includes(type)){
   // Restrict the cranial reference slice to the shared superior vascular region.
@@ -24,7 +26,7 @@ export function heartModelPreset(asset,type){
   return {center:points.reduce((a,p)=>a.add(p),new T.Vector3()).multiplyScalar(1/points.length),normal:new T.Vector3(0,1,0),landmarks:points,names,anchorNames:type==='vessels'?['폐동맥줄기','대동맥궁','상부 하행대동맥','상대정맥']:names,method:'Shared vascular cross-section level'};
  }
  if(type==='ductarch'){
-  const upper=heartModelPreset(asset,'vessels');if(!upper)return null;
+  const upper=referencePreset(asset,'vessels');if(!upper)return null;
   const valve=asset.meshes.find(m=>m.name==='VH_M_pulmonary_valve');if(!valve)return null;
   const a=new T.Box3().setFromObject(valve).getCenter(new T.Vector3()),b=upper.landmarks[0].clone(),c=upper.landmarks[2].clone();
   const normal=b.clone().sub(a).cross(c.clone().sub(a)).normalize();if(normal.lengthSq()<.9)return null;
