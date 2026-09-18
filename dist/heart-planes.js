@@ -1,5 +1,5 @@
 import * as T from './vendor/three.module.js';
-import {sectionSegments} from './planes.js?v=14';
+import {sectionSegments} from './planes.js?v=15';
 
 // Geometric reference sections of this specific adult mesh, not fetal validation.
 export function heartModelPreset(asset,type){

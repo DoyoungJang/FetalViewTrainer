@@ -1,5 +1,5 @@
 import {Vector3,Quaternion,Matrix4,MathUtils} from './vendor/three.module.js';
-import {limbLandmarks,brainLandmarks,greatVessels,heartOrigin as origin} from './anatomy-registration.js?v=14';
+import {limbLandmarks,brainLandmarks,greatVessels,heartOrigin as origin} from './anatomy-registration.js?v=15';
 
 export const isCardiac=v=>['heart','lvot','rvot','vessels','threev','threevpa','aoarch','ductarch','bicaval'].includes(v.type);
 export const planeReferences=[
@@ -29,7 +29,7 @@ export function getPreset(v,phase){
  }
  if(v.type==='facialprofile'){center.set(0,1.4,.5);normal.set(1,0,0);}
  if(v.type==='orbit'){center.set(0,1.5,.65);normal.set(0,1,.2).normalize();}
- if(v.type==='cord'){center.set(0,-.3,.58);normal.set(1,0,0);}
+ if(v.type==='cord'){center.set(0,-.3,.58);normal.set(0,1,0);landmarks=[center.clone()];anchorNames=['복부 제대 부착부 참고 위치'];note='복부 제대 부착부를 지나는 횡단면(axial)입니다. 태아의 머리–꼬리 축에 수직이며, 복벽의 연속성과 제대 부착을 확인하는 교육용 시작면입니다.';}
  if(v.type==='diaphragm'){center.set(0,-.1,0);normal.set(0,0,1);}
  if(v.type==='kidneysag'){center.set(.19,-.54,-.1);normal.set(1,0,0);}
  if(v.type==='kidneycor'){center.set(0,-.54,-.1);normal.set(0,0,1);}

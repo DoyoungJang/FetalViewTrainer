@@ -1,9 +1,9 @@
-import {createMaternalModel} from './maternal-model.js?v=14';
+import {createMaternalModel} from './maternal-model.js?v=15';
 import * as T from './vendor/three.module.js';
-import {getPreset,resolvePlane,sectionSegments,isCardiac,cardiacLandmarks,planeReferences} from './planes.js?v=14';
-import {sectionGeometry} from './sections.js?v=14';
-import {heartModelPreset} from './heart-planes.js?v=14';
-import {cardiacPaths} from './anatomy-registration.js?v=14';
+import {getPreset,resolvePlane,sectionSegments,isCardiac,cardiacLandmarks,planeReferences} from './planes.js?v=15';
+import {sectionGeometry} from './sections.js?v=15';
+import {heartModelPreset} from './heart-planes.js?v=15';
+import {cardiacPaths} from './anatomy-registration.js?v=15';
 
 const isBrain=v=>['head','ventricle','cerebellum','earlybrain'].includes(v.type);
 export function attachExplorer({scene,camera,controls,fetus,headGroup,ell,organMat,boneMat,grid,$,organAssets={}}){

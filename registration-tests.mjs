@@ -22,3 +22,5 @@ for(const name of ['AoArch','Duct']){
 assert(greatVessels.archStart[0]>greatVessels.trachea[0]&&greatVessels.ductStart[0]>greatVessels.trachea[0]);
 assert(limbLandmarks.ankle[2]>2&&limbLandmarks.toe[2]>2.4);
 console.log('Registered limb/brain planes contain their references; 3VV intersects PA/Ao/SVC with ordered calibers; both 3VT arches lie in one cranial V plane left of the trachea.');
+
+const cordPlane=getPreset({type:"cord",y:0},1);assert.deepEqual(cordPlane.normal.toArray(),[0,1,0]);assert.equal(cordPlane.center.y,-.3);assert.equal(cordPlane.landmarks[0].distanceTo(cordPlane.center),0);console.log("Cord insertion starts in the axial plane, perpendicular to the cranial axis.");
