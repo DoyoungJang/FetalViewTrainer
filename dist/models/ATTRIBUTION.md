@@ -66,3 +66,6 @@ Kristen Browne and Heidi Schlehlein (2022). 3D Reference Organ for Uterus v1.1. 
 
 ## Placenta replacement — hosted specimen viewer
 WesternU3D 300176 Placenta. Specimen selected by Chaya Prasad, MD; scan by Melissa Russell. https://sketchfab.com/3d-models/300176-placenta-78d6f46a754b45de8a5fe6b60642258f . Download disabled; no asset redistributed. Displayed through the official Sketchfab embed. The prior procedural maternal model is no longer displayed.
+
+## Pregnancy composite context
+The default placenta/cervix scene combines the gelmi fetal exterior (rotated, uniformly scaled and positioned) and HRA cervical meshes (rigidly reoriented and uniformly scaled) with authored uterine envelope, placenta and cord. This is not a single-patient pregnancy specimen, not a gestational-age-specific reconstruction, and not calibrated for measurements. Original sources remain selectable in specimen mode.
