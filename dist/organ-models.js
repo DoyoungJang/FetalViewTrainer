@@ -1,6 +1,5 @@
 import * as T from './vendor/three.module.js';
 import {GLTFLoader} from './vendor/GLTFLoader.js';
-import {loadBrainVolume} from './sections.js';
 
 const definitions={
  heart:{file:'heart-human.glb',size:.82,center:[.1,.38,.0],color:0xc56d65},
@@ -10,12 +9,26 @@ const definitions={
 export async function loadOrganModels(){
  const assets={};await Promise.all(Object.entries(definitions).map(async([kind,def])=>{
  const gltf=await new GLTFLoader().loadAsync(new URL('./models/'+def.file,import.meta.url).href);
- if(kind==='heartInternal')gltf.scene.getObjectByName('VH_M_blood_vasculature_of_heart')?.removeFromParent();
+ if(kind==='heartInternal'){
+  gltf.scene.updateWorldMatrix(true,true);
+  const heart=gltf.scene.getObjectByName('VH_M_heart');
+  for(const name of ['ascending_aorta','pulmonary_trunk','pulmonary_artery_L','pulmonary_artery_R']){
+   const vessel=gltf.scene.getObjectByName('VH_M_'+name);if(vessel)heart.attach(vessel);
+  }
+  gltf.scene.getObjectByName('VH_M_blood_vasculature_of_heart')?.removeFromParent();
+ }
  const holder=new T.Group(),normalized=new T.Group();holder.name=kind+'-open-reference';holder.add(normalized);normalized.add(gltf.scene);gltf.scene.updateWorldMatrix(true,true);
  const bounds=new T.Box3().setFromObject(gltf.scene),size=bounds.getSize(new T.Vector3()),center=bounds.getCenter(new T.Vector3());
  if(bounds.isEmpty()||!Number.isFinite(size.length())||size.length()===0)throw new Error('Invalid '+kind+' model');
  gltf.scene.position.sub(center);const scale=def.size/Math.max(size.x,size.y,size.z);normalized.scale.setScalar(scale);holder.position.set(...def.center);
  const meshes=[];holder.traverse(o=>{if(!o.isMesh)return;meshes.push(o);const materials=Array.isArray(o.material)?o.material:[o.material];materials.forEach(m=>m.dispose());const color=kind==='heartInternal'&&/valve/.test(o.name)?0xf0d9a9:kind==='heartInternal'&&/septum/.test(o.name)?0xe1a08e:def.color;o.material=new T.MeshStandardMaterial({color,emissive:color,emissiveIntensity:kind==='brain'?.22:.08,roughness:.7,metalness:0,side:T.DoubleSide});});
+ if(kind==='brain')for(const mesh of meshes){
+  mesh.geometry.computeVertexNormals();mesh.material.dispose();
+  mesh.material=new T.ShaderMaterial({uniforms:{baseColor:{value:new T.Color(0xefd3bd)}},side:T.DoubleSide,toneMapped:false,
+   vertexShader:'varying vec3 surfaceNormal; void main(){surfaceNormal=normalize(normalMatrix*normal); gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}',
+   fragmentShader:'uniform vec3 baseColor; varying vec3 surfaceNormal; void main(){float shade=0.72+0.28*abs(dot(normalize(surfaceNormal),normalize(vec3(0.35,0.55,1.0)))); gl_FragColor=vec4(baseColor*shade,1.0);\n#include <colorspace_fragment>\n}'
+  });
+ }
  if(!meshes.length)throw new Error('Empty '+kind+' model');assets[kind]={group:holder,meshes,modelRoot:gltf.scene,center:new T.Vector3(...def.center)};
- }));assets.brain.volume=await loadBrainVolume();return assets;
+ }));return assets;
 }
