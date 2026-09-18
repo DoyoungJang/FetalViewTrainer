@@ -21,3 +21,6 @@ research/section-inspection.json
 research/brain-slice.rgba
 research/section-check.png
 research/docx-standard.txt
+
+research/*registration*.png
+research/registration-check.json

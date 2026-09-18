@@ -1,31 +1,30 @@
 import {Vector3,Quaternion,Matrix4,MathUtils} from './vendor/three.module.js';
+import {limbLandmarks,brainLandmarks,greatVessels,heartOrigin as origin} from './anatomy-registration.js';
 
 export const isCardiac=v=>['heart','lvot','rvot','vessels','threev','threevpa','aoarch','ductarch','bicaval'].includes(v.type);
 export const planeReferences=[
  ['ISUOG · 심장 선별검사 2023, pp. 792–793','https://www.isuog.org/static/a529f402-06f9-42b6-ae9abdc736c43bf2/UOG-2023-Carvalho-ISUOG-Practice-Guidelines-updated-fetal-cardiac-screening.pdf'],
  ['ASE · 태아 심초음파 2023','https://www.asecho.org/wp-content/uploads/2023/07/PIIS0894731723002067-1.pdf'],
- ['ISUOG · 중추신경계 선별검사 2020','https://www.isuog.org/asset/C5E79C3A-248E-4BF4-8C195701279B6C05/']
+ ['ISUOG · 중추신경계 선별검사 2020','https://isuog.org/static/c5e79c3a-248e-4bf4-8c195701279b6c05/ISUOG-Practice-Guidelines-CNS-part-1-targeted-neurosonography.pdf'],
+ ['ISUOG Basic Training · 사지 장축과 손발의 관계','https://www.isuog.org/asset/6769CB98-F215-445D-872B63570C45E1F7/']
 ];
 // Coordinates are authored schematic landmarks, NOT patient measurements or prescribed probe angles.
-const heartOrigin=new Vector3(.1,.24,.04);
+const heartOrigin=new Vector3(...origin);
 export const cardiacLandmarks={RA:[-.11,0,-.11],LA:[.10,0,-.14],RV:[-.06,-.02,.13],LV:[.16,-.05,.09],Ao:[.09,.19,-.015],PA:[-.12,.2,.13]};
 const worldHeart=p=>new Vector3(...p).add(heartOrigin);
 function through(a,b,c){return new Vector3().subVectors(b,a).cross(new Vector3().subVectors(c,a)).normalize();}
 export function getPreset(v,phase){
- let center=new Vector3(0,v.y,0),normal=new Vector3(0,1,0),note='태아의 해부학적 축을 기준으로 단면을 정렬합니다. 태위와 탐촉자 접근에 따라 조절이 필요합니다.',refs=[];
+ let center=new Vector3(0,v.y,0),normal=new Vector3(0,1,0),note='태아의 해부학적 축을 기준으로 단면을 정렬합니다. 태위와 탐촉자 접근에 따라 조절이 필요합니다.',refs=[],landmarks=[],anchorNames=[],extent=null;
  if(['profile','nt','spine'].includes(v.type)){normal.set(1,0,0);center.set(0,v.type==='nt'?1.25:.2,0);note='정중시상면을 찾습니다. 화면의 축보다 태아 정중선과 해부학적 구조의 정렬이 기준입니다.';}
  if(v.type==='face'){normal.set(0,0,1);center.set(0,1.35,.72);note='상순을 관찰하는 관상면입니다. 옆얼굴을 보려면 별도의 정중시상면이 필요합니다.';}
- if(v.type==='cerebellum'){normal.set(0,1,-.25).normalize();note='시상 단면에서 후방으로 조금 기울여 소뇌와 대조를 찾습니다. 과도한 기울임은 후두와 구조를 왜곡할 수 있습니다.';refs=[2];}
  if(['head','ventricle','earlybrain'].includes(v.type)){note='머리의 대칭과 정중선을 기준으로 횡단면을 맞춥니다. 시상 단면과 측뇌실 단면은 높이가 다르며, 소뇌 단면은 후방 기울기가 추가됩니다.';refs=[2];}
- if(v.type==='femur'){const hip=new Vector3(.55,-1.05,-.15),knee=new Vector3(.65,.05,1.2);center.copy(hip).lerp(knee,.5);normal.copy(through(hip,knee,knee.clone().add(new Vector3(.2,.1,0))));note='굴곡된 다리의 대퇴골 장축을 포함하는 사선 단면입니다. 전신 X·Y·Z 축에 고정하면 뼈가 짧게 잘릴 수 있습니다.';}
  if(isCardiac(v)){refs=[0,1];center.copy(heartOrigin);if(v.type==='heart'){note='흉부 횡단면에서 네 방을 확인합니다. 이후 머리 쪽으로 스윕하면서 작은 각도 조절로 유출로를 찾습니다.';}
  if(v.type==='lvot'){const lv=worldHeart(cardiacLandmarks.LV),ao=worldHeart(cardiacLandmarks.Ao),septum=worldHeart([0,0,0]);center.copy(lv).lerp(ao,.5);normal.copy(through(lv,ao,septum));note='사강 단면에서 머리 쪽으로 이동·각도 조절하여 좌심실–대동맥 연결을 찾습니다. 태아 오른쪽 어깨 방향으로 회전하는 접근도 있습니다. 이 시작 평면은 모델의 LV·Ao·중격 기준점을 통과합니다.';}
- if(v.type==='rvot'){const rv=worldHeart(cardiacLandmarks.RV),pa=worldHeart(cardiacLandmarks.PA),branch=worldHeart([.12,.35,-.17]);center.copy(rv).lerp(pa,.7);normal.copy(through(rv,pa,branch));note='LVOT에서 더 머리 쪽으로 기울여 우심실–폐동맥 연결과 분지를 봅니다. 두 유출로의 교차는 연속 탐색으로 확인합니다. 모델의 RV·PA·분지 기준점으로 시작 평면을 정합니다.';}
- if(v.type==='vessels'){center.set(.08,.61,-.02);normal.set(0,1,-.28).normalize();note='상흉부로 이동한 뒤 각도를 조절하여 대동맥궁·동맥관궁과 기관의 관계를 봅니다. 3VT는 단순한 평행 이동만으로 항상 얻어지지 않습니다.';}}
+ if(v.type==='rvot'){const rv=worldHeart(cardiacLandmarks.RV),pa=worldHeart(cardiacLandmarks.PA),branch=worldHeart(greatVessels.PA);center.copy(rv).lerp(pa,.7);normal.copy(through(rv,pa,branch));note='LVOT에서 더 머리 쪽으로 기울여 우심실–폐동맥 연결과 분지를 봅니다. 두 유출로의 교차는 연속 탐색으로 확인합니다. 모델의 RV·PA·분지 기준점으로 시작 평면을 정합니다.';}
+ }
  // Give equivalent normal directions consistent signs so normal offsets remain predictable.
- if(['threev','threevpa'].includes(v.type)){center.set(.04,v.type==='threev'?.58:.56,-.04);normal.set(0,1,0);note='폐동맥·대동맥·상대정맥을 확인하는 상흉부 횡단면입니다. 3VT보다 낮은 높이이며 기관과 V-sign 평가면과 구분합니다.';}
  if(['aoarch','ductarch','bicaval'].includes(v.type)){
-  const pts=v.type==='aoarch'?[[.02,.36,-.12],[.02,.47,-.22],[-.08,.38,-.27]]:v.type==='ductarch'?[[-.12,.2,.13],[.12,.35,-.17],[-.08,.38,-.27]]:[[-.25,.51,-.06],[-.11,0,-.11],[-.2,-.2,-.09]];
+  const pts=v.type==='aoarch'?[[0,.28,0],greatVessels.archStart,greatVessels.descending]:v.type==='ductarch'?[[-.12,.2,.13],greatVessels.ductStart,greatVessels.descending]:[[-.2,.51,-.04],[-.11,0,-.11],[-.2,-.2,-.09]];
   const [a,b,c]=pts.map(worldHeart);center.copy(a).add(b).add(c).multiplyScalar(1/3);normal.copy(through(a,b,c));note=v.type==='aoarch'?'상행대동맥–대동맥궁–하행대동맥을 잇는 종단면입니다.':v.type==='ductarch'?'폐동맥–동맥관–하행대동맥 연결을 보는 사선 종단면입니다.':'상대정맥과 하대정맥이 우심방으로 들어가는 연결을 보는 종단면입니다.';
  }
  if(v.type==='facialprofile'){center.set(0,1.4,.5);normal.set(1,0,0);}
@@ -35,11 +34,15 @@ export function getPreset(v,phase){
  if(v.type==='kidneysag'){center.set(.19,-.54,-.1);normal.set(1,0,0);}
  if(v.type==='kidneycor'){center.set(0,-.54,-.1);normal.set(0,0,1);}
  if(v.type==='genitalia'){center.set(0,-.95,.35);normal.set(0,1,0);}
- const limb={humerus:[[.5,.55,.2],[.75,.15,.45]],forearm:[[.75,.15,.45],[.4,.3,.8]],hand:[[.4,.3,.8],[.3,.38,.9]],tibia:[[.65,.05,1.2],[.75,-.8,1.4]],foot:[[.75,-.8,1.4],[.8,-.85,1.65]]}[v.type];
- if(limb){const a=new Vector3(...limb[0]),b=new Vector3(...limb[1]);center.copy(a).lerp(b,.5);normal.copy(through(a,b,b.clone().add(new Vector3(.2,0,0))));note='해당 사지 분절의 장축을 포함하는 교육용 근사면입니다. 외형 모델에 개별 뼈의 분할 정보가 없어 임상 계측에는 사용할 수 없습니다.';}
+ const limbNames={humerus:['shoulder','elbow'],forearm:['elbow','wrist'],hand:['wrist','finger','palmEdge'],femur:['hip','knee'],tibia:['knee','ankle'],foot:['heel','toe','footEdge']}[v.type];
+ if(limbNames){const points=limbNames.map(n=>new Vector3(...limbLandmarks[n]));const [a,b]=points;const c=points[2]||a.clone().lerp(b,.5).add(new Vector3(.09,0,0));center.copy(a).lerp(b,.5);normal.copy(through(a,b,c));landmarks=[a,b,c];anchorNames=limbNames.map(n=>({shoulder:"어깨",elbow:"팔꿈치",wrist:"손목",finger:"손가락 끝",palmEdge:"손바닥",hip:"고관절",knee:"무릎",ankle:"발목",heel:"발뒤꿈치",toe:"발끝",footEdge:"발 가장자리"}[n]));extent=Math.max(.7,a.distanceTo(b)+.35);note='현재 굴곡된 외형 모델에서 확인한 관절·손발 기준점을 지나는 장축면입니다. 주황 기준점과 평면을 함께 확인하세요. 외형에 맞춘 교육용 위치이며 개별 뼈의 분할·임상 계측 모델은 아닙니다.';refs=[3];}
+ if(v.type==='cerebellum'){const a=new Vector3(...brainLandmarks.cerebellumLeft),b=new Vector3(...brainLandmarks.cerebellumRight),c=new Vector3(...brainLandmarks.thalamicRegion);center.copy(a).add(b).multiplyScalar(.5);normal.copy(through(a,b,c));landmarks=[a,b,c];anchorNames=['소뇌 영역 1','소뇌 영역 2','시상 영역'];extent=1.35;note='후하방의 양측 소뇌 영역과 시상 영역을 지나는 경사면입니다. DHARANI 표면에서 확인한 영역 기준점이며 소뇌 분할 마스크가 아닙니다.';refs=[2];}
+ if(['head','ventricle','earlybrain'].includes(v.type)){center.set(...(v.type==='head'?brainLandmarks.thalamicRegion:brainLandmarks.ventricularLevel));}
+ if(['threev','threevpa'].includes(v.type)){center.copy(worldHeart(v.type==='threevpa'?greatVessels.PAmeasure:greatVessels.Ao));normal.set(0,1,0);landmarks=v.type==='threevpa'?[worldHeart(greatVessels.PAmeasure)]:[greatVessels.PA,greatVessels.Ao,greatVessels.SVC].map(worldHeart);anchorNames=v.type==='threevpa'?['PA 측정 중심']:['PA','Ao','SVC'];note=v.type==='threevpa'?'폐동맥 줄기의 중심선에 수직인 측정 시작면입니다. 3VV의 PA 측정 하위 항목이며 별도의 공식 독립 단면을 뜻하지 않습니다.':'폐동맥–대동맥–상대정맥의 세 중심선을 가로지르는 면입니다. 모식도의 태아 왼쪽에서 오른쪽 순서로 PA–Ao–SVC를 배치했습니다.';}
+ if(v.type==='vessels'){const a=worldHeart(greatVessels.ductStart),b=worldHeart(greatVessels.archStart),c=worldHeart(greatVessels.descending);center.copy(a).add(b).add(c).multiplyScalar(1/3);normal.copy(through(a,b,c));landmarks=[a,b,c];anchorNames=['동맥관궁','대동맥궁','하행대동맥'];note='동맥관궁과 대동맥궁이 하행대동맥으로 합류하는 V의 세 기준점을 포함하는 경사면입니다. 두 궁은 기관의 태아 왼쪽을 지나며, 3VV보다 머리 쪽에 위치합니다.';}
  if(['placenta','cervix'].includes(v.type)){center.set(0,0,0);normal.set(1,0,0);note='모체 자궁·태반·자궁경부의 관계를 별도 모식도로 표시합니다. 실제 계측용 단면이 아닙니다.';}
  if(normal.y<-.001)normal.negate();
- return {center,normal,note,refs,cardiac:isCardiac(v)};
+ return {center,normal,note,refs,landmarks,anchorNames,extent,cardiac:isCardiac(v)};
 }
 export function resolvePlane(preset,tilt=0,rock=0,rotation=0,offset=0){
  if(![tilt,rock,rotation,offset].every(Number.isFinite))throw new Error('Plane values must be finite');
