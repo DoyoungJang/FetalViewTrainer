@@ -57,3 +57,6 @@ Limb planes now use reference points inspected against orthographic and oblique 
 
 ### Duct Arch teaching supplement
 The cyan ductal connection displayed with the HRA adult heart is an authored educational addition, not part of the donor GLB and not a fetal segmentation. Its longitudinal reference plane uses the pulmonary valve, distal pulmonary trunk and upper descending aorta. It is hidden outside Duct Arch.
+
+### Maternal teaching model
+Authored procedural uterus, posterior placental disc and lobules, umbilical cord, and cervix with an open canal. These are educational schematic meshes, not scanned patient anatomy or gestational-age-specific measurements. Cervical landmarks follow the internal os–canal–external os relationship described in ISUOG cervical assessment guidance: https://isuog.org/static/e45c9342-359c-4c5b-86fb71d52562303b/ultrasound-in-preterm-birth.pdf
