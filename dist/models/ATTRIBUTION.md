@@ -93,3 +93,6 @@ BodyParts3D, © The Database Center for Life Science licensed under CC Attributi
 - Derivative changes: triangle reduction, reorientation, coloring, spinal uniform scaling/translation; diaphragm resized independently for approximate placement. Not fetal ossification anatomy or an MRI-derived fetal diaphragm.
 - The derivative GLB remains CC BY-SA 2.1 Japan: https://creativecommons.org/licenses/by-sa/2.1/jp/ . Attribution and source terms: bodyparts-license.txt. Downloadable source-derived asset: bodyparts-spine-diaphragm.glb.
 - Accessed September 19, 2026 (KST). Separate assets retain their respective licenses; these models do not imply author endorsement.
+
+## HRA heart spatial registration
+The chamber envelope is uniformly scaled and translated to the current curled fetal surface. Midline and lateral ray intersections determine thoracic depth and width at the lung-atlas height. Anatomical handedness is preserved; section landmarks and the camera focus use the transformed geometry. This is an educational registration across unrelated models, not clinical or patient-specific validation.

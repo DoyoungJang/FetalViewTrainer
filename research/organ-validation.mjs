@@ -40,7 +40,7 @@ console.log('Real OrbitControls: camera remains fixed after 60 animation updates
 
 api.select(lesson('vessels'),1);
 const upperPlane=heartModelPreset(assets.heartInternal,'vessels'),threeVV=heartModelPreset(assets.heartInternal,'threev');
-assert(Math.abs(upperPlane.center.y-.7229390023950735)<1e-8,'3VT uses previous 3VV location');assert(Math.abs(threeVV.center.y-.7821598388807727)<1e-8,'3VV uses previous 3VT location');
+assert(threeVV.center.y>upperPlane.center.y,'User-selected 3VV/3VT mapping preserved after registration');
 assert(upperPlane.normal.dot(new T.Vector3(0,1,0))>.95,'must remain near transverse, not a descending-aorta longitudinal plane');
 for(const point of upperPlane.landmarks)assert(Math.abs(point.clone().sub(upperPlane.center).dot(upperPlane.normal))<1e-8);
 for(const name of upperPlane.names){const box=new T.Box3().setFromObject(assets.heartInternal.meshes.find(m=>m.name==='VH_M_'+name));assert(upperPlane.center.y>box.min.y&&upperPlane.center.y<box.max.y);}
