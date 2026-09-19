@@ -4,48 +4,48 @@ const cardiac='https://pmc.ncbi.nlm.nih.gov/articles/PMC8429868/';
 const renal='https://pmc.ncbi.nlm.nih.gov/articles/PMC7498649/';
 const entry=(items,note='',source=general)=>({items,note,source});
 const anatomy={
- head:entry(['두개골과 대뇌겸: 머리 윤곽과 정중선의 대칭을 확인합니다.','양측 시상: 중앙의 한 쌍 구조로, BPD/HC 측정 높이를 잡는 기준입니다.','투명중격강(CSP): 시상 앞쪽의 공간을 확인합니다.'],'TTP는 시상(thalamus) 수준의 횡단면입니다. 소뇌가 포함되는 낮은 단면과 구분합니다.'),
- ventricle:entry(['대뇌겸·양측 대뇌반구: 정중선과 좌우 대칭을 확인합니다.','측뇌실 심방: 뒤쪽 뇌실의 폭을 평가하는 부위입니다.','맥락총 사구: 측뇌실 안의 밝은 구조로 심방 위치를 찾는 표지입니다.','투명중격강(CSP): 앞쪽 정중부에서 함께 확인합니다.']),
- earlybrain:entry(['두개골 윤곽: 양측 머리의 골화와 모양을 확인합니다.','대뇌겸: 양측 반구를 나누는 밝은 정중선입니다.','측뇌실·맥락총: 양측 맥락총의 나비 모양과 대칭을 봅니다.'],'초기에는 맥락총이 뇌실의 많은 부분을 차지합니다. 2분기 CSP·시상 기준을 그대로 적용하지 않습니다.','https://pmc.ncbi.nlm.nih.gov/articles/PMC4710000/'),
- cerebellum:entry(['양측 소뇌반구: 후두와에서 한 쌍으로 보이는 구조입니다.','소뇌충부 영역: 양측 반구 사이의 중앙부를 확인합니다.','대조(cisterna magna): 소뇌 뒤쪽과 후두골 사이의 액체 공간입니다.'],'충부의 완전한 평가는 정중시상면 등 추가 단면과 발달 주수 확인이 필요합니다.'),
- face:entry(['상순: 좌우로 이어지는 입술의 연속성을 봅니다.','비공·코끝: 상순 위쪽에서 얼굴의 방향을 찾습니다.','입과 하순: 상순 아래의 경계를 확인합니다.'],'상순 관상면만으로 구개 전체의 정상 여부를 판단하지 않습니다.'),
- orbit:entry(['양측 안와: 좌우 크기와 위치의 대칭을 확인합니다.','안구: 각 안와 안의 둥근 구조입니다.','수정체: 안구 앞쪽의 밝은 테두리를 가진 작은 구조입니다.']),
- facialprofile:entry(['이마·비골·코끝: 정중시상면에서 이어지는 얼굴 윤곽입니다.','상악·하악과 턱끝: 두 턱의 상대 위치를 확인합니다.','입술: 코 아래부터 턱까지의 윤곽을 따라 봅니다.'],'정확한 정중면인지 확인하고 사선 단면에 의한 턱의 단축을 피합니다.'),
- heart:entry(['우심방·좌심방, 우심실·좌심실: 네 방의 위치와 크기 균형을 봅니다.','승모판·삼첨판: 삼첨판 부착부가 승모판보다 심첨 쪽에 위치합니다.','심방중격·난원공판과 심실중격: 난원공판은 좌심방 쪽으로 열립니다.','심장 십자부(crux)·우심실 조절대: 중격과 판막의 만남, 우심실의 표지를 찾습니다.','폐정맥: 가능한 경우 좌심방으로 들어오는 연결을 별도로 확인합니다.'],'작은 구조와 판막 운동은 확대·색 도플러·cine가 필요할 수 있습니다.',cardiac),
- lvot:entry(['좌심실: 대동맥이 시작되는 심실입니다.','대동맥판·상행대동맥: 좌심실에서 나가는 유출로를 따라 봅니다.','심실중격–대동맥 전벽: 구조적 연속성을 확인합니다.'],'대혈관의 교차 관계는 RVOT와 연속 탐색하여 확인합니다.',cardiac),
- rvot:entry(['우심실 유출부: 앞쪽에서 주폐동맥으로 이어집니다.','폐동맥판·주폐동맥: 우심실에서 나가는 혈관입니다.','좌·우 폐동맥 분지: 주폐동맥의 분지를 확인합니다.'],'분지가 한 프레임에 모두 보이지 않을 수 있어 각도를 조절하며 추적합니다.',cardiac),
- threev:entry(['주폐동맥(PA): 태아의 좌측·앞쪽에 위치하는 혈관입니다.','상행대동맥(Ao): 폐동맥과 상대정맥 사이에서 확인합니다.','상대정맥(S/SVC): 태아의 우측·뒤쪽에 위치하며 세 혈관 중 작습니다.'],'혈관의 수·상대 크기·배열을 봅니다. 화면 좌우가 아니라 태아의 해부학적 좌우를 기준으로 합니다.',cardiac),
- threevpa:entry(['주폐동맥: 직경 측정 대상의 혈관 벽과 내강을 찾습니다.','상행대동맥·상대정맥: 삼혈관 배열을 확인하는 주변 표지입니다.','폐동맥 분지: 주폐동맥과 분지 부위를 구별합니다.'],'단면·심장 주기·캘리퍼 방식은 사용한 계측 기준에 맞춥니다. 참고 영상에는 실제 계측선이 없습니다.',cardiac),
- vessels:entry(['대동맥궁·동맥관궁: 하행대동맥으로 연결되는 V자 배열을 봅니다.','기관(T): 정상 좌측 대동맥궁에서는 궁의 오른쪽에 위치합니다.','상대정맥(SVC): 기관 앞·오른쪽에서 확인합니다.'],'3VV의 혈관 배열에 더해 궁과 기관의 관계를 평가하는 단면입니다.',cardiac),
- aoarch:entry(['상행대동맥–대동맥궁–하행대동맥: 굽은 궁의 연속성을 봅니다.','무명동맥·좌총경동맥·좌쇄골하동맥: 궁에서 나오는 세 두경부 분지입니다.','대동맥 협부: 좌쇄골하동맥 기시부 이후의 좁아지는 구간을 확인합니다.'],'분지를 확인하여 동맥관궁과 구별합니다.',cardiac),
- ductarch:entry(['우심실·주폐동맥: 동맥관궁이 시작되는 쪽을 찾습니다.','동맥관: 주폐동맥에서 하행대동맥으로 이어지는 통로입니다.','하행대동맥: 동맥관의 합류부를 확인합니다.'],'하키 스틱 같은 형태이며 대동맥궁의 세 두경부 분지가 나오지 않습니다.',cardiac),
- bicaval:entry(['상대정맥·하대정맥: 각각 위·아래에서 우심방으로 들어옵니다.','우심방: 두 정맥의 연결을 확인하는 중심 구조입니다.','심방중격·난원공판: 좌심방과의 경계를 함께 관찰합니다.'],'정맥 연결을 장축에서 추적하며 필요하면 색 도플러로 확인합니다.',cardiac),
- abdomen:entry(['위: 태아 좌측의 액체로 찬 검은 구조입니다.','제대정맥–문맥동: 간 안에서 복부둘레 단면의 높이를 정하는 표지입니다.','간·복벽: 복부 윤곽과 연속성을 확인합니다.','척추·하행대동맥: 뒤쪽 방향과 대칭을 판단하는 표지입니다.']),
- cord:entry(['복벽 제대 삽입부: 제대가 태아 복벽에 연결되는 지점입니다.','복벽·피부선: 삽입부 양옆의 연속성을 봅니다.','제대 혈관: 필요하면 색 도플러와 별도 제대 횡단면으로 확인합니다.'],'태반 쪽 제대 삽입부와 구별합니다. 세 혈관의 개수는 별도의 제대 횡단면에서 평가합니다.'),
- diaphragm:entry(['횡격막: 흉부와 복부를 나누는 굽은 경계입니다.','폐: 횡격막 위쪽 흉부에 위치합니다.','간 또는 위: 각각 우측 또는 좌측 횡격막 아래에서 확인합니다.'],'우측과 좌측을 각각 확인하며 전체 연속성을 한 단면만으로 판단하지 않습니다.'),
- kidneys:entry(['양측 신장: 척추 양옆의 신장 조직을 찾습니다.','신우: 신장 중앙의 집합계 공간입니다.','척추: 좌우 신장의 위치를 비교하는 뒤쪽 표지입니다.'],'신우 전후경은 적절한 신장 횡단면에서 측정합니다.',renal),
- kidneysag:entry(['신장 상극·하극: 한쪽 신장의 장축과 길이를 확인합니다.','신실질·신우: 신장 내부의 구조와 집합계를 봅니다.','부신: 신장 위쪽의 구조로, 신장 자체와 구별합니다.'],'좌우 신장은 각각 별도로 확인합니다.',renal),
- kidneycor:entry(['양측 신장: 같은 관상면에서 위치와 크기를 비교합니다.','신실질·신우: 내부 구조를 좌우로 비교합니다.','척추: 양측 신장 사이에서 방향을 확인합니다.'],'피질·수질의 구분 정도는 주수에 따라 달라집니다.',renal),
- pelvis:entry(['방광: 골반 중앙의 액체 공간입니다.','양측 제대동맥: 색 도플러에서 방광 양옆으로 지납니다.','주변 골반·복벽: 방광의 위치 관계를 확인합니다.'],'방광은 충만과 배출에 따라 크기가 달라집니다.'),
- spine:entry(['척추체·후방 골화 중심: 척추뼈의 배열을 봅니다.','척추관: 뼈 구조 사이의 연속성을 확인합니다.','등쪽 피부: 척추를 덮는 피부의 연속성을 봅니다.'],'경추부터 천추까지 종단면·횡단면·관상면을 함께 탐색합니다.'),
- femur:entry(['대퇴골 간부: 길게 보이는 골화된 뼈의 양 끝을 찾습니다.','대퇴부 연부조직: 뼈 주변의 윤곽을 확인합니다.','고관절·무릎 방향: 골간부가 단축되지 않도록 장축을 잡습니다.'],'FL은 골화된 간부를 측정하며 골단을 포함하지 않습니다.'),
- tibia:entry(['경골·비골: 하퇴의 두 긴 뼈를 구분합니다.','무릎·발목 방향: 뼈의 연속성과 배열을 확인합니다.','주변 연부조직: 하퇴 윤곽을 함께 봅니다.']),
- foot:entry(['발뒤꿈치·발바닥 윤곽: 발의 형태와 방향을 확인합니다.','발가락: 별도 확대 단면에서 배열을 관찰합니다.','발목과 하퇴: 발과 다리의 위치 관계를 봅니다.'],'한 정지영상만으로 모든 발가락이나 발의 자세를 판정하지 않습니다.'),
- humerus:entry(['상완골 간부: 어깨부터 팔꿈치 방향으로 뻗는 뼈입니다.','어깨·팔꿈치 방향: 상완골과 인접 분절의 연결을 봅니다.','상완 연부조직: 주변 윤곽을 확인합니다.']),
- forearm:entry(['요골·척골: 전완의 두 긴 뼈를 구분합니다.','팔꿈치·손목: 두 뼈의 근위·원위 연결 방향을 봅니다.','손의 위치: 전완과 손의 배열을 함께 확인합니다.']),
- hand:entry(['손바닥·중수골 영역: 손의 기본 형태를 찾습니다.','엄지와 나머지 손가락: 펴짐·쥐어짐에 따라 여러 프레임에서 봅니다.','손목: 전완과 손의 연결을 확인합니다.'],'손가락 수와 움직임은 한 장의 영상보다 연속 탐색이 유리합니다.'),
- genitalia:entry(['여성 외부 생식기: 음순의 평행한 선형 에코를 관찰합니다.','남성 외부 생식기: 음경·음낭의 형태와 위치를 관찰합니다.','회음부: 허벅지 사이에서 외부 생식기와 주변 구조를 구별합니다.'],'현재 참고 영상은 여성 태아 예시입니다.','https://pmc.ncbi.nlm.nih.gov/articles/PMC9633498/'),
- placenta:entry(['태반 실질: 자궁벽에 붙은 태반의 위치와 윤곽을 봅니다.','태반 하연·자궁경부 내구: 가까운 경우 두 구조 사이의 위치 관계를 확인합니다.','태반 쪽 제대 삽입부: 제대가 태반에 연결되는 곳을 별도 탐색합니다.'],'전체 태반, 내구, 제대 삽입부가 한 영상에 모두 보이는 것은 아닙니다.','https://pmc.ncbi.nlm.nih.gov/articles/PMC2747450/'),
- cervix:entry(['자궁경부 내구: 자궁강 쪽에서 경부관이 시작되는 지점입니다.','경부관·외구: 경부관을 따라 질 쪽 끝까지 확인합니다.','경부 앞·뒤 입술: 정중시상면과 과도한 탐촉자 압박 여부를 판단합니다.'],'자궁경부 길이는 적절한 경질 정중시상면에서 평가하며 방광 충만·압박의 영향을 고려합니다.','https://www.isuog.org/static/e45c9342-359c-4c5b-86fb71d52562303b/ultrasound-in-preterm-birth.pdf'),
- profile:entry(['머리 꼭대기(crown)·엉덩이(rump): CRL의 두 끝점입니다.','태아 머리·몸통의 정중 윤곽: 중립 자세와 측정 축을 잡습니다.','주변 양막: 태아 윤곽과 구분합니다.'],'현재 NT 참고 영상은 태아 전체를 포함한 CRL 계측 예시는 아닙니다.','https://www.isuog.org/static/a8d6dee2-38d8-4d66-8be3929af48e8369/Updated-ISUOG-Practice-Guidelines-performance-of-11-14-week-ultrasound-scan.pdf'),
- nt:entry(['코끝·구개·간뇌: 머리의 정확한 정중시상면을 찾는 표지입니다.','목덜미 피부·그 아래 투명대: 가장 넓은 투명 공간을 찾습니다.','양막: 목덜미 피부와 별개인 막임을 확인합니다.'],'중립 자세에서 머리와 상흉부를 확대합니다.','https://www.isuog.org/static/a8d6dee2-38d8-4d66-8be3929af48e8369/Updated-ISUOG-Practice-Guidelines-performance-of-11-14-week-ultrasound-scan.pdf')
+ head:entry(['두개골과 대뇌겸 — Skull / Falx cerebri: 머리 윤곽과 정중선의 대칭을 확인합니다.','양측 시상 — Bilateral thalami: 중앙의 한 쌍 구조로, BPD/HC 측정 높이를 잡는 기준입니다.','투명중격강(CSP) — Cavum septi pellucidi: 시상 앞쪽의 공간을 확인합니다.'],'TTP는 시상(thalamus) 수준의 횡단면입니다. 소뇌가 포함되는 낮은 단면과 구분합니다.'),
+ ventricle:entry(['대뇌겸·양측 대뇌반구 — Falx cerebri / Cerebral hemispheres: 정중선과 좌우 대칭을 확인합니다.','측뇌실 심방 — Atrium of the lateral ventricle: 뒤쪽 뇌실의 폭을 평가하는 부위입니다.','맥락총 사구 — Choroid plexus glomus: 측뇌실 안의 밝은 구조로 심방 위치를 찾는 표지입니다.','투명중격강(CSP) — Cavum septi pellucidi: 앞쪽 정중부에서 함께 확인합니다.']),
+ earlybrain:entry(['두개골 윤곽 — Skull: 양측 머리의 골화와 모양을 확인합니다.','대뇌겸 — Falx cerebri: 양측 반구를 나누는 밝은 정중선입니다.','측뇌실·맥락총 — Lateral ventricle / Choroid plexus: 양측 맥락총의 나비 모양과 대칭을 봅니다.'],'초기에는 맥락총이 뇌실의 많은 부분을 차지합니다. 2분기 CSP·시상 기준을 그대로 적용하지 않습니다.','https://pmc.ncbi.nlm.nih.gov/articles/PMC4710000/'),
+ cerebellum:entry(['양측 소뇌반구 — Cerebellar hemispheres: 후두와에서 한 쌍으로 보이는 구조입니다.','소뇌충부 영역 — Cerebellar vermis: 양측 반구 사이의 중앙부를 확인합니다.','대조(cisterna magna) — Cisterna magna: 소뇌 뒤쪽과 후두골 사이의 액체 공간입니다.'],'충부의 완전한 평가는 정중시상면 등 추가 단면과 발달 주수 확인이 필요합니다.'),
+ face:entry(['상순 — Upper lip: 좌우로 이어지는 입술의 연속성을 봅니다.','비공·코끝 — Nostrils / Nasal tip: 상순 위쪽에서 얼굴의 방향을 찾습니다.','입과 하순 — Mouth / Lower lip: 상순 아래의 경계를 확인합니다.'],'상순 관상면만으로 구개 전체의 정상 여부를 판단하지 않습니다.'),
+ orbit:entry(['양측 안와 — Orbit: 좌우 크기와 위치의 대칭을 확인합니다.','안구 — Globe: 각 안와 안의 둥근 구조입니다.','수정체 — Lens: 안구 앞쪽의 밝은 테두리를 가진 작은 구조입니다.']),
+ facialprofile:entry(['이마·비골·코끝 — Forehead / Nasal bone / Nasal tip: 정중시상면에서 이어지는 얼굴 윤곽입니다.','상악·하악과 턱끝 — Maxilla / Mandible / Chin: 두 턱의 상대 위치를 확인합니다.','입술 — Lips: 코 아래부터 턱까지의 윤곽을 따라 봅니다.'],'정확한 정중면인지 확인하고 사선 단면에 의한 턱의 단축을 피합니다.'),
+ heart:entry(['우심방·좌심방, 우심실·좌심실 — Right atrium / Left atrium / Right ventricle / Left ventricle: 네 방의 위치와 크기 균형을 봅니다.','승모판·삼첨판 — Mitral valve / Tricuspid valve: 삼첨판 부착부가 승모판보다 심첨 쪽에 위치합니다.','심방중격·난원공판과 심실중격 — Interatrial septum / Foramen ovale flap / Interventricular septum: 난원공판은 좌심방 쪽으로 열립니다.','심장 십자부(crux)·우심실 조절대 — Cardiac crux / Moderator band: 중격과 판막의 만남, 우심실의 표지를 찾습니다.','폐정맥 — Pulmonary veins: 가능한 경우 좌심방으로 들어오는 연결을 별도로 확인합니다.'],'작은 구조와 판막 운동은 확대·색 도플러·cine가 필요할 수 있습니다.',cardiac),
+ lvot:entry(['좌심실 — Left ventricle: 대동맥이 시작되는 심실입니다.','대동맥판·상행대동맥 — Aortic valve / Ascending aorta: 좌심실에서 나가는 유출로를 따라 봅니다.','심실중격–대동맥 전벽 — Interventricular septum / Anterior aortic wall: 구조적 연속성을 확인합니다.'],'대혈관의 교차 관계는 RVOT와 연속 탐색하여 확인합니다.',cardiac),
+ rvot:entry(['우심실 유출부 — Right ventricular outflow tract: 앞쪽에서 주폐동맥으로 이어집니다.','폐동맥판·주폐동맥 — Pulmonary valve / Main pulmonary artery: 우심실에서 나가는 혈관입니다.','좌·우 폐동맥 분지 — Left and right pulmonary artery branches: 주폐동맥의 분지를 확인합니다.'],'분지가 한 프레임에 모두 보이지 않을 수 있어 각도를 조절하며 추적합니다.',cardiac),
+ threev:entry(['주폐동맥(PA) — Main pulmonary artery: 태아의 좌측·앞쪽에 위치하는 혈관입니다.','상행대동맥(Ao) — Ascending aorta: 폐동맥과 상대정맥 사이에서 확인합니다.','상대정맥(S/SVC) — Superior vena cava: 태아의 우측·뒤쪽에 위치하며 세 혈관 중 작습니다.'],'혈관의 수·상대 크기·배열을 봅니다. 화면 좌우가 아니라 태아의 해부학적 좌우를 기준으로 합니다.',cardiac),
+ threevpa:entry(['주폐동맥 — Main pulmonary artery: 직경 측정 대상의 혈관 벽과 내강을 찾습니다.','상행대동맥·상대정맥 — Ascending aorta / Superior vena cava: 삼혈관 배열을 확인하는 주변 표지입니다.','폐동맥 분지 — Pulmonary artery branches: 주폐동맥과 분지 부위를 구별합니다.'],'단면·심장 주기·캘리퍼 방식은 사용한 계측 기준에 맞춥니다. 참고 영상에는 실제 계측선이 없습니다.',cardiac),
+ vessels:entry(['대동맥궁·동맥관궁 — Aortic arch / Ductal arch: 하행대동맥으로 연결되는 V자 배열을 봅니다.','기관(T) — Trachea: 정상 좌측 대동맥궁에서는 궁의 오른쪽에 위치합니다.','상대정맥(SVC) — Superior vena cava: 기관 앞·오른쪽에서 확인합니다.'],'3VV의 혈관 배열에 더해 궁과 기관의 관계를 평가하는 단면입니다.',cardiac),
+ aoarch:entry(['상행대동맥–대동맥궁–하행대동맥 — Ascending aorta / Aortic arch / Descending aorta: 굽은 궁의 연속성을 봅니다.','무명동맥·좌총경동맥·좌쇄골하동맥 — Brachiocephalic artery / Left common carotid artery / Left subclavian artery: 궁에서 나오는 세 두경부 분지입니다.','대동맥 협부 — Aortic isthmus: 좌쇄골하동맥 기시부 이후의 좁아지는 구간을 확인합니다.'],'분지를 확인하여 동맥관궁과 구별합니다.',cardiac),
+ ductarch:entry(['우심실·주폐동맥 — Right ventricle / Main pulmonary artery: 동맥관궁이 시작되는 쪽을 찾습니다.','동맥관 — Ductus arteriosus: 주폐동맥에서 하행대동맥으로 이어지는 통로입니다.','하행대동맥 — Descending aorta: 동맥관의 합류부를 확인합니다.'],'하키 스틱 같은 형태이며 대동맥궁의 세 두경부 분지가 나오지 않습니다.',cardiac),
+ bicaval:entry(['상대정맥·하대정맥 — Superior vena cava / Inferior vena cava: 각각 위·아래에서 우심방으로 들어옵니다.','우심방 — Right atrium: 두 정맥의 연결을 확인하는 중심 구조입니다.','심방중격·난원공판 — Interatrial septum / Foramen ovale flap: 좌심방과의 경계를 함께 관찰합니다.'],'정맥 연결을 장축에서 추적하며 필요하면 색 도플러로 확인합니다.',cardiac),
+ abdomen:entry(['위 — Stomach: 태아 좌측의 액체로 찬 검은 구조입니다.','제대정맥–문맥동 — Umbilical vein / Portal sinus: 간 안에서 복부둘레 단면의 높이를 정하는 표지입니다.','간·복벽 — Liver / Abdominal wall: 복부 윤곽과 연속성을 확인합니다.','척추·하행대동맥 — Spine / Descending aorta: 뒤쪽 방향과 대칭을 판단하는 표지입니다.']),
+ cord:entry(['복벽 제대 삽입부 — Fetal umbilical cord insertion: 제대가 태아 복벽에 연결되는 지점입니다.','복벽·피부선 — Abdominal wall / Skin outline: 삽입부 양옆의 연속성을 봅니다.','제대 혈관 — Umbilical vessels: 필요하면 색 도플러와 별도 제대 횡단면으로 확인합니다.'],'태반 쪽 제대 삽입부와 구별합니다. 세 혈관의 개수는 별도의 제대 횡단면에서 평가합니다.'),
+ diaphragm:entry(['횡격막 — Diaphragm: 흉부와 복부를 나누는 굽은 경계입니다.','폐 — Lung: 횡격막 위쪽 흉부에 위치합니다.','간 또는 위 — Liver / Stomach: 각각 우측 또는 좌측 횡격막 아래에서 확인합니다.'],'우측과 좌측을 각각 확인하며 전체 연속성을 한 단면만으로 판단하지 않습니다.'),
+ kidneys:entry(['양측 신장 — Kidney: 척추 양옆의 신장 조직을 찾습니다.','신우 — Renal pelvis: 신장 중앙의 집합계 공간입니다.','척추 — Spine: 좌우 신장의 위치를 비교하는 뒤쪽 표지입니다.'],'신우 전후경은 적절한 신장 횡단면에서 측정합니다.',renal),
+ kidneysag:entry(['신장 상극·하극 — Upper renal pole / Lower pole: 한쪽 신장의 장축과 길이를 확인합니다.','신실질·신우 — Renal parenchyma / Renal pelvis: 신장 내부의 구조와 집합계를 봅니다.','부신 — Adrenal gland: 신장 위쪽의 구조로, 신장 자체와 구별합니다.'],'좌우 신장은 각각 별도로 확인합니다.',renal),
+ kidneycor:entry(['양측 신장 — Kidney: 같은 관상면에서 위치와 크기를 비교합니다.','신실질·신우 — Renal parenchyma / Renal pelvis: 내부 구조를 좌우로 비교합니다.','척추 — Spine: 양측 신장 사이에서 방향을 확인합니다.'],'피질·수질의 구분 정도는 주수에 따라 달라집니다.',renal),
+ pelvis:entry(['방광 — Urinary bladder: 골반 중앙의 액체 공간입니다.','양측 제대동맥 — Umbilical artery: 색 도플러에서 방광 양옆으로 지납니다.','주변 골반·복벽 — Pelvis / Abdominal wall: 방광의 위치 관계를 확인합니다.'],'방광은 충만과 배출에 따라 크기가 달라집니다.'),
+ spine:entry(['척추체·후방 골화 중심 — Vertebral body / Posterior ossification centers: 척추뼈의 배열을 봅니다.','척추관 — Spinal canal: 뼈 구조 사이의 연속성을 확인합니다.','등쪽 피부 — Dorsal skin: 척추를 덮는 피부의 연속성을 봅니다.'],'경추부터 천추까지 종단면·횡단면·관상면을 함께 탐색합니다.'),
+ femur:entry(['대퇴골 간부 — Femoral diaphysis: 길게 보이는 골화된 뼈의 양 끝을 찾습니다.','대퇴부 연부조직 — Thigh / Soft tissue: 뼈 주변의 윤곽을 확인합니다.','고관절·무릎 방향 — Hip joint / Knee: 골간부가 단축되지 않도록 장축을 잡습니다.'],'FL은 골화된 간부를 측정하며 골단을 포함하지 않습니다.'),
+ tibia:entry(['경골·비골 — Tibia / Fibula: 하퇴의 두 긴 뼈를 구분합니다.','무릎·발목 방향 — Knee / Ankle: 뼈의 연속성과 배열을 확인합니다.','주변 연부조직 — Soft tissue: 하퇴 윤곽을 함께 봅니다.']),
+ foot:entry(['발뒤꿈치·발바닥 윤곽 — Heel / Sole: 발의 형태와 방향을 확인합니다.','발가락 — Toes: 별도 확대 단면에서 배열을 관찰합니다.','발목과 하퇴 — Ankle / Lower leg: 발과 다리의 위치 관계를 봅니다.'],'한 정지영상만으로 모든 발가락이나 발의 자세를 판정하지 않습니다.'),
+ humerus:entry(['상완골 간부 — Humeral diaphysis: 어깨부터 팔꿈치 방향으로 뻗는 뼈입니다.','어깨·팔꿈치 방향 — Shoulder / Elbow: 상완골과 인접 분절의 연결을 봅니다.','상완 연부조직 — Upper arm / Soft tissue: 주변 윤곽을 확인합니다.']),
+ forearm:entry(['요골·척골 — Radius / Ulna: 전완의 두 긴 뼈를 구분합니다.','팔꿈치·손목 — Elbow / Wrist: 두 뼈의 근위·원위 연결 방향을 봅니다.','손의 위치 — Hand position: 전완과 손의 배열을 함께 확인합니다.']),
+ hand:entry(['손바닥·중수골 영역 — Palm / Metacarpals: 손의 기본 형태를 찾습니다.','엄지와 나머지 손가락 — Thumb / Fingers: 펴짐·쥐어짐에 따라 여러 프레임에서 봅니다.','손목 — Wrist: 전완과 손의 연결을 확인합니다.'],'손가락 수와 움직임은 한 장의 영상보다 연속 탐색이 유리합니다.'),
+ genitalia:entry(['여성 외부 생식기 — Female external genitalia (labia): 음순의 평행한 선형 에코를 관찰합니다.','남성 외부 생식기 — Male external genitalia (penis and scrotum): 음경·음낭의 형태와 위치를 관찰합니다.','회음부 — Perineum: 허벅지 사이에서 외부 생식기와 주변 구조를 구별합니다.'],'현재 참고 영상은 여성 태아 예시입니다.','https://pmc.ncbi.nlm.nih.gov/articles/PMC9633498/'),
+ placenta:entry(['태반 실질 — Placental parenchyma: 자궁벽에 붙은 태반의 위치와 윤곽을 봅니다.','태반 하연·자궁경부 내구 — Placental lower edge / Internal cervical os: 가까운 경우 두 구조 사이의 위치 관계를 확인합니다.','태반 쪽 제대 삽입부 — Placental cord insertion: 제대가 태반에 연결되는 곳을 별도 탐색합니다.'],'전체 태반, 내구, 제대 삽입부가 한 영상에 모두 보이는 것은 아닙니다.','https://pmc.ncbi.nlm.nih.gov/articles/PMC2747450/'),
+ cervix:entry(['자궁경부 내구 — Internal cervical os: 자궁강 쪽에서 경부관이 시작되는 지점입니다.','경부관·외구 — Cervical canal / External os: 경부관을 따라 질 쪽 끝까지 확인합니다.','경부 앞·뒤 입술 — Anterior and posterior cervical lips: 정중시상면과 과도한 탐촉자 압박 여부를 판단합니다.'],'자궁경부 길이는 적절한 경질 정중시상면에서 평가하며 방광 충만·압박의 영향을 고려합니다.','https://www.isuog.org/static/e45c9342-359c-4c5b-86fb71d52562303b/ultrasound-in-preterm-birth.pdf'),
+ profile:entry(['머리 꼭대기(crown)·엉덩이(rump) — Crown / Rump: CRL의 두 끝점입니다.','태아 머리·몸통의 정중 윤곽 — Fetal head / Trunk: 중립 자세와 측정 축을 잡습니다.','주변 양막 — Amnion: 태아 윤곽과 구분합니다.'],'현재 NT 참고 영상은 태아 전체를 포함한 CRL 계측 예시는 아닙니다.','https://www.isuog.org/static/a8d6dee2-38d8-4d66-8be3929af48e8369/Updated-ISUOG-Practice-Guidelines-performance-of-11-14-week-ultrasound-scan.pdf'),
+ nt:entry(['코끝·구개·간뇌 — Nasal tip / Palate / Diencephalon: 머리의 정확한 정중시상면을 찾는 표지입니다.','목덜미 피부·그 아래 투명대 — Nuchal skin / Nuchal translucency: 가장 넓은 투명 공간을 찾습니다.','양막 — Amnion: 목덜미 피부와 별개인 막임을 확인합니다.'],'중립 자세에서 머리와 상흉부를 확대합니다.','https://www.isuog.org/static/a8d6dee2-38d8-4d66-8be3929af48e8369/Updated-ISUOG-Practice-Guidelines-performance-of-11-14-week-ultrasound-scan.pdf')
 };
 export function anatomyFor(v){
  const a=anatomy[v.type];if(!a)return null;
  let note=a.note;
  if(v.trimester===1)note+=' 1분기는 구조가 작고 발달 중이므로 후기의 가시성과 동일하게 판단하지 않습니다.';
  if(v.trimester===1&&['head','cerebellum'].includes(v.type))note+=' 특히 CSP·충부 등은 주수에 맞는 초기 뇌 평가 기준을 적용합니다.';
- if(v.trimester===1&&v.type==='genitalia')return entry(['생식결절: 태아의 아래쪽 정중시상면에서 방향을 관찰합니다.','회음부·몸통 축: 생식결절의 위치와 각도를 비교하는 기준입니다.'],'13주 참고 예시입니다. 후기 음순·음낭 소견과 구분하며 이 영상만으로 성별을 확정하지 않습니다.',a.source);
+ if(v.trimester===1&&v.type==='genitalia')return entry(['생식결절 — Genital tubercle: 태아의 아래쪽 정중시상면에서 방향을 관찰합니다.','회음부·몸통 축 — Perineum / Trunk axis: 생식결절의 위치와 각도를 비교하는 기준입니다.'],'13주 참고 예시입니다. 후기 음순·음낭 소견과 구분하며 이 영상만으로 성별을 확정하지 않습니다.',a.source);
  if(v.temporal){
   if(v.type==='heart')note+=v.id==='4ch-es'?' 수축기 말에는 심실강이 작아지고 방실판이 닫힌 시점을 cine에서 확인합니다.':v.id==='4ch-ed'?' 이완기 말에는 심실 충만과 방실판이 닫히기 직전의 시점을 cine로 확인합니다.':'이완기 초기에는 방실판의 열림과 심실 유입을 cine·도플러에서 확인합니다.';
   else note+=v.id.endsWith('-ed')?' 이완기 말에는 반월판이 닫힌 상태와 유출로 연결을 확인합니다.':' 수축기에는 반월판의 열림과 전향성 유출 혈류를 cine·도플러로 확인합니다.';

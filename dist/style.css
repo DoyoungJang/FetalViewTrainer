@@ -18,3 +18,4 @@
 .anatomy-guide{padding:16px;margin:14px 0 22px;background:#edf6f8;border:1px solid #bfd6df;border-radius:8px}.anatomy-guide ul{padding-left:20px;margin:12px 0}.anatomy-guide li{font-size:14px;line-height:1.7;margin:8px 0}.anatomy-guide p,.anatomy-guide a{font-size:14px;line-height:1.65}.anatomy-guide .anatomy-context{color:#526974;font-size:12px}
 
 #diagramLegend{list-style:none;padding:12px;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:10px;background:#10212b;border-radius:0 0 8px 8px;color:#eaf4f7}#diagramLegend li{display:flex;gap:10px;align-items:center;font-size:14px;line-height:1.5}#diagramLegend b{flex:0 0 25px;text-align:center;border:1px solid currentColor;border-radius:50%;line-height:25px}#diagramNote{font-size:12px;line-height:1.7;color:#536b76}#schematicDetails summary{font-size:16px;font-weight:600}@media(max-width:440px){#diagramLegend{grid-template-columns:1fr}}
+#diagramLegend li span{min-width:0;overflow-wrap:anywhere}
