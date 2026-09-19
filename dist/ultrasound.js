@@ -1,4 +1,4 @@
-import {ultrasoundFigures} from './ultrasound-data.js?v=27';
+import {ultrasoundFigures} from './ultrasound-data.js?v=28';
 const p=(n,panel)=>['PMC12401504:uog29299-fig-'+String(n).padStart(4,'0'),panel];
 const h=(n,panel)=>['PMC3784141:F'+n,panel];
 const mapping={
@@ -68,7 +68,7 @@ const selectedPanels={
  cervix:['PMC7311420:Fig1','Maternal cervix · 자궁경부 단면',[447,104,99,75]]
 };
 export function renderUltrasound(v,$){
- const ref=ultrasoundFor(v);$('#schematicDetails').open=!ref;
+ const ref=ultrasoundFor(v);$('#schematicDetails').open=true;
  if(!ref){$('#ultrasoundReference').innerHTML='<h3>실제 초음파</h3><p>이 세부 단면에 맞는 재사용 가능한 실제 영상은 아직 확보하지 못했습니다. 아래 모식도로 확인하세요.</p>';return;}
  const src='./ultrasound/'+ref.file;
  const [x,y,w,h]=ref.region;

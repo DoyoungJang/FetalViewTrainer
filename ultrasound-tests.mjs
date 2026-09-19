@@ -10,7 +10,7 @@ for(const ref of Object.values(ultrasoundFigures)){
 const elements=new Map(),$=id=>{if(!elements.has(id))elements.set(id,{});return elements.get(id);};let available=0;
 for(const phase of phases)for(const v of phase.lessons){
  renderUltrasound(v,$);const ref=ultrasoundFor(v);
- if(ref){const [x,y,w,h]=ref.region;assert(x>=0&&y>=0&&w>0&&h>0&&x+w<=ref.size[0]&&y+h<=ref.size[1]);assert($('#ultrasoundReference').innerHTML.includes('us-viewport'));available++;assert($('#ultrasoundReference').innerHTML.includes(ref.file));assert.equal($('#schematicDetails').open,false);if(v.temporal)assert($('#ultrasoundReference').innerHTML.includes('일치한다고 확인된 프레임은 아닙니다'));}
+ if(ref){const [x,y,w,h]=ref.region;assert(x>=0&&y>=0&&w>0&&h>0&&x+w<=ref.size[0]&&y+h<=ref.size[1]);assert($('#ultrasoundReference').innerHTML.includes('us-viewport'));available++;assert($('#ultrasoundReference').innerHTML.includes(ref.file));assert.equal($('#schematicDetails').open,true);if(v.temporal)assert($('#ultrasoundReference').innerHTML.includes('일치한다고 확인된 프레임은 아닙니다'));}
  else{assert($('#schematicDetails').open);assert(!$('#ultrasoundReference').innerHTML.includes('<img'));}
 }
 assert.equal(ultrasoundFor({type:'heart',trimester:1}).key,'PMC3784141:F13');

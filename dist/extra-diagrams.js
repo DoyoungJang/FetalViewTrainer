@@ -1,7 +1,12 @@
 // Teaching schematics only. They illustrate landmarks, not patient imaging.
 export function drawExtra(v,{g,ellipse:e,line:l,label:t}){
  const type=v.type,teal='#75dacb',gold='#e7bd7f';
- if(v.documentNumber===3&&v.trimester===1){e(280,161,132,111);e(282,208,20,43);e(324,209,14,32,teal,'#10212b');e(360,216,15,36,gold,'#10212b');t('Brainstem',97,290);t('4th ventricle / IT',324,137);t('Developing cisterna magna',278,313);}
+ if(type==='spine'){
+  for(let i=0;i<12;i++){const x=168+i*22,y=190-Math.sin(i/11*Math.PI)*8;e(x,y,8,13);e(x,y-47,5,7);}
+  l([[156,117],[220,109],[300,108],[420,119]],'#75dacb',4);l([[156,161],[225,155],[305,154],[422,166]],'#e7bd7f',2);
+ }
+ else if(type==='genitalia'&&v.trimester===1){e(255,200,85,43);l([[189,229],[252,241],[319,216]],'#b8d2d9',5);l([[277,178],[310,148]],'#75dacb',10);}
+ else if(v.documentNumber===3&&v.trimester===1){e(280,161,132,111);e(282,208,20,43);e(324,209,14,32,teal,'#10212b');e(360,216,15,36,gold,'#10212b');t('Brainstem',97,290);t('4th ventricle / IT',324,137);t('Developing cisterna magna',278,313);}
  else if(type==='orbit'){e(300,180,160,100);e(225,165,42,40);e(375,165,42,40);e(225,155,12,8,teal);e(375,155,12,8,teal);t('Orbit / globe / lens',155,305);}
  else if(type==='facialprofile'){l([[220,280],[195,230],[180,180],[185,105],[220,70],[295,72],[330,95],[337,129],[365,160],[337,168],[346,190],[330,203],[338,224],[304,250],[260,266]],'#b8d2d9',5);t('Forehead',345,91);t('Nose',392,165);t('Maxilla',376,207);t('Mandible',350,257);}
  else if(['threev','threevpa','vessels'].includes(type)){
