@@ -14,6 +14,12 @@ export const brainLandmarks={
  tvpLeft:[-.15,1.726,-.04],tvpRight:[.15,1.726,-.04],tvpAnterior:[0,1.854,.36],
  ttpLeft:[-.13,1.63,.20],ttpRight:[.13,1.63,.20],ttpAnterior:[0,1.694,.40]
 };
+// Registration to the current curled gelmi cranial surface; preserve the
+// source brain's handedness and move its teaching landmarks by the same map.
+export const brainPlacement={sourceCenter:[0,1.53,.12],center:[0,1.60,.24],scale:.90};
+// Paired eye-region surface anchors, inspected on the actual gelmi mesh.
+// No segmented globes/lenses are present in this artistic skin model.
+export const orbitLandmarks={left:[.30,.80,.579],right:[-.30,.80,.579],posterior:[0,1.00,.291]};
 export const heartOrigin=[.1,.24,.04];
 // In the authored cardiac schematic +X is fetal left, +Z anterior, +Y cranial.
 export const greatVessels={

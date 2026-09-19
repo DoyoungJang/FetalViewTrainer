@@ -1,4 +1,4 @@
-import {ultrasoundFigures} from './ultrasound-data.js?v=30';
+import {ultrasoundFigures} from './ultrasound-data.js?v=31';
 const p=(n,panel)=>['PMC12401504:uog29299-fig-'+String(n).padStart(4,'0'),panel];
 const h=(n,panel)=>['PMC3784141:F'+n,panel];
 const mapping={

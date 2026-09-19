@@ -1,5 +1,5 @@
 import {Vector3,Quaternion,Matrix4,MathUtils} from './vendor/three.module.js';
-import {limbLandmarks,brainLandmarks,greatVessels,heartOrigin as origin} from './anatomy-registration.js?v=30';
+import {limbLandmarks,brainLandmarks,brainPlacement,orbitLandmarks,greatVessels,heartOrigin as origin} from './anatomy-registration.js?v=31';
 
 export const isCardiac=v=>['heart','lvot','rvot','vessels','threev','threevpa','aoarch','ductarch','bicaval'].includes(v.type);
 export const planeReferences=[
@@ -28,7 +28,12 @@ export function getPreset(v,phase){
   const [a,b,c]=pts.map(worldHeart);center.copy(a).add(b).add(c).multiplyScalar(1/3);normal.copy(through(a,b,c));note=v.type==='aoarch'?'상행대동맥–대동맥궁–하행대동맥을 잇는 종단면입니다.':v.type==='ductarch'?'폐동맥–동맥관–하행대동맥 연결을 보는 사선 종단면입니다.':'상대정맥과 하대정맥이 우심방으로 들어가는 연결을 보는 종단면입니다.';
  }
  if(v.type==='facialprofile'){center.set(0,1.4,.5);normal.set(1,0,0);}
- if(v.type==='orbit'){center.set(0,1.5,.65);normal.set(0,1,.2).normalize();}
+ if(v.type==='orbit'){
+  const [a,b,c]=Object.values(orbitLandmarks).map(p=>new Vector3(...p));
+  center.copy(a).add(b).multiplyScalar(.5);normal.copy(through(a,b,c));
+  landmarks=[a,b,c];anchorNames=['좌측 눈·안와 외형 참고','우측 눈·안와 외형 참고','후방 경사 기준'];extent=1.25;
+  note='굴곡된 태아 외형의 양쪽 눈 부위 기준점을 통과하는 경사면입니다. 기존 이마 높이에서 눈 높이로 내렸습니다. 눈꺼풀 외형에 맞춘 교육용 위치이며 안구·수정체의 실제 분할면은 아닙니다.';
+ }
  if(v.type==='cord'){center.set(0,-.3,.58);normal.set(0,1,0);landmarks=[center.clone()];anchorNames=['복부 제대 부착부 참고 위치'];note='복부 제대 부착부를 지나는 횡단면(axial)입니다. 태아의 머리–꼬리 축에 수직이며, 복벽의 연속성과 제대 부착을 확인하는 교육용 시작면입니다.';}
  if(v.type==='diaphragm'){center.set(0,-.1,0);normal.set(0,0,1);}
  if(v.type==='kidneysag'){center.set(.19,-.54,-.1);normal.set(1,0,0);}
@@ -49,6 +54,11 @@ export function getPreset(v,phase){
  if(['threev','threevpa'].includes(v.type)){center.copy(worldHeart(v.type==='threevpa'?greatVessels.PAmeasure:greatVessels.Ao));normal.set(0,1,0);landmarks=v.type==='threevpa'?[worldHeart(greatVessels.PAmeasure)]:[greatVessels.PA,greatVessels.Ao,greatVessels.SVC].map(worldHeart);anchorNames=v.type==='threevpa'?['PA 측정 중심']:['PA','Ao','SVC'];note=v.type==='threevpa'?'폐동맥 줄기의 중심선에 수직인 측정 시작면입니다. 3VV의 PA 측정 하위 항목이며 별도의 공식 독립 단면을 뜻하지 않습니다.':'폐동맥–대동맥–상대정맥의 세 중심선을 가로지르는 면입니다. 모식도의 태아 왼쪽에서 오른쪽 순서로 PA–Ao–SVC를 배치했습니다.';}
  if(v.type==='vessels'){const a=worldHeart(greatVessels.ductStart),b=worldHeart(greatVessels.archStart),c=worldHeart(greatVessels.descending);center.copy(a).add(b).add(c).multiplyScalar(1/3);normal.copy(through(a,b,c));landmarks=[a,b,c];anchorNames=['동맥관궁','대동맥궁','하행대동맥'];note='동맥관궁과 대동맥궁이 하행대동맥으로 합류하는 V의 세 기준점을 포함하는 경사면입니다. 두 궁은 기관의 태아 왼쪽을 지나며, 3VV보다 머리 쪽에 위치합니다.';}
  if(['placenta','cervix'].includes(v.type)){center.set(0,v.type==='cervix'?-1.48:-.15,v.type==='cervix'?0:-.28);normal.set(1,0,0);landmarks=(v.type==='cervix'?[[0,-1.12,0],[0,-1.84,0]]:[[0,-.05,-.57],[0,-1.12,0]]).map(p=>new Vector3(...p));anchorNames=v.type==='cervix'?['내자궁구','외자궁구']:['태반 하연','내자궁구'];extent=v.type==='cervix'?1.2:3.5;note='모체 자궁·태반·자궁경부의 관계를 별도 모식도로 표시합니다. 실제 계측용 단면이 아닙니다.';}
+ if(['head','ventricle','earlybrain','cerebellum'].includes(v.type)){
+  const from=new Vector3(...brainPlacement.sourceCenter),to=new Vector3(...brainPlacement.center);
+  const registered=p=>p.sub(from).multiplyScalar(brainPlacement.scale).add(to);
+  registered(center);landmarks.forEach(registered);if(extent)extent*=brainPlacement.scale;
+ }
  if(normal.y<-.001)normal.negate();
  return {center,normal,note,refs,landmarks,anchorNames,extent,cardiac:isCardiac(v)};
 }

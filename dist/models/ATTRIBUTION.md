@@ -96,3 +96,6 @@ BodyParts3D, © The Database Center for Life Science licensed under CC Attributi
 
 ## HRA heart spatial registration
 The chamber envelope is uniformly scaled and translated to the current curled fetal surface. Midline and lateral ray intersections determine thoracic depth and width at the lung-atlas height. Anatomical handedness is preserved; section landmarks and the camera focus use the transformed geometry. This is an educational registration across unrelated models, not clinical or patient-specific validation.
+
+## Brain and orbit spatial registration
+The DHARANI brain is uniformly resized to 90% of its previous display size and translated to the current curled fetal head. TVP, TTP and TCP landmarks use the same transform. The orbit plane crosses paired eye-region surface anchors with a posterior tilt adapted to the flexed head. These are educational alignments between unrelated models; the fetal exterior has no segmented eyeballs or lenses. Surface containment does not establish anatomical or clinical accuracy.
