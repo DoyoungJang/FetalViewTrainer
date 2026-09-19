@@ -1,4 +1,4 @@
-import {ultrasoundFigures} from './ultrasound-data.js?v=25';
+import {ultrasoundFigures} from './ultrasound-data.js?v=26';
 const p=(n,panel)=>['PMC12401504:uog29299-fig-'+String(n).padStart(4,'0'),panel];
 const h=(n,panel)=>['PMC3784141:F'+n,panel];
 const mapping={
@@ -23,13 +23,56 @@ export function ultrasoundFor(v){
  if(v.trimester===1&&v.type==='kidneycor')match=['PMC7498649:F1','a: 12주 태아의 신장 관상면 · 맨 왼쪽 흰 화살표, 경질 초음파'];
  if(v.trimester===1&&v.type==='genitalia')match=['PMC9633498:Fig4','13주 생식결절의 정중시상면 · 화살표, 여성 태아 예시 (주수별 소견 참고)'];
  if(!match)return null;
+ // Pixel bounds follow the original figure captions. The source files remain
+ // unchanged; a clipped viewport isolates a single published panel.
+ const selected=selectedPanels[v.type];
+ if(selected)match=[selected[0],selected[1]];
+ if(v.trimester===1&&['heart','lvot','threev'].includes(v.type))match=h(13,{heart:'A: 4CV',threev:'B: 3VV',lvot:'C: LVOT'}[v.type]+' · 13주');
+ if(v.trimester===1&&v.type==='kidneycor')match=['PMC7498649:F1','a: 12주 신장 관상면 · 경질 초음파'];
  const [key,panel]=match,ref=ultrasoundFigures[key];
- return {...ref,key,panel,age:key==='PMC3784141:F13'?'13주 실제 심장 영상':ref.age};
+ let region=selected?.[2]||[0,0,...ref.size];
+ if(key==='PMC3784141:F13')region={heart:[3,3,225,218],threev:[237,3,224,218],lvot:[469,3,223,218]}[v.type];
+ if(v.trimester===1&&v.type==='kidneycor')region=[0,0,156,142];
+ return {...ref,key,panel,region,age:key==='PMC3784141:F13'?'13주 실제 심장 영상':ref.age};
 }
+const selectedPanels={
+ earlybrain:['PMC4710000:Fig1','A: 정상 1분기 측뇌실 횡단면',[0,0,154,165]],
+ diaphragm:['PMC10023640:Fig1b','23: 우측 횡격막 방시상면',[254,347,191,140]],
+ kidneysag:['PMC10023640:Fig1b','29: 좌측 신장 시상면',[254,690,191,138]],
+ kidneycor:['PMC7498649:F1','d: 양측 신장 관상면',[501,0,167,142]],
+ ventricle:[p(4)[0],'Plane 4 · TVP',[0,0,215,167]],
+ head:[p(4)[0],'Plane 5 · TTP',[221,0,245,167]],
+ cerebellum:[p(4)[0],'Plane 6 · TCP',[473,0,236,167]],
+ spine:[p(3)[0],'Plane 1 · 척추 시상면',[0,0,232,163]],
+ abdomen:[p(6)[0],'Plane 11 · 복부둘레 횡단면',[0,0,352,245]],
+ cord:[p(6)[0],'Plane 12 · 복벽 제대 삽입부',[360,0,349,245]],
+ kidneys:[p(6)[0],'Plane 13a · 신장·신우 횡단면',[0,251,352,241]],
+ pelvis:[p(7)[0],'Plane 14 · 방광과 양측 제대동맥',[0,0,231,160]],
+ femur:[p(7)[0],'Plane 15 · 대퇴골',[239,0,229,160]],
+ tibia:[p(7)[0],'Plane 16 · 경골·비골',[477,0,232,160]],
+ humerus:[p(7)[0],'Plane 17 · 상완골',[239,169,229,158]],
+ forearm:[p(7)[0],'Plane 17 · 요골·척골',[477,169,232,158]],
+ foot:['PMC10023640:Fig1c','35: 발',[250,176,193,140]],
+ hand:['PMC10023640:Fig1c','38: 손',[249,348,193,136]],
+ face:[p(10)[0],'Plane 18 · 코·상순',[0,0,231,163]],
+ orbit:[p(10)[0],'Plane 19 · 양측 안와·수정체',[239,0,229,163]],
+ facialprofile:[p(10)[0],'Plane 20 · 얼굴 정중시상면',[477,0,232,163]],
+ heart:[h(5)[0],'A: 심장 사강 단면 · 4CV',[5,5,365,346]],
+ lvot:[h(6)[0],'A: 좌심실 유출로 · LVOT',[3,3,341,294]],
+ rvot:[h(7)[0],'A: 우심실 유출로 · RVOT',[3,3,341,306]],
+ threev:['PMC10023640:Fig1b','18: 삼혈관 단면 · 3VV',[480,5,193,140]],
+ threevpa:[h(8)[0],'3VV의 폐동맥 분지 참고 · 폐동맥 직경 측정 예시 아님',[7,6,670,602]],
+ vessels:[h(9)[0],'A: 삼혈관·기관 단면 · 3VT',[4,4,340,327]],
+ aoarch:[h(10)[0],'A: 대동맥궁',[3,3,339,278]],
+ ductarch:[h(11)[0],'A: 동맥관궁',[3,3,340,270]],
+ cervix:['PMC7311420:Fig1','Maternal cervix · 자궁경부 단면',[447,104,99,75]]
+};
 export function renderUltrasound(v,$){
  const ref=ultrasoundFor(v);$('#schematicDetails').open=!ref;
  if(!ref){$('#ultrasoundReference').innerHTML='<h3>실제 초음파</h3><p>이 세부 단면에 맞는 재사용 가능한 실제 영상은 아직 확보하지 못했습니다. 아래 모식도로 확인하세요.</p>';return;}
  const src='./ultrasound/'+ref.file;
- $('#ultrasoundReference').innerHTML=`<h3>실제 초음파 <small>논문 정지영상</small></h3><p class="us-panel">${ref.panel}</p><a href="${src}" target="_blank" rel="noopener" aria-label="실제 초음파 원본 크기로 보기"><img id="ultrasoundImage" src="${src}" alt="${ref.panel} · ${ref.author}, ${ref.figure}" loading="lazy"></a><p class="us-age">${ref.age} · 선택한 분기와 동일 주수의 영상임을 뜻하지 않습니다.</p>${v.temporal?'<p class="us-warning">현재 수축기·이완기와 일치한다고 확인된 프레임은 아닙니다. 같은 해부학적 단면을 참고하며, 주기는 실제 cine로 판정해야 합니다.</p>':''}<p id="usImageStatus">이미지를 누르면 원본 크기로 볼 수 있습니다. 3D 회전·단면 조작과 연동되는 영상은 아닙니다.</p><p class="us-credit">${ref.author} (${ref.year}), ${ref.figure} · <a href="https://doi.org/${ref.doi}" target="_blank" rel="noopener">원문</a> · <a href="${ref.source}" target="_blank" rel="noopener">그림 설명</a><br><a href="${ref.licenseUrl}" target="_blank" rel="noopener">${ref.license}</a> · 원본 전체 그림, 수정 없음${ref.license.includes('NC')?' · 비상업 교육용':''}</p>`;
+ const [x,y,w,h]=ref.region;
+ const imageStyle=`width:${100*ref.size[0]/w}%;height:${100*ref.size[1]/h}%;left:${-100*x/w}%;top:${-100*y/h}%`;
+ $('#ultrasoundReference').innerHTML=`<h3>실제 초음파 <small>논문 정지영상</small></h3><p class="us-panel">${ref.panel}</p><div class="us-viewport" style="aspect-ratio:${w}/${h}"><img id="ultrasoundImage" style="${imageStyle}" src="${src}" alt="${ref.panel} · ${ref.author}, ${ref.figure}" loading="lazy"></div><p class="us-age">${ref.age} · 선택한 분기와 동일 주수의 영상임을 뜻하지 않습니다.</p>${v.temporal?'<p class="us-warning">현재 수축기·이완기와 일치한다고 확인된 프레임은 아닙니다. 같은 해부학적 단면을 참고하며, 주기는 실제 cine로 판정해야 합니다.</p>':''}<p id="usImageStatus">캡션에 해당하는 단면만 표시합니다. 3D 조작과 연동되는 영상은 아닙니다. <a href="${src}" target="_blank" rel="noopener">원본 전체 그림 보기</a></p><p class="us-credit">${ref.author} (${ref.year}), ${ref.figure} · <a href="https://doi.org/${ref.doi}" target="_blank" rel="noopener">원문</a> · <a href="${ref.source}" target="_blank" rel="noopener">그림 설명</a><br><a href="${ref.licenseUrl}" target="_blank" rel="noopener">${ref.license}</a> · 원본 파일 보존 · 선택 패널 확대 표시${ref.license.includes('NC')?' · 비상업 교육용':''}</p>`;
  $('#ultrasoundImage').onerror=()=>{$('#ultrasoundImage').hidden=true;$('#usImageStatus').textContent='영상을 불러오지 못했습니다. 위 원문·그림 설명 링크에서 확인하세요.';$('#schematicDetails').open=true;};
 }

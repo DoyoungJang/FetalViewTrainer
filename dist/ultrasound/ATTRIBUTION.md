@@ -168,3 +168,6 @@ Acquired from Europe PMC official supplementaryFiles packages; figure IDs and or
 - License: CC BY 4.0, unchanged original image
 - Original caption: Female fetus in 13 + 0 weeks of gestation. Genital tubercle parallel to the horizontal line of the fetus (arrow) suggesting female gender in a fetus in the first trimester
 - SHA-256: 1d5921ce6ca7d0a696a295670894ce4911934b95a2c147beea47045a7fb58437
+
+## Display panel selection
+Original files remain byte-for-byte unchanged. The viewer uses clipped CSS viewports to show the panel identified by each published caption, with an explicit link to the complete original figure. Bounds and panel identifiers are recorded in ultrasound.js. 3VV now uses Prodan et al., Fig. 1, panel 18; 3VT remains Lee & Won, Fig. 9A. Normal first-trimester brain uses only Fig. 1A of PMC4710000.

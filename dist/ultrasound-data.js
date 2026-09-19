@@ -9,7 +9,11 @@ export const ultrasoundFigures={
     "doi": "10.1002/uog.29299",
     "license": "CC BY-NC-ND 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
-    "age": "2분기 표준 단면 예시"
+    "age": "2분기 표준 단면 예시",
+    "size": [
+      709,
+      163
+    ]
   },
   "PMC12401504:uog29299-fig-0004": {
     "file": "PMC12401504-uog29299-fig-0004.jpg",
@@ -21,7 +25,11 @@ export const ultrasoundFigures={
     "doi": "10.1002/uog.29299",
     "license": "CC BY-NC-ND 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
-    "age": "2분기 표준 단면 예시"
+    "age": "2분기 표준 단면 예시",
+    "size": [
+      709,
+      167
+    ]
   },
   "PMC12401504:uog29299-fig-0006": {
     "file": "PMC12401504-uog29299-fig-0006.jpg",
@@ -33,7 +41,11 @@ export const ultrasoundFigures={
     "doi": "10.1002/uog.29299",
     "license": "CC BY-NC-ND 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
-    "age": "2분기 표준 단면 예시"
+    "age": "2분기 표준 단면 예시",
+    "size": [
+      709,
+      492
+    ]
   },
   "PMC12401504:uog29299-fig-0007": {
     "file": "PMC12401504-uog29299-fig-0007.jpg",
@@ -45,7 +57,11 @@ export const ultrasoundFigures={
     "doi": "10.1002/uog.29299",
     "license": "CC BY-NC-ND 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
-    "age": "2분기 표준 단면 예시"
+    "age": "2분기 표준 단면 예시",
+    "size": [
+      709,
+      327
+    ]
   },
   "PMC12401504:uog29299-fig-0010": {
     "file": "PMC12401504-uog29299-fig-0010.jpg",
@@ -57,7 +73,11 @@ export const ultrasoundFigures={
     "doi": "10.1002/uog.29299",
     "license": "CC BY-NC-ND 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
-    "age": "2분기 표준 단면 예시"
+    "age": "2분기 표준 단면 예시",
+    "size": [
+      709,
+      163
+    ]
   },
   "PMC3784141:F5": {
     "file": "PMC3784141-F5.jpg",
@@ -69,7 +89,11 @@ export const ultrasoundFigures={
     "doi": "10.5468/ogs.2013.56.4.217",
     "license": "CC BY-NC 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/",
-    "age": "2분기 심장 참고 영상"
+    "age": "2분기 심장 참고 영상",
+    "size": [
+      700,
+      563
+    ]
   },
   "PMC3784141:F6": {
     "file": "PMC3784141-F6.jpg",
@@ -81,7 +105,11 @@ export const ultrasoundFigures={
     "doi": "10.5468/ogs.2013.56.4.217",
     "license": "CC BY-NC 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/",
-    "age": "2분기 심장 참고 영상"
+    "age": "2분기 심장 참고 영상",
+    "size": [
+      698,
+      301
+    ]
   },
   "PMC3784141:F7": {
     "file": "PMC3784141-F7.jpg",
@@ -93,7 +121,11 @@ export const ultrasoundFigures={
     "doi": "10.5468/ogs.2013.56.4.217",
     "license": "CC BY-NC 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/",
-    "age": "2분기 심장 참고 영상"
+    "age": "2분기 심장 참고 영상",
+    "size": [
+      699,
+      313
+    ]
   },
   "PMC3784141:F8": {
     "file": "PMC3784141-F8.jpg",
@@ -105,7 +137,11 @@ export const ultrasoundFigures={
     "doi": "10.5468/ogs.2013.56.4.217",
     "license": "CC BY-NC 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/",
-    "age": "2분기 심장 참고 영상"
+    "age": "2분기 심장 참고 영상",
+    "size": [
+      686,
+      614
+    ]
   },
   "PMC3784141:F9": {
     "file": "PMC3784141-F9.jpg",
@@ -117,7 +153,11 @@ export const ultrasoundFigures={
     "doi": "10.5468/ogs.2013.56.4.217",
     "license": "CC BY-NC 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/",
-    "age": "2분기 심장 참고 영상"
+    "age": "2분기 심장 참고 영상",
+    "size": [
+      695,
+      335
+    ]
   },
   "PMC3784141:F10": {
     "file": "PMC3784141-F10.jpg",
@@ -129,7 +169,11 @@ export const ultrasoundFigures={
     "doi": "10.5468/ogs.2013.56.4.217",
     "license": "CC BY-NC 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/",
-    "age": "2분기 심장 참고 영상"
+    "age": "2분기 심장 참고 영상",
+    "size": [
+      694,
+      284
+    ]
   },
   "PMC3784141:F11": {
     "file": "PMC3784141-F11.jpg",
@@ -141,7 +185,11 @@ export const ultrasoundFigures={
     "doi": "10.5468/ogs.2013.56.4.217",
     "license": "CC BY-NC 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/",
-    "age": "2분기 심장 참고 영상"
+    "age": "2분기 심장 참고 영상",
+    "size": [
+      695,
+      275
+    ]
   },
   "PMC3784141:F12": {
     "file": "PMC3784141-F12.jpg",
@@ -153,7 +201,11 @@ export const ultrasoundFigures={
     "doi": "10.5468/ogs.2013.56.4.217",
     "license": "CC BY-NC 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/",
-    "age": "2분기 심장 참고 영상"
+    "age": "2분기 심장 참고 영상",
+    "size": [
+      678,
+      521
+    ]
   },
   "PMC3784141:F13": {
     "file": "PMC3784141-F13.jpg",
@@ -165,7 +217,11 @@ export const ultrasoundFigures={
     "doi": "10.5468/ogs.2013.56.4.217",
     "license": "CC BY-NC 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/",
-    "age": "2분기 심장 참고 영상"
+    "age": "2분기 심장 참고 영상",
+    "size": [
+      695,
+      223
+    ]
   },
   "PMC11107467:F2": {
     "file": "PMC11107467-F2.jpg",
@@ -177,7 +233,11 @@ export const ultrasoundFigures={
     "doi": "10.2174/011573403X264963231128045500",
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-    "age": "1분기 정상 NT 예시"
+    "age": "1분기 정상 NT 예시",
+    "size": [
+      740,
+      512
+    ]
   },
   "PMC7311420:Fig1": {
     "file": "PMC7311420-Fig1.jpg",
@@ -189,7 +249,11 @@ export const ultrasoundFigures={
     "doi": "10.1038/s41598-020-67076-5",
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-    "age": "공개 데이터셋 예시 · 개별 영상 주수 미표기"
+    "age": "공개 데이터셋 예시 · 개별 영상 주수 미표기",
+    "size": [
+      658,
+      525
+    ]
   },
   "PMC2747450:F0002": {
     "file": "PMC2747450-F0002.jpg",
@@ -201,7 +265,11 @@ export const ultrasoundFigures={
     "doi": "10.4103/0971-3026.43848",
     "license": "CC BY 2.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
-    "age": "논문 참고 영상"
+    "age": "논문 참고 영상",
+    "size": [
+      731,
+      679
+    ]
   },
   "PMC2747450:F0017": {
     "file": "PMC2747450-F0017.jpg",
@@ -213,7 +281,11 @@ export const ultrasoundFigures={
     "doi": "10.4103/0971-3026.43848",
     "license": "CC BY 2.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
-    "age": "논문 참고 영상"
+    "age": "논문 참고 영상",
+    "size": [
+      604,
+      315
+    ]
   },
   "PMC10023640:Fig1b": {
     "file": "PMC10023640-Fig1b.jpg",
@@ -225,7 +297,11 @@ export const ultrasoundFigures={
     "doi": "10.1007/s00404-022-06569-2",
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-    "age": "2분기 형태 평가 예시"
+    "age": "2분기 형태 평가 예시",
+    "size": [
+      676,
+      834
+    ]
   },
   "PMC10023640:Fig1c": {
     "file": "PMC10023640-Fig1c.jpg",
@@ -237,7 +313,11 @@ export const ultrasoundFigures={
     "doi": "10.1007/s00404-022-06569-2",
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-    "age": "2분기 형태 평가 예시"
+    "age": "2분기 형태 평가 예시",
+    "size": [
+      676,
+      654
+    ]
   },
   "PMC7498649:F1": {
     "file": "PMC7498649-F1.jpg",
@@ -249,7 +329,11 @@ export const ultrasoundFigures={
     "doi": "10.3389/fped.2020.00492",
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-    "age": "a: 12주 / b: 20주 6일 / c·d: 원문에 개별 주수 미기재"
+    "age": "a: 12주 / b: 20주 6일 / c·d: 원문에 개별 주수 미기재",
+    "size": [
+      668,
+      142
+    ]
   },
   "PMC4710000:Fig1": {
     "file": "PMC4710000-Fig1.jpg",
@@ -261,7 +345,11 @@ export const ultrasoundFigures={
     "doi": "10.1186/s12884-016-0797-z",
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-    "age": "11–14주 뇌 평가 연구의 정상·뇌실확장 비교"
+    "age": "11–14주 뇌 평가 연구의 정상·뇌실확장 비교",
+    "size": [
+      473,
+      344
+    ]
   },
   "PMC9633498:Fig3": {
     "file": "PMC9633498-Fig3.jpg",
@@ -273,7 +361,11 @@ export const ultrasoundFigures={
     "doi": "10.1007/s00404-022-06441-3",
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-    "age": "30주 4일 여성 외부 생식기"
+    "age": "30주 4일 여성 외부 생식기",
+    "size": [
+      645,
+      431
+    ]
   },
   "PMC9633498:Fig4": {
     "file": "PMC9633498-Fig4.jpg",
@@ -285,6 +377,10 @@ export const ultrasoundFigures={
     "doi": "10.1007/s00404-022-06441-3",
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-    "age": "13주 여성 태아 생식결절 예시"
+    "age": "13주 여성 태아 생식결절 예시",
+    "size": [
+      645,
+      449
+    ]
   }
 };

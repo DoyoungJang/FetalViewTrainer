@@ -10,7 +10,7 @@ for(const ref of Object.values(ultrasoundFigures)){
 const elements=new Map(),$=id=>{if(!elements.has(id))elements.set(id,{});return elements.get(id);};let available=0;
 for(const phase of phases)for(const v of phase.lessons){
  renderUltrasound(v,$);const ref=ultrasoundFor(v);
- if(ref){available++;assert($('#ultrasoundReference').innerHTML.includes(ref.file));assert.equal($('#schematicDetails').open,false);if(v.temporal)assert($('#ultrasoundReference').innerHTML.includes('일치한다고 확인된 프레임은 아닙니다'));}
+ if(ref){const [x,y,w,h]=ref.region;assert(x>=0&&y>=0&&w>0&&h>0&&x+w<=ref.size[0]&&y+h<=ref.size[1]);assert($('#ultrasoundReference').innerHTML.includes('us-viewport'));available++;assert($('#ultrasoundReference').innerHTML.includes(ref.file));assert.equal($('#schematicDetails').open,false);if(v.temporal)assert($('#ultrasoundReference').innerHTML.includes('일치한다고 확인된 프레임은 아닙니다'));}
  else{assert($('#schematicDetails').open);assert(!$('#ultrasoundReference').innerHTML.includes('<img'));}
 }
 assert.equal(ultrasoundFor({type:'heart',trimester:1}).key,'PMC3784141:F13');
@@ -18,7 +18,10 @@ assert.equal(ultrasoundFor({type:'vessels',trimester:1}).key,'PMC3784141:F9');
 assert.equal(ultrasoundFor({type:'kidneycor',trimester:2}).key,'PMC7498649:F1');
 assert(ultrasoundFor({type:'kidneycor',trimester:1}).panel.startsWith('a:'));
 assert.equal(ultrasoundFor({type:'genitalia',trimester:1}).key,'PMC9633498:Fig4');
-assert(ultrasoundFor({type:'earlybrain',trimester:1}).panel.includes('정상 단면 아님'));
+assert.deepEqual(ultrasoundFor({type:'earlybrain',trimester:1}).region,[0,0,154,165]);
+assert.equal(ultrasoundFor({type:'threev',trimester:2}).key,'PMC10023640:Fig1b');
+assert(ultrasoundFor({type:'threev',trimester:2}).panel.startsWith('18:'));
+assert.notDeepEqual(ultrasoundFor({type:'threev',trimester:2}).region,ultrasoundFor({type:'vessels',trimester:2}).region);
 assert.equal(available,107);
 for(const type of ['diaphragm','kidneysag','hand','foot'])assert(ultrasoundFor({type,trimester:2}).key.startsWith('PMC10023640:'));
 renderUltrasound({type:'head'},$);$('#ultrasoundImage').onerror();assert($('#ultrasoundImage').hidden);assert($('#schematicDetails').open);
