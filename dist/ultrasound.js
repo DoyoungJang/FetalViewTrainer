@@ -1,4 +1,4 @@
-import {ultrasoundFigures} from './ultrasound-data.js?v=26';
+import {ultrasoundFigures} from './ultrasound-data.js?v=27';
 const p=(n,panel)=>['PMC12401504:uog29299-fig-'+String(n).padStart(4,'0'),panel];
 const h=(n,panel)=>['PMC3784141:F'+n,panel];
 const mapping={
@@ -60,7 +60,7 @@ const selectedPanels={
  heart:[h(5)[0],'A: 심장 사강 단면 · 4CV',[5,5,365,346]],
  lvot:[h(6)[0],'A: 좌심실 유출로 · LVOT',[3,3,341,294]],
  rvot:[h(7)[0],'A: 우심실 유출로 · RVOT',[3,3,341,306]],
- threev:['PMC10023640:Fig1b','18: 삼혈관 단면 · 3VV',[480,5,193,140]],
+ threev:['PMC8429868:f3','A: 정상 3VV · PA 폐동맥 / Ao 대동맥 / S 상대정맥',[0,0,391,409]],
  threevpa:[h(8)[0],'3VV의 폐동맥 분지 참고 · 폐동맥 직경 측정 예시 아님',[7,6,670,602]],
  vessels:[h(9)[0],'A: 삼혈관·기관 단면 · 3VT',[4,4,340,327]],
  aoarch:[h(10)[0],'A: 대동맥궁',[3,3,339,278]],

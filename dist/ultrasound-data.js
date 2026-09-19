@@ -382,5 +382,21 @@ export const ultrasoundFigures={
       645,
       449
     ]
+  },
+  "PMC8429868:f3": {
+    "file": "PMC8429868-f3.jpg",
+    "caption": "Normal (A) three-vessel and (B) three-vessel trachea view demonstrating a normal left-sided aortic arch. S, SVC; Ao, aorta; PA, pulmonary artery; T, trachea.",
+    "figure": "Figure 3A",
+    "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8429868/#f3",
+    "author": "Heather Y. Sun",
+    "year": "2021",
+    "doi": "10.21037/tp-20-164",
+    "license": "CC BY-NC-ND 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "age": "중기 태아 심장 정상 단면 예시 · 개별 주수 미기재",
+    "size": [
+      760,
+      409
+    ]
   }
 };

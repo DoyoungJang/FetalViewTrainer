@@ -171,3 +171,11 @@ Acquired from Europe PMC official supplementaryFiles packages; figure IDs and or
 
 ## Display panel selection
 Original files remain byte-for-byte unchanged. The viewer uses clipped CSS viewports to show the panel identified by each published caption, with an explicit link to the complete original figure. Bounds and panel identifiers are recorded in ultrasound.js. 3VV now uses Prodan et al., Fig. 1, panel 18; 3VT remains Lee & Won, Fig. 9A. Normal first-trimester brain uses only Fig. 1A of PMC4710000.
+
+## PMC8429868:f3
+- Heather Y. Sun (2021), Prenatal diagnosis of congenital heart defects: echocardiography. DOI: 10.21037/tp-20-164
+- Source: https://pmc.ncbi.nlm.nih.gov/articles/PMC8429868/#f3
+- License: CC BY-NC-ND 4.0, noncommercial education; original bytes retained, display viewport selects panel A only.
+- Caption: Normal (A) three-vessel and (B) three-vessel trachea view demonstrating a normal left-sided aortic arch.
+- SHA-256: add96f18e55a035628d2209740b65814385eeb20d95d5cc893da4b13b8211e63
+- Replaces the previous Prodan panel 18 mapping for 3VV.
