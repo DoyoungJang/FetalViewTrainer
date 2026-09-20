@@ -1,5 +1,5 @@
 import * as T from './vendor/three.module.js';
-import {sectionSegments} from './planes.js?v=32';
+import {sectionSegments} from './planes.js?v=33';
 
 // Geometric reference sections of this specific adult mesh, not fetal validation.
 // User-selected display mapping applies only to these two HRA lesson presets.

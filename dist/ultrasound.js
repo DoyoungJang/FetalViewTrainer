@@ -1,5 +1,5 @@
-import {trimesterUltrasound,unmatchedReference} from './trimester-ultrasound.js?v=32';
-import {ultrasoundFigures} from './ultrasound-data.js?v=32';
+import {trimesterUltrasound,unmatchedReference} from './trimester-ultrasound.js?v=33';
+import {ultrasoundFigures} from './ultrasound-data.js?v=33';
 const p=(n,panel)=>['PMC12401504:uog29299-fig-'+String(n).padStart(4,'0'),panel];
 const h=(n,panel)=>['PMC3784141:F'+n,panel];
 const mapping={
