@@ -1,4 +1,4 @@
-import {anatomyFor} from './anatomy.js?v=34';
+import {anatomyFor} from './anatomy.js?v=35';
 // Anchors in the 600 x 350 teaching diagram coordinate system.
 // These identify drawn structures, not segmentation of a patient image.
 const marks={
