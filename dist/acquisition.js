@@ -1,3 +1,4 @@
+import {renderScanTips} from './scan-tips.js?v=34';
 // Original Korean teaching synthesis, not verbatim guideline text or an official ISUOG sequence.
 export const acquisitionSources={
  first:['ISUOG 2023 · 11–14주 검사','https://doi.org/10.1002/uog.26106'],
@@ -66,4 +67,4 @@ export function acquisitionFor(v){
  const keys=[['first','mid','late'][trimester-1],...p.refs];
  return {trimester,steps,refs:[...new Set(keys)].map(k=>acquisitionSources[k]),note:cardiac.has(v.type)&&trimester===1?'1분기 색·스펙트럴 도플러는 임상적 필요가 있을 때 최소 출력·최단 시간으로 사용합니다.':'방향은 화면 좌우가 아닌 태아의 머리·꼬리·등·배를 기준으로 합니다. 작은 조작 후 랜드마크를 다시 확인하세요.'};
 }
-export function renderAcquisition(v){const p=acquisitionFor(v);if(!p)return '';return `<section class="acquisition-guide" aria-label="분기별 단면 획득 프로토콜"><h3>단면 획득 프로토콜 <small>${p.trimester}분기 · Step-by-Step</small></h3><p class="acquisition-intro">가이드라인의 단면 기준을 바탕으로 정리한 교육용 획득 순서입니다. 실제 태위·주수에 따라 조절합니다.</p><ol>${p.steps.map(([title,text])=>`<li><strong>${title}</strong><p>${text}</p></li>`).join('')}</ol><p class="acquisition-note">${p.note}</p><div class="acquisition-sources">${p.refs.map(([name,url])=>`<a href="${url}" target="_blank" rel="noopener">${name} ↗</a>`).join('')}</div></section>`;}
+export function renderAcquisition(v){const p=acquisitionFor(v);if(!p)return '';return `<section class="acquisition-guide" aria-label="분기별 단면 획득 프로토콜"><h3>단면 획득 프로토콜 <small>${p.trimester}분기 · Step-by-Step</small></h3><p class="acquisition-intro">가이드라인의 단면 기준을 바탕으로 정리한 교육용 획득 순서입니다. 실제 태위·주수에 따라 조절합니다.</p><ol>${p.steps.map(([title,text])=>`<li><strong>${title}</strong><p>${text}</p></li>`).join('')}</ol>${renderScanTips(v)}<p class="acquisition-note">${p.note}</p><div class="acquisition-sources">${p.refs.map(([name,url])=>`<a href="${url}" target="_blank" rel="noopener">${name} ↗</a>`).join('')}</div></section>`;}
