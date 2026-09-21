@@ -1,5 +1,5 @@
 import {Vector3} from './vendor/three.module.js';
-import {orbitLandmarks,limbLandmarks,brainLandmarks} from './anatomy-registration.js?v=43';
+import {orbitLandmarks,limbLandmarks,brainLandmarks} from './anatomy-registration.js?v=44';
 
 const mid='https://doi.org/10.1002/uog.24888';
 const cns='https://www.isuog.org/static/b91bae06-731b-4a2d-8bbcbb2f0d886af4/ISUOG-Practice-Guidelines-CNS-part-2-targeted-neurosonography.pdf';
@@ -66,10 +66,12 @@ export function orientPreset(v,preset){
  }
  return {...preset,center,normal,landmarks:[],anchorNames:[],note:directionInfo(v).target};
 }
-export function renderDirections(v,$){
+export function renderDirections(v,$,hasPhoto){
  const options=directionsFor(v),info=directionInfo(v);$('#directionControls').hidden=!options.length;
- $('#directionSelect').innerHTML=options.map(o=>`<option value="${o.id}" ${o.id===(v.direction||'standard')?'selected':''}>${o.label}</option>`).join('');
- $('#directionSummary').textContent=info?info.target:'기준 단면과 추가 해부학 방향을 비교합니다. 방향 전환 시 카메라 시점은 유지됩니다.';
+ const available=options.map(o=>({...o,available:hasPhoto({...v,direction:o.id})}));
+ $('#directionSelect').disabled=!available.some(o=>o.available);
+ $('#directionSelect').innerHTML=available.map(o=>`<option value="${o.id}" ${o.id===(v.direction||'standard')?'selected':''} ${o.available?'':'disabled'}>${o.label}${o.available?'':' · 사진 미확보'}</option>`).join('');
+ $('#directionSummary').textContent=info?info.target:'사진이 있는 단면 방향만 선택할 수 있습니다. 사진 미확보 항목은 비활성화됩니다. 방향 전환 시 카메라 시점은 유지됩니다.';
  $('#diagram').hidden=!!info;
  if(!info)return;
  $('#planeName').textContent=v.en+' · '+info.label;
