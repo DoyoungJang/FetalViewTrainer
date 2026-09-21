@@ -1,4 +1,4 @@
-import {trimesterFigures} from './trimester-figures.js?v=40';
+import {trimesterFigures} from './trimester-figures.js?v=41';
 // Every entry is reviewed against a figure caption and, for PDF assets, the rendered page.
 // Missing entries intentionally do not fall back to a different trimester.
 const pick=(key,panel,region,extra={})=>({key,panel,region,...extra});
@@ -6,7 +6,7 @@ const w=(n,panel,region,extra)=>pick('wapm-first:F'+n,panel,region,extra);
 const t=(n,panel,region,extra)=>pick('third-trimester:F'+n,panel,region,extra);
 export const trimesterPanels={
  1:{
-  cervix:pick('PMC11242471:F1','a: 자궁경부 · Internal os / External os / Isthmus',[0,0,1360,1076],{referenceNote:'자궁경부 내구·외구와 자궁협부를 구분하는 1분기 연구 영상입니다. 오른쪽의 압박 전후 CCI 측정 패널은 제외했습니다. 일반 CL 측정에서 압박을 가하라는 뜻이 아닙니다.'}),
+  cervix:pick('ISUOG-cervix:F4','a: ISUOG 1분기 자궁경부 · 내구·외구와 미발달 자궁하부',[0,0,426,301],{referenceNote:'노란 화살표는 내구·외구, 빨간 화살표는 미발달 자궁하부입니다. ISUOG는 이 그림을 1분기 조산 선별용 CL 평가의 비권장 예시로 제시합니다. 해부학 참고이며 올바른 선별 측정 예시가 아닙니다.'}),
   face:pick('PMC12705710:Fig1a','i: 후비삼각 · Retronasal triangle (RNT) · 사관상면',[458,458,227,228],{referenceNote:'1분기 코·구개 평가의 RNT 참고 영상입니다. 중기 코·상순 정면과는 다른 단면이며, 상순 전체가 보이는 영상으로 해석하지 않습니다.'}),
   kidneys:pick('PMC12705710:Fig1b','s: 양측 신장(RK/LK) · 관상면 색 도플러',[0,457,230,228],{referenceNote:'신장 구조물 확인용 참고 영상입니다. 횡단면이 아닌 관상면이며 신우 전후경의 측정면 예시는 아닙니다.'}),
   ductarch:pick('PMC8597369:F2','D: 동맥관궁(DA) · 3VT의 색 도플러',[389,244,390,223],{age:'1분기 13주 1일 · Figure 1과 같은 태아로 캡션 명시',referenceNote:'동맥관궁(DA)과 대동맥궁(AoA)이 합류하는 구조를 보여줍니다. 3VT 횡단면 참고 영상이며 동맥관궁 시상면은 아닙니다.'}),
@@ -53,6 +53,7 @@ export const trimesterPanels={
  }
 };
 export function trimesterUltrasound(v,legacyFigures){
+ if(v.type==='cervix'&&v.trimester!==1)return {...trimesterFigures['ISUOG-cervix:F5'],key:'ISUOG-cervix:F5',panel:'a: ISUOG 자궁경부 길이 · 압박을 피한 올바른 측정',region:[0,0,365,296],trimester:v.trimester,ageMatched:false,referenceNote:'탐촉자 압박을 피한 올바른 측정 예시입니다. 과도한 압박으로 경부가 길어 보이는 b 패널은 제외했습니다. 원문에 촬영 주수가 명시되지 않아 특정 분기의 대표 영상으로 해석하지 않습니다.'};
  let selected=trimesterPanels[v.trimester]?.[v.type];
  if(v.trimester===3&&v.type==='heart'&&['4ch-ed','4ch-es'].includes(v.id)){
   const ed=v.id==='4ch-ed';selected=pick('Soltan2025:F'+(ed?2:3),(ed?'a: 4CV 이완 말기 · End-diastole · 28주':'a: 4CV 수축 말기 · End-systole · 29주'),[0,0,342,341],{age:ed?'3분기 28주 · 캡션 명시':'3분기 29주 · 캡션 명시',phaseVerified:true});

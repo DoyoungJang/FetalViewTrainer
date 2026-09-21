@@ -1,5 +1,5 @@
-import {trimesterUltrasound,unmatchedReference} from './trimester-ultrasound.js?v=40';
-import {ultrasoundFigures} from './ultrasound-data.js?v=40';
+import {trimesterUltrasound,unmatchedReference} from './trimester-ultrasound.js?v=41';
+import {ultrasoundFigures} from './ultrasound-data.js?v=41';
 const p=(n,panel)=>['PMC12401504:uog29299-fig-'+String(n).padStart(4,'0'),panel];
 const h=(n,panel)=>['PMC3784141:F'+n,panel];
 const mapping={
@@ -19,7 +19,7 @@ const mapping={
  cervix:['PMC7311420:Fig1','오른쪽 위 Maternal cervix 영역 · 여러 데이터셋 예시가 포함된 원본 전체 그림']
 };
 export function ultrasoundFor(v){
- if(v.trimester===1||v.trimester===3)return trimesterUltrasound(v,ultrasoundFigures);
+ if(v.type==='cervix'||v.trimester===1||v.trimester===3)return trimesterUltrasound(v,ultrasoundFigures);
  const selected=selectedPanels[v.type],match=selected||mapping[v.type];
  if(!match)return null;
  const [key,panel]=match,ref=ultrasoundFigures[key];

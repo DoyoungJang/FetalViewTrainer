@@ -527,5 +527,41 @@ export const trimesterFigures={
       1076
     ],
     "sha256": "5c9fd52c194726f809f8d93f7b7c893b7f606a775ed9006668d3ba93ca4ff734"
+  },
+  "ISUOG-cervix:F4": {
+    "file": "ISUOG-2022-cervix-F4.png",
+    "caption": "Examples unsuitable for routine cervical-length screening: panel a illustrates early-pregnancy anatomy and the undeveloped lower uterine segment; panel b illustrates limitations of an abdominal approach.",
+    "figure": "Figure 4",
+    "source": "https://isuog.org/static/e45c9342-359c-4c5b-86fb71d52562303b/ultrasound-in-preterm-birth.pdf#page=4",
+    "author": "Coutinho et al. / ISUOG",
+    "year": "2022",
+    "doi": "10.1002/uog.26020",
+    "license": "© 2022 ISUOG · 원문 저작권 표시",
+    "licenseUrl": "https://doi.org/10.1002/uog.26020",
+    "age": "1분기 · Figure 4a 캡션 명시 · 개별 주수 미기재",
+    "size": [
+      750,
+      301
+    ],
+    "processing": "공식 PDF 그림 추출 · PNG 변환 · 선택 패널 확대",
+    "sha256": "c274f1391696337f0c19dfb37354462517131874d6da3bddbe9b3f393f84c4c8"
+  },
+  "ISUOG-cervix:F5": {
+    "file": "ISUOG-2022-cervix-F5.png",
+    "caption": "Comparison in one patient: minimal probe pressure in panel a versus compression in panel b. Compression changes the apparent cervical length and lip symmetry.",
+    "figure": "Figure 5",
+    "source": "https://isuog.org/static/e45c9342-359c-4c5b-86fb71d52562303b/ultrasound-in-preterm-birth.pdf#page=5",
+    "author": "Coutinho et al. / ISUOG",
+    "year": "2022",
+    "doi": "10.1002/uog.26020",
+    "license": "© 2022 ISUOG · 원문 저작권 표시",
+    "licenseUrl": "https://doi.org/10.1002/uog.26020",
+    "age": "촬영 주수 미기재 · 분기 공통 측정 기법 참고",
+    "size": [
+      750,
+      296
+    ],
+    "processing": "공식 PDF 그림 추출 · PNG 변환 · 선택 패널 확대",
+    "sha256": "20761250a1a4f9c01aa969aaa414fd9673f4f00ea3e2512bf4bbe90695f02058"
   }
 };
