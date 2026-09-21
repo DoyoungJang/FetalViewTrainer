@@ -1,5 +1,5 @@
 import * as T from './vendor/three.module.js';
-import {sectionSegments} from './planes.js?v=35';
+import {sectionSegments} from './planes.js?v=36';
 
 // Join mesh/plane intersections into closed rings, preserving nested cavities.
 export function sectionGeometry(meshes,center,quaternion){
