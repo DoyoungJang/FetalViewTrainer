@@ -12,7 +12,7 @@ for(const ref of Object.values(ultrasoundFigures)){
  assert(ref.source.startsWith('https://'));if(ref.sha256)assert.equal(createHash('sha256').update(image).digest('hex'),ref.sha256);assert(ref.doi&&ref.author&&ref.licenseUrl&&ref.caption);
 }
 const elements=new Map(),$=id=>{if(!elements.has(id))elements.set(id,{});return elements.get(id);};let available=0;
-for(const phase of phases)for(const v of phase.lessons){
+for(const phase of phases)for(const v of phase.lessons.filter(v=>!v.extended)){
  renderUltrasound(v,$);const ref=ultrasoundFor(v);
  if(ref){const [x,y,w,h]=ref.region;assert(x>=0&&y>=0&&w>0&&h>0&&x+w<=ref.size[0]&&y+h<=ref.size[1]);assert($('#ultrasoundReference').innerHTML.includes('us-viewport'));available++;assert($('#ultrasoundReference').innerHTML.includes(ref.file));assert.equal($('#schematicDetails').open,true);if(v.trimester===1||v.trimester===3){assert.equal(ref.trimester,v.trimester);if(v.type==='cervix'&&v.trimester===3)assert.equal(ref.ageMatched,false);else assert.equal(ref.ageMatched,true);}if(v.temporal&&!ref.phaseVerified)assert($('#ultrasoundReference').innerHTML.includes('일치한다고 확인된 프레임은 아닙니다'));}
  else{assert($('#schematicDetails').open);assert(!$('#ultrasoundReference').innerHTML.includes('<img'));}

@@ -1,5 +1,7 @@
-import {planeReferences} from './planes.js?v=46';
-import {standards} from './standards-data.js?v=46';
+import {supplementSources} from './supplement-catalog.js?v=47';
+import {extendedViews} from './extended-views.js?v=47';
+import {planeReferences} from './planes.js?v=47';
+import {standards} from './standards-data.js?v=47';
 export const sources=[
 ['ISUOG · 1분기 (2023)','https://www.isuog.org/static/a8d6dee2-38d8-4d66-8be3929af48e8369/Updated-ISUOG-Practice-Guidelines-performance-of-11-14-week-ultrasound-scan.pdf'],
 ['ISUOG · 2분기 (2022)','https://www.isuog.org/resource/isuog-practice-guidelines-updated-performance-of-the-routine-mid-trimester-fetal-ultrasound-scan.html'],
@@ -65,3 +67,7 @@ for(let p=0;p<phases.length;p++){
 sources.push(['ISUOG · 자궁경부 / 조산 예측 (2022)','https://www.isuog.org/static/e45c9342-359c-4c5b-86fb71d52562303b/ultrasound-in-preterm-birth.pdf']);
 
 sources.push(['제공 문서 · Standard Plane Best / Acceptable 상세 기준 38항목','./standards.json']);
+
+for(const [i,p] of phases.entries())p.lessons.push(...extendedViews.filter(v=>v.trimesters.includes(i+1)).map(v=>({...v,trimester:i+1})));
+
+for(const s of Object.values(supplementSources))if(!sources.some(x=>x[1]===s.url))sources.push([s.label,s.url]);

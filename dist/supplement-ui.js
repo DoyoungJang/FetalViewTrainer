@@ -1,6 +1,6 @@
-import {modulesForTrimester,supplementSources} from './supplement-catalog.js?v=46';
-import {supplementPhotos} from './supplement-photos.js?v=46';
-import {phases} from './data.js?v=46';
+import {modulesForTrimester,supplementSources} from './supplement-catalog.js?v=47';
+import {supplementPhotos} from './supplement-photos.js?v=47';
+import {phases} from './data.js?v=47';
 
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const list=(items,ordered=false)=>`<${ordered?'ol':'ul'}>${items.map(x=>`<li>${esc(x)}</li>`).join('')}</${ordered?'ol':'ul'}>`;
@@ -8,7 +8,7 @@ export function moduleMarkup(m,t){
  const sources=m.refs.map(key=>supplementSources[key]);
  const phaseNote=t===1?'초기 해부학은 이후에 발달·변화하므로 중기 검사를 대체하지 않습니다.':t===3?'후기 태위·골화·양수로 관찰이 제한되면 한계를 기록하고 적응증에 맞춰 재평가합니다.':'기준 단면을 먼저 확보하고 필요한 구조·기능을 추가로 평가합니다.';
  return `<div class="supplement-title"><span class="scope">보완 ${m.number} / 25 · ${t}분기 · ${esc(m.scope)}</span><h2 id="supplementTitle" tabindex="-1">${esc(m.title)}</h2><p>${esc(m.en)}</p></div>
- <p class="supplement-context">${phaseNote} 이 항목은 획득·판독 학습 자료이며 전용 3D 단면 시뮬레이션은 제공하지 않습니다.</p>
+ <p class="supplement-context">${phaseNote} 이 항목은 획득·판독 학습 자료입니다. 관련 기준 View 버튼에서 연결된 3D 학습으로 이동할 수 있습니다.</p>
  <div class="supplement-columns"><div><section><h3>확인할 구조물</h3>${list(m.structures)}</section>
  ${m.variants?`<section><h3>구분해서 확인할 세부 단면·구조</h3><dl class="supplement-variants">${m.variants.map(([n,d])=>`<dt>${esc(n)}</dt><dd>${esc(d)}</dd>`).join('')}</dl></section>`:''}
  <section><h3>단면 획득 · Step-by-Step</h3>${list(m.steps,true)}</section>
@@ -36,7 +36,7 @@ export function setupSupplementUI(doc){
    const show=i=>{$('#supplementPhoto').innerHTML=photoMarkup(photos[i]);const img=$('#supplementPhoto img');img.onerror=()=>{img.parentElement.innerHTML='<p class="us-warning">사진을 불러오지 못했습니다. 아래 원문·캡션 링크에서 확인하세요.</p>';};};show(0);
    $('#supplementPhotoSelect').onchange=e=>{const n=Number(e.target.value);if(Number.isInteger(n)&&photos[n])show(n);};
   }else{gallery.hidden=true;}
-  const index=phases[trimester-1].lessons.findIndex(v=>v.id===m.related);$('#supplementRelated').hidden=index<0;
+  const items=phases[trimester-1].lessons;let index=items.findIndex(v=>v.extended&&v.moduleId===m.id);if(index<0)index=items.findIndex(v=>v.id===m.related);$('#supplementRelated').hidden=index<0;
   $('#supplementRelated').onclick=()=>{if(index<0)return;setMode(false);const picker=$('#lessonSelect');picker.value=String(index);picker.dispatchEvent(new Event('change',{bubbles:true}));$('#viewTitle').scrollIntoView({block:'center',behavior:'smooth'});};
  }
  function render(){

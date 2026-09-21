@@ -8,7 +8,7 @@ import {orbitLandmarks} from './dist/anatomy-registration.js';
 let count=0,photoCount=0;
 for(const phase of phases)for(const v of phase.lessons){
  const options=directionsFor(v);
- if(v.trimester===1){assert.equal(options.length,0);continue;}
+ if(v.trimester===1||v.extended){assert.equal(options.length,0);continue;}
  assert(options.length>=3);assert.equal(new Set(options.map(o=>o.id)).size,options.length);
  const base=getPreset(v,v.trimester-1);assert.equal(orientPreset({...v,direction:'standard'},base),base);
  const saved=base.center.toArray();

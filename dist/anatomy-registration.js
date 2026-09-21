@@ -30,6 +30,8 @@ export const greatVessels={
 };
 const G=greatVessels;
 export const cardiacPaths=[
+ {name:'LPV',r:.018,mat:'vein',points:[[.20,0,-.24],[.15,0,-.20],[.10,0,-.14]]},
+ {name:'RPV',r:.018,mat:'vein',points:[[-.04,0,-.24],[.02,0,-.20],[.10,0,-.14]]},
  {name:'Ao',r:.035,mat:'ao',points:[[.16,-.05,.09],[.09,.19,-.015],[0,.25,0],[0,.28,0],[0,.35,0],[0,.40,0],G.archStart]},
  {name:'AoArch',r:.035,mat:'ao',points:[G.archStart,[.045,.505,-.13],G.descending]},
  {name:'dAo',r:.035,mat:'ao',points:[G.descending,[.09,.2,-.28]]},

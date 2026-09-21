@@ -19,7 +19,7 @@ for(const [key,r] of Object.entries(supplementFigures)){
 }
 let combinations=0,withPhotos=0;
 for(const t of [1,2,3])for(const m of modulesForTrimester(t)){
- const html=moduleMarkup(m,t);assert(html.includes(m.title));assert(html.includes('전용 3D 단면 시뮬레이션은 제공하지 않습니다'));
+ const html=moduleMarkup(m,t);assert(html.includes(m.title));assert(html.includes('관련 기준 View 버튼'));
  assert(m.steps.length>=3&&m.tips.length>=2&&m.measure&&m.structures.length>=3);
  assert(m.refs.every(k=>supplementSources[k]));
  const photos=supplementPhotos(m,t);if(photos.length)withPhotos++;

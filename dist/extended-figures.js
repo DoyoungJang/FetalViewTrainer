@@ -1,0 +1,4 @@
+export const extendedFigures={
+ conus:{file:'extended-conus.jpeg',size:[500,278],title:'Figure 7 · 척수원뿔 시상면',author:'ISUOG CNS Part 2, 2021',rights:'© 2021 ISUOG',source:'https://www.isuog.org/static/b91bae06-731b-4a2d-8bbcbb2f0d886af4/ISUOG-Practice-Guidelines-CNS-part-2-targeted-neurosonography.pdf#page=6',age:'방법 참고 · 원문에 개별 촬영 주수 미기재',note:'화살표: 척수원뿔 / 화살촉: 피부 연속성. 특정 주수의 종료 수준을 이 사진 하나로 확정하지 않습니다.'},
+ 'early-posterior-fossa':{file:'extended-first-figure2.jpeg',size:[2000,3736],region:[0,1070,778,510],title:'Figure 2g · 1분기 정중시상면의 후두개와',author:'ISUOG 11–14-week guideline, 2023',rights:'© 2023 ISUOG',source:'https://www.isuog.org/static/a8d6dee2-38d8-4d66-8be3929af48e8369/Updated-ISUOG-Practice-Guidelines-performance-of-11-14-week-ultrasound-scan.pdf#page=7',age:'1분기 11+0–14+0주 검사 자료 · 개별 촬영 주수 미기재',note:'g 패널만 표시합니다. 뇌간·제4뇌실 IT·대조를 확인하는 획득 참고이며 캘리퍼가 놓인 계측 예시는 아닙니다.'}
+};

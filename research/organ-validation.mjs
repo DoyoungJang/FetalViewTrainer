@@ -103,3 +103,19 @@ for(const type of ['abdomen','kidneys','kidneysag','kidneycor','pelvis','diaphra
 }
 api.select(lesson('head'),1);assert(!assets.body.group.visible);assert(!assets.skeleton.group.visible);
 console.log('10 fetal MRI organ regions and 26 reference anatomy meshes: finite geometry, selected-organ intersections, isolation, camera continuity and visibility restoration verified.');
+
+// New independent lessons use the actual organ assets and keep the camera pose.
+const {extendedPlane}=await import('../dist/extended-planes.js');
+for(const v of phases[1].lessons.filter(v=>v.extended)){
+ const before=camera.position.clone();api.select(v,1);assert(camera.position.equals(before));
+ for(const mode of v.group==='정밀 심장'?['internal','schematic']:['internal']){
+  api.source(mode);assert(api.getState().normal.every(Number.isFinite));
+  if(v.group==='정밀 심장'&&mode==='internal'){
+   const p=extendedPlane(v,{center:new T.Vector3(),normal:new T.Vector3(0,1,0)},assets.heartInternal);
+   const names={'low-sax':['heart_left_ventricle','heart_right_ventricle'],'high-sax':['aortic_valve','pulmonary_trunk'],'pulmonary-veins':['left_cardiac_atrium','pulmonary_vein_L_inf','pulmonary_vein_R_inf'],'pa-bifurcation':['pulmonary_trunk','pulmonary_artery_L','pulmonary_artery_R']}[v.id];
+   for(const name of names){const mesh=assets.heartInternal.meshes.find(m=>m.name==='VH_M_'+name);assert(mesh,name);assert(sectionSegments([mesh],p.normal,p.center).length>0,v.id+' missed '+name);}
+   assert(scene.getObjectByName('heart-cut-tissue').geometry.attributes.position.count>0);
+  }
+ }
+}
+console.log('All 12 second/third-trimester independent views: actual mesh intersections, source switching, cut surfaces and camera retention passed.');

@@ -1,6 +1,6 @@
 import * as T from './vendor/three.module.js';
 import {GLTFLoader} from './vendor/GLTFLoader.js';
-import {brainPlacement} from './anatomy-registration.js?v=46';
+import {brainPlacement} from './anatomy-registration.js?v=47';
 
 const tissueColors={lungs:0xe3b7df,liver:0xf0a18b,stomach:0xffc3a5,spleen:0xcdb6fa,renal_pelvis:0xffe69b,kidneys:0xf0acc9,bladder:0xffdb91,thymus:0xf8cce9,gallbladder:0xa7e1b5,adrenals:0xffcb8a,diaphragm:0xf6bfb0};
 const definitions={
@@ -19,7 +19,7 @@ export async function loadOrganModels(){
   gltf.scene.updateWorldMatrix(true,true);
   const heart=gltf.scene.getObjectByName('VH_M_heart');
   referenceBounds=new T.Box3().setFromObject(heart);
-  for(const name of ['ascending_aorta','aortic_arch','descending_aorta_a','superior_vena_cava','inferior_vena_cava_a','pulmonary_trunk','pulmonary_artery_L','pulmonary_artery_R']){
+  for(const name of ['ascending_aorta','aortic_arch','descending_aorta_a','superior_vena_cava','inferior_vena_cava_a','pulmonary_trunk','pulmonary_artery_L','pulmonary_artery_R','pulmonary_vein_R_inf','pulmonary_vein_R_sup','pulmonary_vein_L_inf','pulmonary_vein_L_sup']){
    const vessel=gltf.scene.getObjectByName('VH_M_'+name);if(vessel)heart.attach(vessel);
   }
   gltf.scene.getObjectByName('VH_M_blood_vasculature_of_heart')?.removeFromParent();

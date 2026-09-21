@@ -1,5 +1,5 @@
-import {supplementFigures} from './supplement-figures.js?v=46';
-import {ultrasoundFor} from './ultrasound.js?v=46';
+import {supplementFigures} from './supplement-figures.js?v=47';
+import {ultrasoundFor} from './ultrasound.js?v=47';
 // Fractions select caption-verified panels without rotating or relabelling anatomy.
 const image=(key,title,box=[0,0,1,1],note='')=>{
  const r=supplementFigures[key],[w,h]=r.size;

@@ -1,3 +1,4 @@
+import {extendedGuide} from './extended-views.js?v=47';
 // Original Korean teaching summaries of the linked anatomical references.
 const general='https://pmc.ncbi.nlm.nih.gov/articles/PMC12401504/';
 const cardiac='https://pmc.ncbi.nlm.nih.gov/articles/PMC8429868/';
@@ -52,4 +53,4 @@ export function anatomyFor(v){
  }
  return {...a,note};
 }
-export function renderAnatomy(v){const a=anatomyFor(v);if(!a)return '';return `<section class="anatomy-guide"><h3>이 뷰에서 관찰할 구조물</h3><ul>${a.items.map(t=>`<li>${t}</li>`).join('')}</ul><p>${a.note}</p><p class="anatomy-context">해당 단면의 학습 목표입니다. 주수·태위·영상 조건에 따라 가시성이 다르며, 현재 참고 사진에 모든 구조물이 표시되어 있다는 뜻은 아닙니다.</p><a href="${a.source}" target="_blank" rel="noopener">구조물 설명 근거</a></section>`;}
+export function renderAnatomy(v){if(v.extended)return extendedGuide(v,'anatomy');const a=anatomyFor(v);if(!a)return '';return `<section class="anatomy-guide"><h3>이 뷰에서 관찰할 구조물</h3><ul>${a.items.map(t=>`<li>${t}</li>`).join('')}</ul><p>${a.note}</p><p class="anatomy-context">해당 단면의 학습 목표입니다. 주수·태위·영상 조건에 따라 가시성이 다르며, 현재 참고 사진에 모든 구조물이 표시되어 있다는 뜻은 아닙니다.</p><a href="${a.source}" target="_blank" rel="noopener">구조물 설명 근거</a></section>`;}
