@@ -1,4 +1,4 @@
-import {trimesterFigures} from './trimester-figures.js?v=38';
+import {trimesterFigures} from './trimester-figures.js?v=39';
 // Every entry is reviewed against a figure caption and, for PDF assets, the rendered page.
 // Missing entries intentionally do not fall back to a different trimester.
 const pick=(key,panel,region,extra={})=>({key,panel,region,...extra});
@@ -6,6 +6,9 @@ const w=(n,panel,region,extra)=>pick('wapm-first:F'+n,panel,region,extra);
 const t=(n,panel,region,extra)=>pick('third-trimester:F'+n,panel,region,extra);
 export const trimesterPanels={
  1:{
+  head:pick('PMC12705710:Fig1a','c: 경시상 축상 단면 · Transthalamic axial view (TTP/BPD/HC)',[458,0,227,229]),
+  diaphragm:pick('PMC12705710:Fig1b','p: 양측 횡격막 시상면 · Bilateral diaphragmatic sagittal view',[0,228,230,229]),
+  threevpa:pick('PMC3784141:F13','B: 13주 3VV의 주폐동맥(MPA) 참고 · PA 직경 캘리퍼 없는 해부학 영상',[236,3,224,216],{age:'1분기 13주 · 캡션 명시'}),
   earlybrain:w(1,'1분기 측뇌실·맥락총 횡단면 — 초기 뇌 발달 형태'),
   orbit:w(4,'양측 안와·수정체 횡단면 · Axial orbits'),
   facialprofile:pick('PMC8306830:F5','a: 얼굴 정중시상면 · 13주',[7,7,413,322]),
@@ -54,6 +57,8 @@ export function trimesterUltrasound(v,legacyFigures){
  return {...ref,...selected,trimester:v.trimester,ageMatched:true,region:selected.region||[0,0,...ref.size]};
 }
 export function unmatchedReference(v){
+ if(v.trimester===1&&['aoarch','bicaval'].includes(v.type))return {url:'https://doi.org/10.1002/uog.29186',label:v.type==='aoarch'?'보충 Figure S5a–b · 1분기 대동맥궁 장축':'보충 Figure S6a · 1분기 정상 양대정맥 시상면',reason:'1분기 단면이 설명된 보충자료를 찾았습니다. 이미지 재게시 허가는 확인되지 않아 원문으로 연결합니다.'};
+ if(v.trimester===1&&v.type==='cervix')return {url:'https://doi.org/10.1111/aogs.14138',label:'Figure 1 · 1분기 질식 자궁경부 길이 측정',reason:'11–13+6주 연구의 자궁경부 영상을 찾았습니다. 재게시 허가는 확인되지 않아 원문으로 연결합니다. 연구 예시이며 1분기 일괄 선별검사 권고를 뜻하지 않습니다.'};
  if(v.trimester===1&&['head','face','rvot','profile'].includes(v.type))return {url:'https://pmc.ncbi.nlm.nih.gov/articles/PMC11444747/',label:({head:'Figure 2 · 12주 3일 HC/BPD',face:'Figure 7 · 12주 3일 얼굴 단면',rvot:'Figure 17e · 12주 3일 RVOT',profile:'Figure 1 · 12주 3일 CRL'}[v.type]),reason:'주수·단면이 맞는 원문은 확인했지만, 이미지 재게시 허가는 확인되지 않아 원문으로 연결합니다.'};
  if(v.trimester===1&&v.type==='cerebellum')return {url:'https://doi.org/10.1080/01443615.2024.2361848',label:'1분기 신경초음파 · 소뇌 횡단면 원문',reason:'1분기 소뇌 단면 논문을 확인했지만, 원본 그림 파일을 확보하지 못했습니다.'};
  return null;

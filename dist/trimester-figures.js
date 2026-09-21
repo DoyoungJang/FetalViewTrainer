@@ -473,5 +473,41 @@ export const trimesterFigures={
     ],
     "processing": "원본 파일 보존 · 선택 패널 확대",
     "sha256": "25ed9fc50e73279008f7efe2c7f51acf99649f247b10a462dd6992d6b360fcf1"
+  },
+  "PMC12705710:Fig1a": {
+    "file": "PMC12705710-404_2025_8231_Fig1a_HTML.jpg",
+    "caption": "Examples of detailed anatomical examination planes of fetuses at 11 + 0 to 13 + 6 gestational weeks: a fetal median sagittal view, b anterior approach median sagittal view (head and neck), c transthalamic axial view, d abdominal axial view, e femoral long axial view, f suprathalamic axial view, g spinal median sagittal view, h binocular and binaural coronal view, i posterior nasal triangle oblique coronal view, j fetal thoracic coronal view, (k) cardiac four-chamber view (color Doppler), l cardiac four-chamber view (cardiac axis), m cardiac tricuspid valve flow (spectral Doppler), n three-vessel-trachea view (color Doppler), o Abdominal cord insertion axial view, p bilateral diaphragmatic sagittal view, q Ductus Venosus (spectral Doppler), r bladder axial view, s coronal (color Doppler) view of both kidneys, t upper limb long axial view, u palm long axial view, v lower limb long axial view, w plantar long axial view, and x placenta",
+    "figure": "Figure 1a",
+    "source": "https://link.springer.com/article/10.1007/s00404-025-08231-z#Fig1",
+    "author": "Lyu et al.",
+    "year": "2025",
+    "doi": "10.1007/s00404-025-08231-z",
+    "license": "CC BY-NC-ND 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "age": "1분기 11–13+6주 · 그림 캡션 명시 · 개별 촬영 주수 미기재",
+    "trimester": 1,
+    "size": [
+      685,
+      914
+    ],
+    "sha256": "9b5405ba93be243fcfddbc3d89a60e446b7b7587ad9ac77d43427d478dedf9d4"
+  },
+  "PMC12705710:Fig1b": {
+    "file": "PMC12705710-404_2025_8231_Fig1b_HTML.jpg",
+    "caption": "Examples of detailed anatomical examination planes of fetuses at 11 + 0 to 13 + 6 gestational weeks: a fetal median sagittal view, b anterior approach median sagittal view (head and neck), c transthalamic axial view, d abdominal axial view, e femoral long axial view, f suprathalamic axial view, g spinal median sagittal view, h binocular and binaural coronal view, i posterior nasal triangle oblique coronal view, j fetal thoracic coronal view, (k) cardiac four-chamber view (color Doppler), l cardiac four-chamber view (cardiac axis), m cardiac tricuspid valve flow (spectral Doppler), n three-vessel-trachea view (color Doppler), o Abdominal cord insertion axial view, p bilateral diaphragmatic sagittal view, q Ductus Venosus (spectral Doppler), r bladder axial view, s coronal (color Doppler) view of both kidneys, t upper limb long axial view, u palm long axial view, v lower limb long axial view, w plantar long axial view, and x placenta",
+    "figure": "Figure 1b",
+    "source": "https://link.springer.com/article/10.1007/s00404-025-08231-z#Fig1",
+    "author": "Lyu et al.",
+    "year": "2025",
+    "doi": "10.1007/s00404-025-08231-z",
+    "license": "CC BY-NC-ND 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "age": "1분기 11–13+6주 · 그림 캡션 명시 · 개별 촬영 주수 미기재",
+    "trimester": 1,
+    "size": [
+      685,
+      913
+    ],
+    "sha256": "52648adc5cdd2b3529b65d74675d35640330be577a8c5574dba958f7411e6607"
   }
 };
