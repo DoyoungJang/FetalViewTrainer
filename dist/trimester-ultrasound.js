@@ -1,4 +1,4 @@
-import {trimesterFigures} from './trimester-figures.js?v=42';
+import {trimesterFigures} from './trimester-figures.js?v=43';
 // Every entry is reviewed against a figure caption and, for PDF assets, the rendered page.
 // Missing entries intentionally do not fall back to a different trimester.
 const pick=(key,panel,region,extra={})=>({key,panel,region,...extra});

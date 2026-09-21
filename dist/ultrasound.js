@@ -1,6 +1,7 @@
-import {isAlternate,directionInfo} from './view-directions.js?v=42';
-import {trimesterUltrasound,unmatchedReference} from './trimester-ultrasound.js?v=42';
-import {ultrasoundFigures} from './ultrasound-data.js?v=42';
+import {isAlternate,directionInfo} from './view-directions.js?v=43';
+import {directionUltrasound,kidneyThirdImage} from './direction-ultrasound.js?v=43';
+import {trimesterUltrasound,unmatchedReference} from './trimester-ultrasound.js?v=43';
+import {ultrasoundFigures} from './ultrasound-data.js?v=43';
 const p=(n,panel)=>['PMC12401504:uog29299-fig-'+String(n).padStart(4,'0'),panel];
 const h=(n,panel)=>['PMC3784141:F'+n,panel];
 const mapping={
@@ -21,9 +22,11 @@ const mapping={
 };
 export function ultrasoundFor(v){
  if(isAlternate(v)){
+  const direct=directionUltrasound(v);if(direct)return direct;
   const matching={kidneys:{coronal:'kidneycor',sagittal:'kidneysag'},kidneysag:{axial:'kidneys',coronal:'kidneycor'},kidneycor:{axial:'kidneys',sagittal:'kidneysag'},face:{sagittal:'facialprofile'},facialprofile:{coronal:'face'}}[v.type]?.[v.direction];
   return matching?ultrasoundFor({...v,type:matching,direction:'standard'}):null;
  }
+ if(v.trimester===3&&v.type==='kidneys')return kidneyThirdImage('axial');
  if(v.type==='cervix'||v.trimester===1||v.trimester===3)return trimesterUltrasound(v,ultrasoundFigures);
  const selected=selectedPanels[v.type],match=selected||mapping[v.type];
  if(!match)return null;

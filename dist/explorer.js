@@ -1,14 +1,14 @@
-import {orientPreset} from './view-directions.js?v=42';
-import {registerHeartToThorax} from './heart-registration.js?v=42';
-import {createBodyAnatomy} from './body-anatomy.js?v=42';
-import {createCardiacCycle} from './cardiac-cycle.js?v=42';
-import {createPregnancyModel} from './pregnancy-model.js?v=42';
-import {createMaternalModel} from './maternal-model.js?v=42';
+import {orientPreset} from './view-directions.js?v=43';
+import {registerHeartToThorax} from './heart-registration.js?v=43';
+import {createBodyAnatomy} from './body-anatomy.js?v=43';
+import {createCardiacCycle} from './cardiac-cycle.js?v=43';
+import {createPregnancyModel} from './pregnancy-model.js?v=43';
+import {createMaternalModel} from './maternal-model.js?v=43';
 import * as T from './vendor/three.module.js';
-import {getPreset,resolvePlane,sectionSegments,isCardiac,cardiacLandmarks,planeReferences} from './planes.js?v=42';
-import {sectionGeometry} from './sections.js?v=42';
-import {heartModelPreset} from './heart-planes.js?v=42';
-import {cardiacPaths} from './anatomy-registration.js?v=42';
+import {getPreset,resolvePlane,sectionSegments,isCardiac,cardiacLandmarks,planeReferences} from './planes.js?v=43';
+import {sectionGeometry} from './sections.js?v=43';
+import {heartModelPreset} from './heart-planes.js?v=43';
+import {cardiacPaths} from './anatomy-registration.js?v=43';
 
 const isBrain=v=>['head','ventricle','cerebellum','earlybrain'].includes(v.type);
 export function attachExplorer({scene,camera,controls,fetus,headGroup,ell,organMat,boneMat,grid,$,organAssets={}}){

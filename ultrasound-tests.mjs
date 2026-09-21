@@ -5,7 +5,8 @@ import {ultrasoundFor,renderUltrasound} from './dist/ultrasound.js';
 import {ultrasoundFigures as legacyFigures} from './dist/ultrasound-data.js';
 import {trimesterFigures} from './dist/trimester-figures.js';
 import {createHash} from 'node:crypto';
-const ultrasoundFigures={...legacyFigures,...trimesterFigures};
+import {directionFigures} from './dist/direction-figures.js';
+const ultrasoundFigures={...legacyFigures,...trimesterFigures,...directionFigures};
 for(const ref of Object.values(ultrasoundFigures)){
  const image=await readFile('dist/ultrasound/'+ref.file);assert(image.length>1000);assert((image[0]===255&&image[1]===216)||(image[0]===137&&image[1]===80));
  assert(ref.source.startsWith('https://'));if(ref.sha256)assert.equal(createHash('sha256').update(image).digest('hex'),ref.sha256);assert(ref.doi&&ref.author&&ref.licenseUrl&&ref.caption);
@@ -25,8 +26,8 @@ assert.equal(ultrasoundFor({type:'earlybrain',trimester:1}).key,'wapm-first:F1')
 assert.equal(ultrasoundFor({type:'threev',trimester:2}).key,'PMC8429868:f3');
 assert(ultrasoundFor({type:'threev',trimester:2}).panel.startsWith('A: 정상 3VV'));
 assert.notDeepEqual(ultrasoundFor({type:'threev',trimester:2}).region,ultrasoundFor({type:'vessels',trimester:2}).region);
-assert.equal(available,86);
-assert.equal(ultrasoundFor({type:'kidneys',trimester:3}),null,'Do not mislabel longitudinal kidney as transverse');
+assert.equal(available,87);
+assert.equal(ultrasoundFor({type:'kidneys',trimester:3}).key,'UTD2014:F1');
 assert.equal(ultrasoundFor({type:'head',trimester:1}).key,'PMC12705710:Fig1a');
 assert.deepEqual(ultrasoundFor({type:'head',trimester:1}).region,[458,0,227,229]);
 assert.equal(ultrasoundFor({type:'diaphragm',trimester:1}).key,'PMC12705710:Fig1b');
