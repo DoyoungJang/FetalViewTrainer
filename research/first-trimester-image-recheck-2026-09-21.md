@@ -33,3 +33,21 @@ TCP, 코/상순, Ao Arch, Duct Arch, Bicaval, 신장 횡단면, Cervix.
 1분기 이미지 25/35 → 28/35; 전체 77/107 → 80/107. 단면 획득/측정 프로토콜, 3D 모델 및 시점 로직 변경 없음.
 
 검증: node ultrasound-tests.mjs, node tests.mjs 통과. 브라우저에서 TTP 및 횡격막의 해당 패널만 표시됨을 확인, 3VV–PA의 13주와 캘리퍼 없음 표기 확인.
+
+
+## 후속 요청 반영 — v40
+
+사용자가 RNT를 코/상순의 1분기 참고 영상으로 허용하고, 신장 및 동맥관궁은 목표 구조물이 포함된 영상도 허용함. 단면 일치 조건을 묵시적으로 완화하지 않고 이미지 위에 실제 촬영면과 제한을 표시함.
+
+- 코/상순: Lyu 2025 Figure 1i, RNT / retronasal triangle / posterior nasal triangle, 사관상면. 기존 원본 첫 부분에서 i만 표시 [458,458,227,228]. 중기 상순 정면과 구분.
+- 신장 횡단면 항목: Lyu 2025 Figure 1s, RK/LK가 표시된 양측 신장 관상면. [0,457,230,228]. 횡단면 및 신우 AP 측정 예시가 아니라는 설명 표시.
+- Duct Arch / Ao Arch: Ruican et al. 2021, DOI 10.47162/RJME.62.1.09, PMC8597369 Figure 2D. Figure 1과 같은 13+1주 태아라는 캡션 확인. [389,244,390,223]. DA/AoA 라벨 포함. 3VT의 구조물 참고이며 궁 시상면과 구분. 기존 CC BY-NC-SA 4.0 원본 보존.
+- Cervix: Becerra-Mojica et al. 2024, DOI 10.3390/jcm13133906, PMC11242471 Figure 1a. 1분기 CL 영상 캡션 및 연구 범위 11–13+6주 확인. CC BY 4.0. 원본 2859x1076 중 [0,0,1360,1076] 표시. 압박을 이용한 CCI의 b 패널 제외. 원본: https://mdpi-res.com/d_attachment/jcm/jcm-13-03906/article_deploy/html/images/jcm-13-03906-g001.png
+
+추가 검색 결과:
+- Ushakov et al. 2024, DOI 10.1080/01443615.2024.2361848: 공개 CC BY 논문 및 13+0주 정상 뇌 Figure 1을 검색 결과로 확인했으나 출판사 HTML/PDF 파일 접근은 403. 소뇌는 원문 링크 유지.
+- Lyu Figure 2의 관상면 뇌간/제4뇌실 패널은 소뇌 식별 근거가 충분하지 않아 TCP 대체로 추가하지 않음.
+- Ruican Figure 4A의 bicaval은 조직학적 3D 재구성이므로 실제 초음파로 잘못 분류하지 않음. Yang 2025 S6a 정상 bicaval 원문 링크 유지.
+
+1분기 33/35개 항목에 실제 초음파가 있으며, 이 수는 구조물 참고 영상을 포함함. 소뇌 및 양대정맥은 이미지 미확보. 전체 85/107. node ultrasound-tests.mjs 및 node tests.mjs 통과. 브라우저에서 RNT/cervix 패널 분리와 ductal arch의 실제 단면 설명을 확인.
+

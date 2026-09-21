@@ -25,13 +25,18 @@ assert.equal(ultrasoundFor({type:'earlybrain',trimester:1}).key,'wapm-first:F1')
 assert.equal(ultrasoundFor({type:'threev',trimester:2}).key,'PMC8429868:f3');
 assert(ultrasoundFor({type:'threev',trimester:2}).panel.startsWith('A: 정상 3VV'));
 assert.notDeepEqual(ultrasoundFor({type:'threev',trimester:2}).region,ultrasoundFor({type:'vessels',trimester:2}).region);
-assert.equal(available,80);
+assert.equal(available,85);
 assert.equal(ultrasoundFor({type:'kidneys',trimester:3}),null,'Do not mislabel longitudinal kidney as transverse');
 assert.equal(ultrasoundFor({type:'head',trimester:1}).key,'PMC12705710:Fig1a');
 assert.deepEqual(ultrasoundFor({type:'head',trimester:1}).region,[458,0,227,229]);
 assert.equal(ultrasoundFor({type:'diaphragm',trimester:1}).key,'PMC12705710:Fig1b');
 assert(ultrasoundFor({type:'threevpa',trimester:1}).panel.includes('캘리퍼 없는'));
-assert.equal(ultrasoundFor({type:'kidneys',trimester:1}),null,'Coronal kidney images must not fill an axial kidney lesson');
+assert.equal(ultrasoundFor({type:'cervix',trimester:1}).key,'PMC11242471:F1');
+for(const type of ['face','kidneys','ductarch','aoarch']){
+ const ref=ultrasoundFor({type,trimester:1});assert(ref.referenceNote);renderUltrasound({type,trimester:1},$);assert($('#ultrasoundReference').innerHTML.includes(ref.referenceNote));
+}
+assert(ultrasoundFor({type:'kidneys',trimester:1}).referenceNote.includes('횡단면이 아닌'));
+assert(ultrasoundFor({type:'ductarch',trimester:1}).referenceNote.includes('시상면은 아닙니다'));
 assert.equal(ultrasoundFor({type:'heart',trimester:3,id:'4ch-ed'}).key,'Soltan2025:F2');
 assert.equal(ultrasoundFor({type:'heart',trimester:3,id:'4ch-es'}).key,'Soltan2025:F3');
 assert(ultrasoundFor({type:'heart',trimester:3,id:'4ch-es'}).phaseVerified);

@@ -1,5 +1,5 @@
-import {trimesterUltrasound,unmatchedReference} from './trimester-ultrasound.js?v=39';
-import {ultrasoundFigures} from './ultrasound-data.js?v=39';
+import {trimesterUltrasound,unmatchedReference} from './trimester-ultrasound.js?v=40';
+import {ultrasoundFigures} from './ultrasound-data.js?v=40';
 const p=(n,panel)=>['PMC12401504:uog29299-fig-'+String(n).padStart(4,'0'),panel];
 const h=(n,panel)=>['PMC3784141:F'+n,panel];
 const mapping={
@@ -63,6 +63,6 @@ export function renderUltrasound(v,$){
  const src='./ultrasound/'+ref.file;
  const [x,y,w,h]=ref.region;
  const imageStyle=`width:${100*ref.size[0]/w}%;height:${100*ref.size[1]/h}%;left:${-100*x/w}%;top:${-100*y/h}%`;
- $('#ultrasoundReference').innerHTML=`<h3>실제 초음파 <small>논문 정지영상</small></h3><p class="us-panel">${ref.panel}</p><div class="us-viewport" style="aspect-ratio:${w}/${h}"><img id="ultrasoundImage" style="${imageStyle}" src="${src}" alt="${ref.panel} · ${ref.author}, ${ref.figure}" loading="lazy"></div><p class="us-age">${ref.age}${ref.ageMatched?' · 선택한 분기와 일치':' · 개별 촬영 주수는 출처 설명 참고'}</p>${v.temporal&&ref.phaseVerified?'<p class="us-age">원문 캡션에서 선택한 심장 주기를 확인한 정지영상입니다.</p>':v.temporal?'<p class="us-warning">현재 수축기·이완기와 일치한다고 확인된 프레임은 아닙니다. 같은 해부학적 단면을 참고하며, 주기는 실제 cine로 판정해야 합니다.</p>':''}<p id="usImageStatus">캡션에 해당하는 단면만 표시합니다. 3D 조작과 연동되는 영상은 아닙니다. <a href="${src}" target="_blank" rel="noopener">원본 전체 그림 보기</a></p><p class="us-credit">${ref.author} (${ref.year}), ${ref.figure} · <a href="https://doi.org/${ref.doi}" target="_blank" rel="noopener">원문</a> · <a href="${ref.source}" target="_blank" rel="noopener">그림 설명</a><br><a href="${ref.licenseUrl}" target="_blank" rel="noopener">${ref.license}</a> · ${ref.processing||'원본 파일 보존 · 선택 패널 확대 표시'}${ref.license.includes('NC')?' · 비상업 교육용':''}</p>`;
+ $('#ultrasoundReference').innerHTML=`<h3>실제 초음파 <small>논문 정지영상</small></h3><p class="us-panel">${ref.panel}</p>${ref.referenceNote?`<p class="us-warning">구조물 참고 영상 · ${ref.referenceNote}</p>`:''}<div class="us-viewport" style="aspect-ratio:${w}/${h}"><img id="ultrasoundImage" style="${imageStyle}" src="${src}" alt="${ref.panel} · ${ref.author}, ${ref.figure}" loading="lazy"></div><p class="us-age">${ref.age}${ref.ageMatched?' · 선택한 분기와 일치':' · 개별 촬영 주수는 출처 설명 참고'}</p>${v.temporal&&ref.phaseVerified?'<p class="us-age">원문 캡션에서 선택한 심장 주기를 확인한 정지영상입니다.</p>':v.temporal?'<p class="us-warning">현재 수축기·이완기와 일치한다고 확인된 프레임은 아닙니다. 같은 해부학적 단면을 참고하며, 주기는 실제 cine로 판정해야 합니다.</p>':''}<p id="usImageStatus">캡션에 해당하는 단면만 표시합니다. 3D 조작과 연동되는 영상은 아닙니다. <a href="${src}" target="_blank" rel="noopener">원본 전체 그림 보기</a></p><p class="us-credit">${ref.author} (${ref.year}), ${ref.figure} · <a href="https://doi.org/${ref.doi}" target="_blank" rel="noopener">원문</a> · <a href="${ref.source}" target="_blank" rel="noopener">그림 설명</a><br><a href="${ref.licenseUrl}" target="_blank" rel="noopener">${ref.license}</a> · ${ref.processing||'원본 파일 보존 · 선택 패널 확대 표시'}${ref.license.includes('NC')?' · 비상업 교육용':''}</p>`;
  $('#ultrasoundImage').onerror=()=>{$('#ultrasoundImage').hidden=true;$('#usImageStatus').textContent='영상을 불러오지 못했습니다. 위 원문·그림 설명 링크에서 확인하세요.';$('#schematicDetails').open=true;};
 }

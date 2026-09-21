@@ -1,4 +1,4 @@
-import {trimesterFigures} from './trimester-figures.js?v=39';
+import {trimesterFigures} from './trimester-figures.js?v=40';
 // Every entry is reviewed against a figure caption and, for PDF assets, the rendered page.
 // Missing entries intentionally do not fall back to a different trimester.
 const pick=(key,panel,region,extra={})=>({key,panel,region,...extra});
@@ -6,6 +6,11 @@ const w=(n,panel,region,extra)=>pick('wapm-first:F'+n,panel,region,extra);
 const t=(n,panel,region,extra)=>pick('third-trimester:F'+n,panel,region,extra);
 export const trimesterPanels={
  1:{
+  cervix:pick('PMC11242471:F1','a: 자궁경부 · Internal os / External os / Isthmus',[0,0,1360,1076],{referenceNote:'자궁경부 내구·외구와 자궁협부를 구분하는 1분기 연구 영상입니다. 오른쪽의 압박 전후 CCI 측정 패널은 제외했습니다. 일반 CL 측정에서 압박을 가하라는 뜻이 아닙니다.'}),
+  face:pick('PMC12705710:Fig1a','i: 후비삼각 · Retronasal triangle (RNT) · 사관상면',[458,458,227,228],{referenceNote:'1분기 코·구개 평가의 RNT 참고 영상입니다. 중기 코·상순 정면과는 다른 단면이며, 상순 전체가 보이는 영상으로 해석하지 않습니다.'}),
+  kidneys:pick('PMC12705710:Fig1b','s: 양측 신장(RK/LK) · 관상면 색 도플러',[0,457,230,228],{referenceNote:'신장 구조물 확인용 참고 영상입니다. 횡단면이 아닌 관상면이며 신우 전후경의 측정면 예시는 아닙니다.'}),
+  ductarch:pick('PMC8597369:F2','D: 동맥관궁(DA) · 3VT의 색 도플러',[389,244,390,223],{age:'1분기 13주 1일 · Figure 1과 같은 태아로 캡션 명시',referenceNote:'동맥관궁(DA)과 대동맥궁(AoA)이 합류하는 구조를 보여줍니다. 3VT 횡단면 참고 영상이며 동맥관궁 시상면은 아닙니다.'}),
+  aoarch:pick('PMC8597369:F2','D: 대동맥궁(AoA) · 3VT의 색 도플러',[389,244,390,223],{age:'1분기 13주 1일 · Figure 1과 같은 태아로 캡션 명시',referenceNote:'대동맥궁(AoA)과 동맥관궁(DA)의 관계를 보여줍니다. 3VT 횡단면 참고 영상이며 대동맥궁 시상면은 아닙니다.'}),
   head:pick('PMC12705710:Fig1a','c: 경시상 축상 단면 · Transthalamic axial view (TTP/BPD/HC)',[458,0,227,229]),
   diaphragm:pick('PMC12705710:Fig1b','p: 양측 횡격막 시상면 · Bilateral diaphragmatic sagittal view',[0,228,230,229]),
   threevpa:pick('PMC3784141:F13','B: 13주 3VV의 주폐동맥(MPA) 참고 · PA 직경 캘리퍼 없는 해부학 영상',[236,3,224,216],{age:'1분기 13주 · 캡션 명시'}),

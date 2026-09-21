@@ -509,5 +509,23 @@ export const trimesterFigures={
       913
     ],
     "sha256": "52648adc5cdd2b3529b65d74675d35640330be577a8c5574dba958f7411e6607"
+  },
+  "PMC11242471:F1": {
+    "file": "PMC11242471-F1.png",
+    "caption": "Cervical measurements. (a) Ultrasound image characteristics for first-trimester cervical length measurement. (b) Anteroposterior diameter before pressure (AP1) and anteroposterior diameter after probe pressure (AP2) to obtain the cervical consistency index (CCI).",
+    "figure": "Figure 1",
+    "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11242471/#jcm-13-03906-f001",
+    "author": "Becerra-Mojica et al.",
+    "year": "2024",
+    "doi": "10.3390/jcm13133906",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "age": "1분기 · 캡션 명시 · 연구 촬영 범위 11–13+6주, 개별 주수 미기재",
+    "trimester": 1,
+    "size": [
+      2859,
+      1076
+    ],
+    "sha256": "5c9fd52c194726f809f8d93f7b7c893b7f606a775ed9006668d3ba93ca4ff734"
   }
 };
