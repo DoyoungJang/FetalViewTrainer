@@ -1,4 +1,4 @@
-import {directionFigures} from './direction-figures.js?v=45';
+import {directionFigures} from './direction-figures.js?v=46';
 
 const pick=(key,panel,region,extra={})=>({...directionFigures[key],key,panel,region,...extra});
 export function kidneyThirdImage(direction){

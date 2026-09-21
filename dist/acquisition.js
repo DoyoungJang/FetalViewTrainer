@@ -1,4 +1,4 @@
-import {renderScanTips} from './scan-tips.js?v=45';
+import {renderScanTips} from './scan-tips.js?v=46';
 // Original Korean teaching synthesis, not verbatim guideline text or an official ISUOG sequence.
 export const acquisitionSources={
  first:['ISUOG 2023 · 11–14주 검사','https://doi.org/10.1002/uog.26106'],

@@ -1,5 +1,5 @@
 import {Vector3} from './vendor/three.module.js';
-import {orbitLandmarks,limbLandmarks,brainLandmarks} from './anatomy-registration.js?v=45';
+import {orbitLandmarks,limbLandmarks,brainLandmarks} from './anatomy-registration.js?v=46';
 
 const mid='https://doi.org/10.1002/uog.24888';
 const cns='https://www.isuog.org/static/b91bae06-731b-4a2d-8bbcbb2f0d886af4/ISUOG-Practice-Guidelines-CNS-part-2-targeted-neurosonography.pdf';
