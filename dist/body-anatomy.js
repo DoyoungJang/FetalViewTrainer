@@ -17,7 +17,7 @@ export function createBodyAnatomy(body,skeleton){
    const b=bounds(key);if(b.isEmpty())return null;const center=b.getCenter(new T.Vector3());let normal=new T.Vector3(0,1,0);
    if(type==='kidneysag'){center.x=(b.min.x+center.x)/2;normal.set(1,0,0);}else if(type==='kidneycor')normal.set(0,0,1);else if(['spine','diaphragm'].includes(type))normal.set(1,0,0);
    if(type==='cord')return null; // External insertion stays registered to the fetal surface.
-   return {center,normal,extent:type==='spine'?2.6:1.65,landmarks:[center.clone()],anchorNames:[{bladder:'방광 중심',kidneys:'신장 영역',spine:'척추 영역',diaphragm:'횡격막 영역',stomach:'위 중심'}[key]+' · 참고 위치']};
+   return {center,normal,directionCenters:{axial:b.getCenter(new T.Vector3()).toArray(),coronal:b.getCenter(new T.Vector3()).toArray(),sagittal:(key==='kidneys'?new T.Vector3((b.min.x+b.getCenter(new T.Vector3()).x)/2,center.y,center.z):center).toArray()},extent:type==='spine'?2.6:1.65,landmarks:[center.clone()],anchorNames:[{bladder:'방광 중심',kidneys:'신장 영역',spine:'척추 영역',diaphragm:'횡격막 영역',stomach:'위 중심'}[key]+' · 참고 위치']};
   }
  };
 }

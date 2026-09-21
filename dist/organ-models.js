@@ -1,6 +1,6 @@
 import * as T from './vendor/three.module.js';
 import {GLTFLoader} from './vendor/GLTFLoader.js';
-import {brainPlacement} from './anatomy-registration.js?v=41';
+import {brainPlacement} from './anatomy-registration.js?v=42';
 
 const tissueColors={lungs:0xe3b7df,liver:0xf0a18b,stomach:0xffc3a5,spleen:0xcdb6fa,renal_pelvis:0xffe69b,kidneys:0xf0acc9,bladder:0xffdb91,thymus:0xf8cce9,gallbladder:0xa7e1b5,adrenals:0xffcb8a,diaphragm:0xf6bfb0};
 const definitions={

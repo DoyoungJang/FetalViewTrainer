@@ -13,3 +13,13 @@ const dom=new Map();const $=id=>{if(!dom.has(id))dom.set(id,{checked:false,value
 const scene=new T.Scene(),camera=new T.PerspectiveCamera(),fetus=new T.Group(),headGroup=new T.Group();scene.add(fetus);fetus.add(headGroup);const solid=new T.MeshStandardMaterial(),body=new T.Mesh(new T.SphereGeometry(1),solid);fetus.add(body);const ell=(p,s,m,parent=fetus)=>{const o=new T.Mesh(new T.SphereGeometry(1,16,12),m);o.position.set(...p);o.scale.set(...s);parent.add(o);return o;};const controls={target:new T.Vector3(),update(){}};const grid=new T.Group();scene.add(grid);const api=attachExplorer({scene,camera,controls,fetus,headGroup,ell,organMat:solid,boneMat:solid,grid,$});
 const cardiac=phases[1].lessons.find(x=>x.id==='4ch');api.select(cardiac,1);assert(api.getState().focus);assert(body.material.transparent);assert(body.material.opacity<.1);assert(body.visible);$('#organOnly').checked=true;api.isolate();assert(!body.visible);$('#organOnly').checked=false;api.isolate();assert(body.visible);api.opacity(12);close(body.material.opacity,.12);api.angles({tilt:30,rock:10,rotation:45});const state=api.getState();assert(Math.abs(state.normal[0])>.01);api.offset(22);assert.notDeepEqual(api.getState().center,state.center);api.resetPlane();api.getState().normal.forEach((v,i)=>close(v,[0,1,0][i]));api.select(phases[1].lessons[0],1);assert(!api.getState().focus);assert.equal(body.material,solid);assert(body.visible);assert(!$('#skinToggle').disabled);api.select(cardiac,1);assert(api.getState().focus);assert(!$('#organOnly').checked);api.focus(false);assert.equal(body.material,solid);api.skin(true);assert(body.material.transparent);console.log('Plane orientation, landmark incidence, rotation/offset, transformed mesh intersection and cardiac focus/isolation/restoration passed. No GPU/browser visual validation.');
 
+
+const orbitView=phases[1].lessons.find(v=>v.type==='orbit');
+api.select({...orbitView,direction:'standard'},1);api.angles({tilt:30,rock:20,rotation:10});
+camera.position.set(4,5,6);controls.target.set(1,2,3);const cameraBefore=camera.position.clone(),targetBefore=controls.target.clone();
+api.select({...orbitView,direction:'sagittal-left'},1);
+api.getState().normal.forEach((v,i)=>close(v,[1,0,0][i]));assert.equal(api.getState().center[0],.3);
+assert(camera.position.equals(cameraBefore));assert(controls.target.equals(targetBefore));
+api.select({...orbitView,direction:'sagittal-right'},1);assert.equal(api.getState().center[0],-.3);
+assert(camera.position.equals(cameraBefore));assert(controls.target.equals(targetBefore));
+console.log('Direction switching resets relative plane offsets but preserves camera and orbit target; left/right eye planes verified.');

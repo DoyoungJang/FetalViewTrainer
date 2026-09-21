@@ -1,5 +1,6 @@
-import {trimesterUltrasound,unmatchedReference} from './trimester-ultrasound.js?v=41';
-import {ultrasoundFigures} from './ultrasound-data.js?v=41';
+import {isAlternate,directionInfo} from './view-directions.js?v=42';
+import {trimesterUltrasound,unmatchedReference} from './trimester-ultrasound.js?v=42';
+import {ultrasoundFigures} from './ultrasound-data.js?v=42';
 const p=(n,panel)=>['PMC12401504:uog29299-fig-'+String(n).padStart(4,'0'),panel];
 const h=(n,panel)=>['PMC3784141:F'+n,panel];
 const mapping={
@@ -19,6 +20,10 @@ const mapping={
  cervix:['PMC7311420:Fig1','오른쪽 위 Maternal cervix 영역 · 여러 데이터셋 예시가 포함된 원본 전체 그림']
 };
 export function ultrasoundFor(v){
+ if(isAlternate(v)){
+  const matching={kidneys:{coronal:'kidneycor',sagittal:'kidneysag'},kidneysag:{axial:'kidneys',coronal:'kidneycor'},kidneycor:{axial:'kidneys',sagittal:'kidneysag'},face:{sagittal:'facialprofile'},facialprofile:{coronal:'face'}}[v.type]?.[v.direction];
+  return matching?ultrasoundFor({...v,type:matching,direction:'standard'}):null;
+ }
  if(v.type==='cervix'||v.trimester===1||v.trimester===3)return trimesterUltrasound(v,ultrasoundFigures);
  const selected=selectedPanels[v.type],match=selected||mapping[v.type];
  if(!match)return null;
@@ -59,7 +64,7 @@ const selectedPanels={
 };
 export function renderUltrasound(v,$){
  const ref=ultrasoundFor(v);$('#schematicDetails').open=true;
- if(!ref){const external=unmatchedReference(v);$('#ultrasoundReference').innerHTML=`<h3>실제 초음파 <small>${v.trimester||''}분기</small></h3><p class="us-warning">이 분기와 단면이 함께 확인된 재사용 가능 영상을 아직 확보하지 못했습니다.</p>${external?`<p>${external.reason}</p><a href="${external.url}" target="_blank" rel="noopener">${external.label} ↗</a>`:''}<p>아래 구조물 그림과 표준 단면 설명을 참고하세요.</p>`;return;}
+ if(!ref){if(isAlternate(v)){const info=directionInfo(v);$('#ultrasoundReference').innerHTML=`<h3>실제 초음파 · ${info.label}</h3><p>선택한 ${v.trimester}분기·추가 방향의 실제 영상은 아직 확보하지 못했습니다. 기준 단면 영상을 다른 방향으로 표시하지 않습니다.</p><p>${info.target}</p><a href="${info.source}" target="_blank" rel="noopener">방향·검사 범위 참고 ↗</a>`;return;}const external=unmatchedReference(v);$('#ultrasoundReference').innerHTML=`<h3>실제 초음파 <small>${v.trimester||''}분기</small></h3><p class="us-warning">이 분기와 단면이 함께 확인된 재사용 가능 영상을 아직 확보하지 못했습니다.</p>${external?`<p>${external.reason}</p><a href="${external.url}" target="_blank" rel="noopener">${external.label} ↗</a>`:''}<p>아래 구조물 그림과 표준 단면 설명을 참고하세요.</p>`;return;}
  const src='./ultrasound/'+ref.file;
  const [x,y,w,h]=ref.region;
  const imageStyle=`width:${100*ref.size[0]/w}%;height:${100*ref.size[1]/h}%;left:${-100*x/w}%;top:${-100*y/h}%`;
