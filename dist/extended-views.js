@@ -1,4 +1,4 @@
-import {supplementModules,supplementSources} from './supplement-catalog.js?v=47';
+import {supplementModules,supplementSources} from './supplement-catalog.js?v=48';
 // Independent lessons, with explicit clinical scope; baseType only selects the context organ.
 const definitions=[
  ['low-sax','low-sax','심실 단축면','Low ventricular short-axis','heart'],

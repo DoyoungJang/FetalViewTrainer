@@ -1,6 +1,6 @@
-import {supplementPhotos} from './supplement-photos.js?v=47';
-import {extendedSources} from './extended-views.js?v=47';
-import {extendedFigures} from './extended-figures.js?v=47';
+import {supplementPhotos} from './supplement-photos.js?v=48';
+import {extendedSources} from './extended-views.js?v=48';
+import {extendedFigures} from './extended-figures.js?v=48';
 export function extendedPhoto(v){
  const own=extendedFigures[v.id];if(own)return {...own,region:own.region||[0,0,...own.size],panel:own.title};
  if(v.id==='conus'||v.id==='early-posterior-fossa')return null;

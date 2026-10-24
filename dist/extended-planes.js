@@ -1,5 +1,5 @@
 import {Vector3,Box3} from './vendor/three.module.js';
-import {brainLandmarks,brainPlacement} from './anatomy-registration.js?v=47';
+import {brainLandmarks,brainPlacement} from './anatomy-registration.js?v=48';
 
 // Model-space educational planes, never prescribed clinical probe angles.
 export function extendedPlane(v,p,asset){

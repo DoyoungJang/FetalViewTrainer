@@ -1,8 +1,8 @@
-import {extendedPhoto,renderExtendedPhoto} from './extended-photos.js?v=47';
-import {isAlternate,directionInfo} from './view-directions.js?v=47';
-import {directionUltrasound,kidneyThirdImage} from './direction-ultrasound.js?v=47';
-import {trimesterUltrasound,unmatchedReference} from './trimester-ultrasound.js?v=47';
-import {ultrasoundFigures} from './ultrasound-data.js?v=47';
+import {extendedPhoto,renderExtendedPhoto} from './extended-photos.js?v=48';
+import {isAlternate,directionInfo} from './view-directions.js?v=48';
+import {directionUltrasound,kidneyThirdImage} from './direction-ultrasound.js?v=48';
+import {trimesterUltrasound,unmatchedReference} from './trimester-ultrasound.js?v=48';
+import {ultrasoundFigures} from './ultrasound-data.js?v=48';
 const p=(n,panel)=>['PMC12401504:uog29299-fig-'+String(n).padStart(4,'0'),panel];
 const h=(n,panel)=>['PMC3784141:F'+n,panel];
 const mapping={

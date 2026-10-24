@@ -1,6 +1,6 @@
-import {extendedGuide} from './extended-views.js?v=47';
-import {renderDoppler} from './doppler.js?v=47';
-import {supplementaryFor} from './supplementary-measurements.js?v=47';
+import {extendedGuide} from './extended-views.js?v=48';
+import {renderDoppler} from './doppler.js?v=48';
+import {supplementaryFor} from './supplementary-measurements.js?v=48';
 // Educational measurement guidance. No patient measurements or automatic diagnoses.
 const refs={
  ctr:['태아 심초음파 가이드라인 · 심흉 면적비','https://doi.org/10.1111/ped.12467'],

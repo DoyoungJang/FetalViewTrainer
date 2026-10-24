@@ -1,4 +1,4 @@
-import {extendedGuide} from './extended-views.js?v=47';
+import {extendedGuide} from './extended-views.js?v=48';
 // Original Korean teaching summaries of the linked anatomical references.
 const general='https://pmc.ncbi.nlm.nih.gov/articles/PMC12401504/';
 const cardiac='https://pmc.ncbi.nlm.nih.gov/articles/PMC8429868/';
