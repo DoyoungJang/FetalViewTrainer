@@ -2,6 +2,25 @@
 
 한국어 교육용 태아 초음파 표준 단면 아틀라스. `node server.mjs` 실행 후 http://127.0.0.1:4173 에서 사용합니다. 정적 배포 디렉터리는 `dist`입니다.
 
+## Python / Streamlit 배포
+
+Python 3.11 이상에서 다음과 같이 실행합니다. Python 시작 파일을 찾지 못하는 배포 환경을 위해 루트에 `app.py`와 실행용 `main.py`를 제공합니다.
+
+```sh
+python -m pip install -r requirements.txt
+python -m streamlit run app.py
+```
+
+Streamlit Community Cloud에서는 repository `DoyoungJang/FetalViewTrainer`, branch `fix/python-app-entrypoint`, main file path **`app.py`**를 선택합니다. 이 브랜치가 `main`에 병합된 후에는 배포 브랜치를 `main`으로 바꿀 수 있습니다. Python 버전은 3.11 이상을 선택하세요.
+
+일반 Python 실행 명령이 필요한 호스트에서는 `python main.py`를 사용합니다. `PORT` 환경변수(기본 8501)와 `HOST`(기본 `0.0.0.0`)를 지원합니다. 로컬에서만 열려면 `HOST=127.0.0.1`을 설정하세요. Streamlit의 파일 선택에는 **`app.py`**를 권장하며, 자동 선택된 `main.py`도 같은 화면을 실행합니다.
+
+`app.py`는 같은 저장소의 `dist/`를 로컬 Streamlit 컴포넌트로 제공합니다. JavaScript 모듈, 3D GLB, 초음파 이미지를 함께 로드하므로 `dist/` 전체를 배포에 포함해야 합니다. 외부 운영 사이트를 iframe으로 불러오는 방식이 아닙니다. Node.js는 Python 실행 경로에 필요하지 않습니다.
+
+기존 정적 호스팅은 계속 `dist/index.html`을 진입점으로 사용합니다. Streamlit 호환 브리지는 iframe 안에서만 초기화됩니다. 참고: [Streamlit 배포 파일 구성](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/file-organization), [로컬 컴포넌트 배포](https://docs.streamlit.io/develop/concepts/custom-components/publish).
+
+검증: `python -m unittest test_python_entrypoint.py`, `node streamlit-bridge-tests.mjs`, `node tests.mjs`. Python 진입점 2개, Streamlit 컴포넌트 등록, 실행 디렉터리와 포트 설정, iframe 통신, 기존 학습 동작을 확인합니다. 로컬 서버에서 HTML·JS·GLB·이미지의 HTTP 200 및 원본 파일과의 해시 일치도 확인했습니다. 브라우저 사용 설정이 꺼져 있어 이번 브랜치의 브라우저 시각 검증은 수행하지 못했습니다.
+
 1분기 5개, 2분기 12개, 3분기 6개 모듈. Three.js 0.170.0 로컬 번들, 공개 CC BY 태아 GLB 모델, 기준 단면 2D 도식, 셀프 체크, 기기 내 학습 기록을 제공합니다. 글꼴만 Google Fonts에서 선택적으로 불러오며 연결 실패 시 시스템 글꼴을 사용합니다. 모델 파일은 사이트에 포함되어 외부 모델 서버 없이 로드됩니다.
 
 ## 교육 범위

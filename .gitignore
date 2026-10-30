@@ -1,5 +1,8 @@
 *.zip
 node_modules/
+.venv/
+__pycache__/
+*.py[cod]
 research/object-paths.json.gz
 research/candidates.json
 research/fetus-preview.jpg

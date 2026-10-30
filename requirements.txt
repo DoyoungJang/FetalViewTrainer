@@ -1,0 +1,2 @@
+# Python 3.11+; the frontend and its 3D assets are already included in dist/.
+streamlit==1.66.1
